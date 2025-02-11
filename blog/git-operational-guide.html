@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Git Operational Guide</title>
+    <link rel="stylesheet" href="./blog.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a class="cta-button" href="blogs.html">Return to Log Book</a>
+    </nav>
+    <h1>Git Operational Guide</h1>
+</header>
+
+<main class="blog-content">
+    <p>
+        Below is a fun and friendly guide to help absolute beginners step onto the grand stage of Git and GitHub.
+        This journey takes you through the essential steps—like downloading (cloning) the code, making local edits,
+        pushing updates back, and generally feeling like a super-cool coder. Let’s get started!
+    </p>
+
+    <hr>
+
+    <h2>1. What the Git is Git?</h2>
+    <p>
+        <strong>Git</strong> is like your magical time machine for code. It remembers every change you make (like storing snapshots),
+        so if you mess something up, you can travel back in time and fix it!
+    </p>
+    <p>
+        Meanwhile, <strong>GitHub</strong> is like the social network for coders. It's a platform that hosts your Git repositories online
+        so you can share them with friends, colleagues, or the entire coding universe.
+    </p>
+
+    <hr>
+
+    <h2>2. Installing Git</h2>
+    <p>
+        If you haven’t already, you’ll need to install Git on your machine:
+    </p>
+    <ul>
+        <li>On Windows, you can grab it from <a href="https://git-scm.com/download/win" target="_blank">git-scm.com</a>.</li>
+        <li>On Mac, often Git is pre-installed. If not, <a href="https://git-scm.com/download/mac" target="_blank">install from here</a>.</li>
+        <li>On Linux, use your package manager, e.g., <code>sudo apt-get install git</code> on Ubuntu.</li>
+    </ul>
+
+    <hr>
+
+    <h2>3. Let’s Talk About Repositories</h2>
+    <p>
+        A <strong>repository</strong> (or <strong>repo</strong> for short) is basically a folder where Git tracks changes.
+        When you see people talk about “my awesome repo,” they mean the code base that Git is managing.
+    </p>
+    <ol>
+        <li><strong>Local repo</strong>: The one on your computer.</li>
+        <li><strong>Remote repo</strong>: A version of your repo stored somewhere else (like GitHub).</li>
+    </ol>
+    <p>
+        The magic of Git is that you can keep them in sync by pulling changes from the remote, and pushing your changes back.
+    </p>
+
+    <hr>
+
+    <h2>4. Cloning a Remote Repository</h2>
+    <p>
+        Let’s say you found a wondrous project on GitHub. <strong>Cloning</strong> is the act of downloading that project to your computer so you can tinker with it.
+    </p>
+    <pre><code class="language-bash">
+# terminal/clone.sh
+git clone https://github.com/username/super-cool-project.git
+    </code></pre>
+    <p>
+        <strong>Note</strong>: <code>super-cool-project</code> is the name of the new folder you’ll see in your local directory.
+    </p>
+
+    <hr>
+
+    <h2>5. Time to Explore Your Code</h2>
+    <p>
+        You now have a local copy! Go into that folder:
+    </p>
+    <pre><code class="language-bash">
+# terminal/navigate.sh
+cd super-cool-project
+    </code></pre>
+    <p>
+        Inside, you'll see all the project files. This is your <strong>local</strong> repository, fully connected to the <strong>remote</strong> repository on GitHub.
+    </p>
+
+    <hr>
+
+    <h2>6. Making Changes: The Git Workflow</h2>
+    <p>
+        Let’s break down a common workflow into three easy steps:
+    </p>
+    <ol>
+        <li><strong>Stage</strong> your changes (like selecting which files you want to commit).</li>
+        <li><strong>Commit</strong> your changes (like taking a snapshot of your project).</li>
+        <li><strong>Push</strong> your changes (like uploading your snapshot to GitHub).</li>
+    </ol>
+
+    <h3>A. Stage the Changes</h3>
+    <p>
+        Think of staging like picking which photos you want to put in a photo album. You can stage a specific file:
+    </p>
+    <pre><code class="language-bash">
+# terminal/stage_specific.sh
+git add filename.js
+    </code></pre>
+    <p>
+        Or stage <strong>all</strong> changed files at once:
+    </p>
+    <pre><code class="language-bash">
+# terminal/stage_all.sh
+git add .
+    </code></pre>
+
+    <h3>B. Commit the Changes</h3>
+    <p>
+        Committing is like definitively placing those staged snapshots into history:
+    </p>
+    <pre><code class="language-bash">
+# terminal/commit.sh
+git commit -m "Add a new feature"
+    </code></pre>
+    <p>
+        The <code>-m</code> stands for “message”—a short description of what you did.
+    </p>
+
+    <h3>C. Push the Changes</h3>
+    <p>
+        Pushing sends your local commits to the remote repo (GitHub). This is how you share your changes with the world:
+    </p>
+    <pre><code class="language-bash">
+# terminal/push.sh
+git push origin main
+    </code></pre>
+    <p>
+        Sometimes your branch might not be <code>main</code>; it could be <code>master</code> or something else. Adapt accordingly.
+    </p>
+
+    <hr>
+
+    <h2>7. Keeping in Sync: Pulling Updates</h2>
+    <p>
+        Let’s say your coding buddy added some shiny new code to the remote repository. To bring those changes into your local version, <strong>pull</strong> them:
+    </p>
+    <pre><code class="language-bash">
+# terminal/pull.sh
+git pull origin main
+    </code></pre>
+    <p>
+        This merges the remote changes with yours, so you’re always up-to-date.
+    </p>
+
+    <hr>
+
+    <h2>8. Resolving Merge Conflicts</h2>
+    <p>
+        Occasionally, you and a collaborator both change the same part of the same file—<strong>boom</strong>, merge conflict! Don’t panic; Git will point out the conflicting files.
+    </p>
+    <ol>
+        <li>Open the file, look for <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.</li>
+        <li>Decide which code stays (or manually combine them).</li>
+        <li>Remove the conflict markers.</li>
+        <li>Stage, commit, and push again.</li>
+    </ol>
+    <p>
+        It’s basically like solving a puzzle, with Git telling you the pieces that clash.
+    </p>
+
+    <hr>
+
+    <h2>9. Branches: A Playground for Creativity</h2>
+    <p>
+        If you’re feeling adventurous, you can create a <strong>branch</strong> for new experiments. That’s like having a separate timeline so you don’t break the main code.
+    </p>
+    <p>
+        <strong>Creating a new branch</strong>:
+    </p>
+    <pre><code class="language-bash">
+# terminal/new_branch.sh
+git checkout -b cool-new-feature
+    </code></pre>
+    <p>
+        You can work on this <code>cool-new-feature</code> branch, commit changes, and then <strong>merge</strong> it back into <code>main</code> when you’re ready:
+    </p>
+    <pre><code class="language-bash">
+# terminal/merge_branch.sh
+git checkout main
+git merge cool-new-feature
+    </code></pre>
+
+    <hr>
+
+    <h2>10. Sending Your Changes to the World: Pull Requests (PRs)</h2>
+    <p>
+        On GitHub, a common workflow is to:
+    </p>
+    <ol>
+        <li><strong>Fork</strong> someone’s repo into your own GitHub account.</li>
+        <li><strong>Clone</strong> your fork locally and make changes.</li>
+        <li><strong>Push</strong> changes to your fork on GitHub.</li>
+        <li>Open a <strong>Pull Request</strong> on the original repository to ask them to merge your changes.</li>
+    </ol>
+    <p>
+        This is how open-source magic happens. Collaborators can comment, request changes, or merge your fantastic additions.
+    </p>
+
+    <hr>
+
+    <h2>11. Wrapping It Up with a Quirky Bow</h2>
+    <p>
+        So, in a nutshell:
+    </p>
+    <ol>
+        <li><strong>Clone</strong>: Download the code from GitHub.</li>
+        <li><strong>Create / Edit</strong>: Make your changes in your local repo.</li>
+        <li><strong>Stage &amp; Commit</strong>: Finalize those changes locally.</li>
+        <li><strong>Push</strong>: Send your commits to GitHub.</li>
+        <li><strong>Pull</strong>: Stay in sync with any remote updates.</li>
+        <li><strong>Branch &amp; Merge</strong>: Experiment fearlessly and unite your changes when ready.</li>
+    </ol>
+    <p>
+        Picture yourself as a Cap10[Captain] on a treasure hunt: Git is your map (showing you exactly where you’ve been), and GitHub is the big chest in the cloud that holds all the loot!
+        Every time you <code>push</code>, you’re stashing new gold in that chest, and every time you <code>pull</code>, you’re grabbing all the shiny goodies your fellow pirates have added.
+    </p>
+
+    <hr>
+
+    <h2>12. Practice Makes Proficient</h2>
+    <p>
+        The best way to really <strong>get</strong> Git is to keep on using it. Create your own mini-projects, push them to GitHub, mess things up, revert, fix them again.
+        And remember: it’s perfectly normal to scratch your head a few times along the way—everyone does at first!
+    </p>
+
+    <p><strong>Happy coding, and may your commits be ever clean and your merges be conflict-free!</strong></p>
+
+    <hr>
+
+    <br>
+    <h2>Feature Branch Workflow Example</h2>
+    <p>
+        Below is a straightforward, step-by-step workflow for creating a feature branch, making changes, and merging those changes back into the main branch.
+        Each step includes a code snippet demonstrating the relevant Git commands.
+    </p>
+
+    <h3>1. Switch to the Main Branch</h3>
+    <pre><code class="language-bash">
+git checkout main
+    </code></pre>
+
+    <h3>2. Pull the Latest Changes from Remote</h3>
+    <pre><code class="language-bash">
+git pull origin main
+    </code></pre>
+
+    <h3>3. Create a New Feature Branch</h3>
+    <pre><code class="language-bash">
+git checkout -b feature/add-login-form
+    </code></pre>
+
+    <h3>4. Make Your Changes and Commit</h3>
+    <pre><code class="language-bash">
+git add .
+git commit -m "Implement login form feature"
+    </code></pre>
+
+    <h3>5. Push Your Feature Branch to the Remote Repository</h3>
+    <pre><code class="language-bash">
+git push -u origin feature/add-login-form
+    </code></pre>
+
+    <h3>6. Open a Pull Request (PR)</h3>
+    <p>
+        Go to your repository on GitHub and open a Pull Request from the newly pushed feature branch into <code>main</code>.
+        Fill in details about what changes you made and request reviews if needed.
+    </p>
+
+    <h3>7. Merge the Pull Request</h3>
+    <p>
+        Once your code is reviewed and approved:
+    </p>
+    <ol>
+        <li>Click <strong>Merge</strong> on the Pull Request page (e.g., “Squash and merge” or “Merge commit”).</li>
+        <li>The changes from your feature branch will become part of <code>main</code>.</li>
+    </ol>
+
+    <h3>8. Clean Up (Optional)</h3>
+    <pre><code class="language-bash">
+# Delete the branch on GitHub
+git push origin --delete feature/add-login-form
+
+# Switch to main (if not already there)
+git checkout main
+
+# Delete the local branch
+git branch -d feature/add-login-form
+    </code></pre>
+
+    <p>
+        Done! Rinse and repeat this workflow for each new feature you build. This keeps your <code>main</code> branch clean and allows you to work safely in isolation on new ideas.
+    </p>
+
+</main>
+
+<script src="blog.js"></script>
+</body>
+</html>

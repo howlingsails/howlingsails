@@ -1,24 +1,20 @@
-/* ./index.css
+/* ./books/book.css
    ============================
-   Easier-to-Read Terminal Theme
+   Terminal-Themed Book Styles
    ============================ */
 
+/* Root Variables (same as index.css) */
 :root {
-    /* Dark, but not pitch black */
     --bg-dark: #181a1f;
-    /* Slightly lighter panel background */
     --bg-panel: #20252c;
-    /* Subtle border color */
     --border-color: #3a4048;
 
-    /* Softer, readable accent colors */
     --neon-green: #7CFC00;
     --neon-blue: #36c2c2;
     --neon-yellow: #ffd700;
 
-    /* Text colors */
     --text-primary: #c9d1d9;
-    --text-highlight: #ffffff; /* For hover states or highlights */
+    --text-highlight: #ffffff;
 }
 
 body {
@@ -54,8 +50,9 @@ header h2 {
     font-size: 1.2rem;
 }
 
-/* Sections */
-section {
+/* Chapter Containers */
+.chapter {
+    display: none; /* Hidden by default; toggled via JS */
     padding: 30px;
     margin: 0 auto 20px auto;
     max-width: 900px;
@@ -65,14 +62,8 @@ section {
     box-shadow: 0 0 8px rgba(124, 252, 0, 0.4);
 }
 
-/* Images */
-img {
-    width: 180px;
-    height: auto;
-    float: left;
-    margin: 0 20px 20px 0;
-    border-radius: 50%;
-    border: 2px solid var(--neon-green);
+.chapter.active {
+    display: block; /* Shown when active */
 }
 
 /* Headings */
@@ -85,7 +76,6 @@ h2 {
     color: var(--neon-green);
     border-bottom: 1px solid var(--neon-green);
     padding-bottom: 5px;
-    clear: both;
     margin-top: 0;
     margin-bottom: 15px;
 }
@@ -95,14 +85,19 @@ h3 {
     margin-top: 40px;
 }
 
-/* Paragraphs */
+/* Paragraphs, Lists, etc. */
 p {
     margin: 15px 0;
     font-size: 1rem;
     line-height: 1.7;
 }
 
-/* Links & CTA Buttons */
+ul, ol {
+    margin: 15px 0 15px 40px;
+    line-height: 1.7;
+}
+
+/* Links */
 a {
     color: var(--neon-green);
     text-decoration: none;
@@ -112,60 +107,28 @@ a:hover {
     color: var(--text-highlight);
 }
 
-a.cta-button {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
+/* Navigation Buttons (Next/Prev) */
+.nav-buttons {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.nav-buttons button {
     background-color: var(--neon-green);
     color: #000;
-    text-decoration: none;
     border: 2px solid var(--neon-green);
     border-radius: 5px;
-    text-shadow: 0 0 3px var(--neon-green);
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
     font-weight: bold;
+    text-shadow: 0 0 3px var(--neon-green);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-a.cta-button:hover {
+.nav-buttons button:hover {
     background-color: var(--neon-blue);
     color: var(--text-highlight);
-}
-
-/* Testimonials */
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
-}
-
-.testimonial {
-    padding: 20px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    background-color: var(--bg-dark);
-    box-shadow: 0 0 8px rgba(124, 252, 0, 0.3);
-    position: relative;
-    min-height: 150px;
-}
-
-.testimonial img {
-    float: left;
-    margin: 0 15px 10px 0;
-    border-radius: 50%;
-    max-width: 60px;
-    border: 2px solid var(--neon-green);
-}
-
-.testimonial p {
-    margin: 0 0 10px 0;
-    line-height: 1.5;
-    font-size: 0.95rem;
-}
-
-.testimonial-author {
-    font-style: italic;
-    color: var(--neon-yellow);
 }
 
 /* Footer */
@@ -180,14 +143,14 @@ footer {
 
 /* Scrollbar styling for WebKit (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-    width: 8px; /* Adjust width to your liking */
+    width: 8px;
     background-color: var(--bg-dark);
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--neon-green);
     border-radius: 4px;
-    border: 1px solid var(--border-color); /* optional border */
+    border: 1px solid var(--border-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -196,6 +159,6 @@ footer {
 
 /* Scrollbar styling for Firefox */
 * {
-    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-width: thin;
     scrollbar-color: var(--neon-green) var(--bg-dark);
 }
