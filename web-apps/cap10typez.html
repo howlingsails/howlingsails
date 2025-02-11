@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cap10Typez - Terminal Typing Game</title>
+    <link rel="stylesheet" href="cap10typez.css">
+</head>
+<body>
+
+<!-- Fake Terminal Box (Always Visible) -->
+<h1>Cap10Typez</h1>
+<div id="fakeTerminal">
+    <span id="terminalCursor"></span>
+</div>
+<h3>Your Tech Teaching Typing Commander</h3>
+
+<!-- Introduction Section -->
+
+
+<div id="introSection">
+    <h2>Ignite Your Potential with Cap10Typez</h2>
+    <p>
+        In the world of tech, every keystroke is a step toward mastery. Cap10Typez isn’t just a game—it’s your training ground for precision, speed, and relentless self-improvement.
+    </p>
+    <button id="readyButton">Let's Get Started!</button>
+    <h3>Refine Your Command-Line Mastery</h3>
+    <p>
+        It’s not enough to know the basics; true power lies in practicing until every keystroke becomes second nature. Here, you’ll challenge yourself with real commands that mirror the demands of high-stakes environments.
+    </p>
+    <h3>Why Push Your Limits?</h3>
+    <ul>
+        <li>🚆 <span style="color: var(--neon-green);">Transform Data Chaos into Clarity</span> — Sharpen your skills to distill overwhelming datasets into clear, actionable insights.</li>
+        <li>🏆 <span style="color: var(--neon-yellow);">Enhance Your Analytical Precision</span> — Master commands that slice through the noise to reveal hidden patterns and critical trends.</li>
+        <li>🎮 <span style="color: var(--neon-blue);">Develop Lightning-Fast Execution</span> — Train under pressure so you can respond swiftly and accurately when every second matters.</li>
+        <li>⚡ <span style="color: var(--neon-red);">Build Resilience in High-Stakes Environments</span> — Hone your ability to manage real-time challenges where every keystroke is vital.</li>
+    </ul>
+    <h3>Who Stands to Gain?</h3>
+    <ul>
+        <li>✅ <strong>Data Scientists</strong> — Tame messy datasets and accelerate your analysis with precise command-line skills.</li>
+        <li>✅ <strong>DevOps Engineers</strong> — Quickly pinpoint and resolve system issues to keep operations running smoothly.</li>
+        <li>✅ <strong>Security Professionals</strong> — Efficiently sift through vast logs to detect breaches and protect critical infrastructure.</li>
+        <li>✅ <strong>Auditors & Analysts</strong> — Piece together financial trails and uncover trends with robust command expertise.</li>
+        <li>✅ <strong>Digital Marketers</strong> — Decode complex interaction data to drive smarter, data-backed decisions.</li>
+        <li>✅ <strong>Geologists & Environmental Scientists</strong> — Discover hidden patterns in extensive field data, turning raw numbers into breakthrough insights.</li>
+    </ul>
+    <h3>Your Journey Begins Now</h3>
+    <p>
+        A command will appear at random—your task is to replicate it exactly, one keystroke at a time. Embrace mistakes as stepping stones; every error is a lesson that drives you closer to perfection.
+    </p>
+    <p>
+        <span style="color: var(--neon-red); font-weight: bold;">Remember:</span> Practice makes mastery.
+    </p>
+    <p><em>Ready to transform your skills?</em></p>
+</div>
+
+
+
+
+
+<!-- Command Selection Area -->
+<div id="selectionArea" style="display: none;">
+    <h2>📜 Select Command Categories</h2>
+
+    <!-- Scrolling Grid of Categories with Checkboxes -->
+    <div id="categoryGrid"></div>
+
+    <textarea id="commandsTextArea" rows="10" cols="50" readonly></textarea>
+
+    <!-- Div to display selected categories (shows only the category name) -->
+    <div id="selectedCategoriesList"></div>
+
+    <!-- Add Own Commands -->
+    <div id="addOwnCommands">
+        <h2>✏️ Add Your Own Commands</h2>
+        <textarea id="ownCommandsInput" placeholder="Paste your own commands here, one per line..."></textarea>
+        <button id="addCommandButton">Add Commands</button>
+    </div>
+
+    <!-- Start Game Button -->
+    <button id="startButton">Start Game</button>
+</div>
+
+<!-- Game Area -->
+<div id="gameArea" style="display:none;">
+    <!-- Terminal-like Box for Command to Type -->
+    <div id="commandTerminal">
+        <h3>💻 Command to Type:</h3>
+        <div id="commandDisplay"></div>
+    </div>
+
+    <!-- Input Box Styled Like a Terminal -->
+    <div id="typingTerminal">
+        <h3>Type the Command:</h3>
+        <input type="text" id="typingInput" placeholder="Start typing here..." autocomplete="off" disabled />
+    </div>
+
+    <!-- Command Description Box -->
+    <div id="descriptionTerminal">
+        <h3>Command Description:</h3>
+        <p id="commandDescription"></p>
+    </div>
+    <br>
+    <!-- Score & Attempts Box -->
+    <div id="scoreTerminal">
+        <h3>⭐ Score Information:</h3>
+        <p id="feedback"></p>
+        <p id="encouragement"></p>
+        <p>Attempts: <span id="attempts">0 / 5</span></p>
+        <p>Points: <span id="points">0</span></p>
+        <p>Stars: <span id="starsDisplay">0</span></p>
+        <p>Typing Speed: <span id="speed">N/A WPM</span></p>
+        <div id="progressContainer">
+            <div id="progressBar">0%</div>
+        </div>
+    </div>
+</div>
+
+<!-- History Section -->
+<div id="history">
+    <h2>📜 History Summary</h2>
+    <table id="historyTable">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Points</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- History entries will be populated here -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Charts Section -->
+<div id="charts">
+    <h2>📈 Points Chart (Last 5 Days)</h2>
+    <canvas id="pointsChart" width="700" height="300"></canvas>
+
+    <h2>📊 Rolling Averages</h2>
+    <div id="averages">
+        <p>Average WPM (Last 5 Sessions): <span id="avg5">N/A</span></p>
+        <p>Average WPM (Last 10 Sessions): <span id="avg10">N/A</span></p>
+    </div>
+</div>
+<script src="cap10typez-system-engineer-data.js"></script>
+<script src="cap10typez.js"></script>
+</body>
+</html>
