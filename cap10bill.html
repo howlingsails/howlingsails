@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cap10Bill's Business Card</title>
+    <link rel="stylesheet" href="index.css">
+    <script>
+        function copyToClipboard(id) {
+            // Get the text field
+            var copyText = document.getElementById(id);
+
+            // Create a range and select the text
+            var range = document.createRange();
+            range.selectNode(copyText);
+            window.getSelection().removeAllRanges();  // Clear previous selections
+            window.getSelection().addRange(range);  // Select new text
+
+            // Use the Clipboard API to copy the text
+            navigator.clipboard.writeText(copyText.textContent).then(() => {
+                // alert("Copied the text: " + copyText.textContent);
+            }).catch(err => {
+                console.error("Failed to copy: ", err);
+            });
+
+            // Deselect the text
+            window.getSelection().removeAllRanges();
+        }
+    </script>
+
+</head>
+<body>
+
+<header>
+    <h1>Cap10Bill</h1>
+    <h2>Computer Craftsman</h2>
+</header>
+
+<main class="business-card">
+    <section class="contact-info">
+        <h3>Contact Information</h3>
+        <p><strong>Email:</strong> <span id="email-text">bill@cap10.tech</span>
+            <button class="copy-button" onclick="copyToClipboard('email-text')">Copy Email</button></p>
+        <p><strong>Phone:</strong> <span id="phone-text">‪(949) 287-3732‬</span>
+            <button class="copy-button" onclick="copyToClipboard('phone-text')">Copy Phone</button></p>
+    </section>
+
+    <section class="about">
+        <h3>About Me</h3>
+        <p>
+            I'm Cap10Bill, a seasoned engineer with over 25 years of experience in navigating the world of technology.
+            I'm passionate about empowering others to master the command line and tackle modern computing with confidence.
+        </p>
+        <p>
+            Feel free to reach out if you have any questions or want to chat about tech!
+        </p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Cap10Bill. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

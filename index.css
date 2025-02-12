@@ -199,3 +199,28 @@ footer {
     scrollbar-width: thin; /* "auto" or "thin" */
     scrollbar-color: var(--neon-green) var(--bg-dark);
 }
+
+/* Styling the copy button */
+.copy-button {
+    background-color: var(--neon-green);
+    border: none;
+    color: var(--bg-dark);
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    font-color: var(--bg-dark)
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.copy-button:hover {
+    background-color: var(--neon-green);
+    transform: scale(1.05);
+}
+
+.copy-button:focus {
+    outline: none;
+}
+
+
