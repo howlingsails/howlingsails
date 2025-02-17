@@ -220,3 +220,20 @@ footer {
     scrollbar-width: thin; /* "auto" or "thin" */
     scrollbar-color: var(--neon-green) var(--bg-dark);
 }
+/* Logbook Hook Styling */
+/* Add this at the end of your existing blog.css */
+.logbook-hook {
+    background-color: var(--bg-panel);
+    /*border-left: 5px solid var(--neon-yellow);*/
+    padding: 20px;
+    margin: 30px 0;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-highlight);
+    box-shadow: 0 0 12px var(--neon-green);
+    line-height: 1.8;
+}
+
+.logbook-hook p {
+    margin: 0;
+}
