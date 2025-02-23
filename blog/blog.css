@@ -1,4 +1,4 @@
-/* ./blog.css
+/* .blog/blog.css
    ============================
    Terminal-Themed Blog Styles
    ============================ */
@@ -220,6 +220,7 @@ footer {
     scrollbar-width: thin; /* "auto" or "thin" */
     scrollbar-color: var(--neon-green) var(--bg-dark);
 }
+
 /* Logbook Hook Styling */
 /* Add this at the end of your existing blog.css */
 .logbook-hook {

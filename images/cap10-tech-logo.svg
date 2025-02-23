@@ -1,0 +1,16 @@
+<!-- assets/logo.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+    <!-- Background -->
+    <rect width="300" height="300" fill="white"/>
+
+    <!-- Nautical Element: Stylized Captain's Hat -->
+    <path d="M75,150 Q150,50 225,150 L225,170 Q150,90 75,170 Z" fill="#0A3D62"/>
+
+    <!-- Command-Line Arrow Element -->
+    <text x="140" y="160" font-family="monospace" font-size="30" fill="white">&gt;</text>
+
+    <!-- Company Name -->
+    <text x="50" y="250" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#0A3D62">
+        Cap10.tech
+    </text>
+</svg>
