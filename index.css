@@ -221,3 +221,21 @@ footer {
 .copy-button:focus {
     outline: none;
 }
+
+
+/* FilePath: index.css */
+
+/* Hide mobile iframe by default */
+.mobile-video {
+    display: none;
+}
+
+/* Show mobile iframe on small screens */
+@media (max-width: 768px) {
+    .desktop-video {
+        display: none;
+    }
+    .mobile-video {
+        display: block;
+    }
+}
