@@ -231,7 +231,7 @@ footer {
     font-style: italic;
     font-size: 1.1rem;
     color: var(--text-highlight);
-    box-shadow: 0 0 12px var(--neon-green);
+    box-shadow: 0 0 17px var(--neon-green);
     line-height: 1.8;
 }
 

@@ -1,171 +1,101 @@
 <!DOCTYPE html>
-<!-- FilePath: blog\markdown-guide.html -->
+<!-- # blog/blogs.html -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Markdown Guide for Logbooking</title>
-    <link rel="stylesheet" href="./blog.css">
+    <title>Cap10's Logbooking</title>
+    <link rel="stylesheet" href="blog.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" sizes="16x16" href="/favicon-16x16.png">
     <link rel="icon" sizes="32x32" href="/favicon-32x32.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
     <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
 
 <header>
     <nav>
-        <a class="cta-button" href="blogs.html">Return to Log Book</a>
+        <a class="cta-button" href="../index.html">Return to Cap10.Tech</a>
     </nav>
-    <h1>Markdown Guide for Effective Logbooking</h1>
+    <h1>Cap10's Logbooking</h1>
 </header>
 
 <main class="blog-content">
+    <a href="tech-logbooking.html" target="tech-logbooking">
+        <h2>What Is Logbooking?</h2>
+    </a>
     <p>
-        Markdown is a lightweight markup language that makes writing and formatting text easy. It’s widely used in documentation,
-        technical writing, and logbooking. Whether you're keeping track of project changes, documenting troubleshooting steps, or
-        maintaining compliance logs, Markdown helps structure information effectively.
+        “Logbooking” is the act of carefully documenting your work, thoughts, and insights as you progress through tasks. It’s not just about note-taking—it's a disciplined method of planning, doing, and reviewing that promotes deeper learning and efficiency.
     </p>
-
-    <nav class="table-of-contents">
-        <h2>Table of Contents</h2>
-        <ul>
-            <li><a href="#basics">1. Markdown Basics</a></li>
-            <li><a href="#headings">2. Headings and Structure</a></li>
-            <li><a href="#lists">3. Lists</a></li>
-            <li><a href="#code">4. Code Blocks and Syntax Highlighting</a></li>
-            <li><a href="#tables">5. Tables for Log Formats</a></li>
-            <li><a href="#links-images">6. Links and Images</a></li>
-            <li><a href="#industry-formats">7. Industry-Specific Log Formats</a></li>
-        </ul>
-    </nav>
-
-    <hr>
-
-    <h2 id="basics">1. Markdown Basics</h2>
     <p>
-        Markdown uses simple symbols to format text, making it easy to read and write without cluttering your content with
-        complex HTML or styling.
+        Whether you're grappling with new commands or sailing into uncharted coding waters,
+        jotting down your experiences can help you stay afloat.
+        By reflecting on challenges and breakthroughs, you’ll chart a clearer course toward skill mastery—and help
+        your future self navigate those same waters with confidence.
     </p>
-    <pre><code>
-# Heading 1
-## Heading 2
-### Heading 3
+    <a href="tech-logbooking.html" target="tech-logbooking">
+        <h3>Explore Tech Logbooking</h3>
+    </a>
 
-**Bold Text**
-*Italic Text*
-~~Strikethrough~~
-    </code></pre>
+    <br>
+    <h2>Latest Log Entries</h2>
 
-    <hr>
+    <!-- Example: Git Operational Guide -->
+    <article class="blog-post-listing">
+        <a href="git-operational-guide.html" target="git-operational-guide">
+            <h3>Git Operational Guide</h3>
+        </a>
+        <p>
+            Ready to conquer the chaotic seas of version control?
+            Our <strong>Git Operational Guide</strong> is a friendly, step-by-step introduction that
+            shows you how to clone, commit, push, and pull like a seasoned coding adventurer.
+        </p>
+        <p>
+            Say goodbye to fear of merge conflicts—this guide will have you forging new branches
+            (and alliances!) with total confidence. Perfect for beginners or anyone needing a
+            quick refresher on Git and GitHub basics.
+        </p>
+        <a class="cta-button" href="git-operational-guide.html" target="_blank">Open the Git Guide</a>
+    </article>
 
-    <h2 id="headings">2. Headings and Structure</h2>
-    <p>
-        Use headings to structure your logbook entries. Markdown supports six levels of headings, with <code>#</code> being the largest and
-        <code>######</code> the smallest.
-    </p>
-    <pre><code>
-# Project Log - January 2025
-## Task Breakdown
-### Subtask 1: Initial Setup
-    </code></pre>
+    <!-- Windows Command Line: File System & Navigation -->
+    <article class="blog-post-listing">
+        <a href="windows-command-line.html" target="windows-command-line">
+            <h3>Windows Command Line: File System & Navigation</h3>
+        </a>
+        <p>
+            Learn to navigate and manage files in Windows using the command line with ease!
+            Our guide helps beginners understand the essentials of working with the Windows file system using both Command Prompt and PowerShell.
+        </p>
+        <p>
+            From listing files to creating directories and handling files, this guide covers it all—ensuring you confidently manage your files like a pro.
+        </p>
+        <a class="cta-button" href="windows-command-line.html" target="_blank">Open the Windows Command Line Guide</a>
+    </article>
 
-    <hr>
+    <!-- Markdown Guide for Logbooking -->
+    <article class="blog-post-listing">
+        <a href="markdown-guide.html" target="markdown-guide">
+            <h3>Markdown Guide for Effective Logbooking</h3>
+        </a>
+        <p>
+            Streamline your logbook with the power of Markdown! Learn the basics and advanced techniques to structure your logs clearly and concisely.
+        </p>
+        <p>
+            Whether you're documenting troubleshooting steps, project changes, or keeping compliance logs, this guide will help you make the most of Markdown’s simplicity and flexibility.
+        </p>
+        <a class="cta-button" href="markdown-guide.html" target="_blank">Open the Markdown Guide</a>
+    </article>
 
-    <h2 id="lists">3. Lists</h2>
-    <p>Organize your notes efficiently with ordered and unordered lists.</p>
-    <h3>Unordered List:</h3>
-    <pre><code>
-- Bullet point
-- Another point
-    </code></pre>
-    <h3>Ordered List:</h3>
-    <pre><code>
-1. Step one
-2. Step two
-    </code></pre>
-
-    <hr>
-
-    <h2 id="code">4. Code Blocks and Syntax Highlighting</h2>
-    <p>For technical logbooks, including code snippets is essential.</p>
-    <pre><code>
-```python
-print("Hello, World!")
-```
-    </code></pre>
-
-    <hr>
-
-    <h2 id="tables">5. Tables for Log Formats</h2>
-    <p>Tables make structured logging easy. Below is an example of a project log table.</p>
-    <pre><code>
-| Date       | Task            | Status  |
-|------------|---------------|---------|
-| 2025-02-01 | Setup Database | Done    |
-| 2025-02-02 | Develop API    | In Progress |
-    </code></pre>
-
-    <hr>
-
-    <h2 id="links-images">6. Links and Images</h2>
-    <p>Markdown allows adding links and images easily.</p>
-    <pre><code>
-[GitHub](https://github.com)
-
-![Sample Image](https://via.placeholder.com/150)
-    </code></pre>
-
-    <hr>
-
-    <h2 id="industry-formats">7. Industry-Specific Log Formats</h2>
-    <p>
-        Different industries have their own logging requirements. Here are some Markdown adaptations for specific fields:
-    </p>
-
-    <h3>Software Development Logs</h3>
-    <pre><code>
-# Debugging Log - [Project Name]
-**Issue:** Application crashes on startup
-**Date:** 2025-02-01
-**Steps Taken:**
-- Checked error logs
-- Identified missing dependency
-**Resolution:** Installed missing package
-    </code></pre>
-
-    <h3>IT Operations Log</h3>
-    <pre><code>
-# Server Maintenance Log
-**Date:** 2025-02-01
-**Server:** WebServer01
-**Actions Taken:**
-- Updated security patches
-- Restarted services
-- Verified connectivity
-    </code></pre>
-
-    <h3>Manufacturing Log</h3>
-    <pre><code>
-# Machine Performance Log
-**Machine ID:** CNC-204
-**Date:** 2025-02-01
-**Observations:**
-- Temperature within normal range
-- Minor vibration detected
-**Next Steps:** Schedule preventive maintenance
-    </code></pre>
-
-    <p>
-        Using Markdown for logbooking makes it easy to maintain structured, clear, and efficient logs across various industries.
-        Whether you’re a developer, IT professional, or engineer, Markdown can help keep your records streamlined and readable.
-    </p>
-
-    <hr>
+    <!-- Add more blog posts as needed -->
 
 </main>
 
-<script src="../blog.js"></script>
+<footer>
+    <p>&copy; 2025 Cap10Bill. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
