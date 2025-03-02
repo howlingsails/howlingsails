@@ -1,36 +1,46 @@
-/* .blog/blog.css
+/* File: blog.css
    ============================
    Terminal-Themed Blog Styles
-   ============================ */
+   ============================
+*/
 
 /* Root Variables */
 :root {
-    /* Dark, but not pitch black */
-    --bg-dark: #181a1f;
-    /* Slightly lighter panel background */
-    --bg-panel: #20252c;
-    /* Subtle border color */
-    --border-color: #3a4048;
+    /* Slightly lighter dark background */
+    --bg-dark: #181a1f;          /* was #181a1f */
+    --bg-panel: #20252c;         /* was #20252c */
+    --border-color: #454c54;     /* was #3a4048 */
 
-    --neon-green: #5CDC00;
+    /* Softer neon green so it's less harsh on the eyes */
+    --neon-green: #40c000;       /* was #5CDC00 */
     --neon-blue: #36c2c2;
-    --neon-yellow: #Dfc700;
+    --neon-yellow: #dfc700;
 
-    /* Text colors */
-    --text-primary: #c9d1d9;
-    --text-highlight: #ffffff; /* For hover states or highlights */
+    /* Lighten the primary text color slightly */
+    --text-primary: #d3d9df;     /* was #c9d1d9 */
+    --text-highlight: #ffffff;
 }
 
-/* Body */
+
 body {
     font-family: 'Courier New', Courier, monospace;
     background-color: var(--bg-dark);
     color: var(--text-primary);
     margin: 0;
     padding: 20px;
-    line-height: 1.7;
-    font-size: 1rem;
+    line-height: 1.8;       /* was 1.7, slightly more spacing between lines */
+    font-size: 1.42rem;     /* was 1rem, a bit larger for better readability */
 }
+
+/* Example: reduce heading text shadows */
+header h1 {
+    color: var(--neon-green);
+    margin: 0 0 8px;
+    /* Remove or reduce text-shadow for clarity */
+    text-shadow: 0 0 2px var(--neon-green);
+    font-size: 2.2rem;
+}
+
 
 /* Header */
 header {
@@ -48,38 +58,75 @@ header h1 {
     font-size: 2.2rem;
 }
 
-header h2 {
-    color: var(--neon-blue);
-    text-shadow: 0 0 4px var(--neon-blue);
-    margin: 0;
-    font-size: 1.2rem;
+/* Navigation Button Styles (matching index.css) */
+.cta-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: var(--neon-green);
+    color: #000;
+    text-decoration: none;
+    border: 2px solid var(--neon-green);
+    border-radius: 5px;
+    text-shadow: 0 0 3px var(--neon-green);
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Main Content (Blog Container) */
+.cta-button:hover {
+    background-color: var(--neon-blue);
+    color: var(--text-highlight);
+}
+
+/* Main Blog Container: NO neon highlight here;
+   just controls width and vertical spacing. */
 main.blog-content {
     max-width: 900px;
     margin: 0 auto 20px auto;
+    /* Remove background/border/shadow so main isn't one giant box */
+    padding: 0; /* We'll let each section control its own padding */
+}
+
+/* "Highlight Box" for sections you want to stand out */
+.highlight-box {
     background-color: var(--bg-panel);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     box-shadow: 0 0 8px rgba(124, 252, 0, 0.4);
     padding: 30px;
+    margin-bottom: 30px;
 }
 
-/* Paragraphs, Lists, etc. */
+/* Blog Post Listing: each article gets a smaller neon box */
+.blog-post-listing {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(124, 252, 0, 0.4);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Typography */
 p {
     margin: 15px 0;
     font-size: 1rem;
     line-height: 1.7;
 }
 
-ul, ol {
+ul,
+ol {
     margin: 15px 0 15px 40px;
     line-height: 1.7;
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Courier New', Courier, monospace;
     line-height: 1.3;
 }
@@ -94,7 +141,7 @@ h2 {
 
 h3 {
     color: var(--neon-blue);
-    margin-top: 40px;
+    margin-top: 0;
 }
 
 /* Links */
@@ -151,43 +198,6 @@ img {
     border: 2px solid var(--neon-green);
 }
 
-/* Testimonials (if you use them in a blog post) */
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
-}
-
-.testimonial {
-    padding: 20px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    background-color: var(--bg-dark);
-    box-shadow: 0 0 8px rgba(124, 252, 0, 0.3);
-    position: relative;
-    min-height: 150px;
-}
-
-.testimonial img {
-    float: left;
-    margin: 0 15px 10px 0;
-    border-radius: 50%;
-    max-width: 60px;
-    border: 2px solid var(--neon-green);
-}
-
-.testimonial p {
-    margin: 0 0 10px 0;
-    line-height: 1.5;
-    font-size: 0.95rem;
-}
-
-.testimonial-author {
-    font-style: italic;
-    color: var(--neon-yellow);
-}
-
 /* Footer */
 footer {
     text-align: center;
@@ -200,14 +210,14 @@ footer {
 
 /* Scrollbar styling for WebKit (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-    width: 8px; /* Adjust width to your liking */
+    width: 8px;
     background-color: var(--bg-dark);
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--neon-green);
     border-radius: 4px;
-    border: 1px solid var(--border-color); /* optional border */
+    border: 1px solid var(--border-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -216,15 +226,14 @@ footer {
 
 /* Scrollbar styling for Firefox */
 * {
-    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-width: thin;
     scrollbar-color: var(--neon-green) var(--bg-dark);
 }
 
 /* Logbook Hook Styling */
-/* Add this at the end of your existing blog.css */
 .logbook-hook {
     background-color: var(--bg-panel);
-    /*border-left: 5px solid var(--neon-yellow);*/
+    /* border-left: 5px solid var(--neon-yellow); */
     padding: 20px;
     margin: 30px 0;
     font-style: italic;
