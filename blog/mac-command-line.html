@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!-- FilePath: blog/mac-command-line.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cap10.tech: Mac Command Line: File System & Navigation</title>
+    <link rel="stylesheet" href="blog.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="manifest" href="/site.web-manifest">
+</head>
+<body>
+<header>
+    <nav>
+        <a class="cta-button" href="blogs.html">Return to Logbooking</a>
+    </nav>
+    <h1>Mac Command Line: File System &amp; Navigation</h1>
+</header>
+
+<main class="blog-content">
+    <!-- Introduction Section -->
+    <section class="highlight-box">
+        <h2>🏴‍☠️ Becoming a Cap10 of the Command Line: Mac File System &amp; Navigation</h2>
+        <blockquote>
+            <p><strong>Objective:</strong> Teach absolute beginners how to confidently navigate and manage files in macOS using the Terminal.</p>
+        </blockquote>
+        <hr>
+    </section>
+
+    <!-- Part 1: Understanding the Mac File System -->
+    <section class="highlight-box">
+        <h4>Part 1: Understanding the Mac File System</h4>
+        <p>
+            Before diving into the Terminal, let’s get a clear picture of how macOS organizes files.
+        </p>
+        <h4>Key Concepts:</h4>
+        <ul>
+            <li><strong>Root Directory (/):</strong> The top-level directory where the entire file system begins.</li>
+            <li><strong>User Folders:</strong> Located in <code>/Users/</code>, each user has a home directory (e.g., <code>/Users/yourname</code>).</li>
+            <li><strong>Applications:</strong> Most apps are stored in the <code>/Applications</code> folder.</li>
+            <li><strong>System Directories:</strong> Folders such as <code>/Library</code>, <code>/System</code>, and <code>/usr</code> hold system and user resources.</li>
+            <li><strong>Paths:</strong> Absolute paths start with <code>/</code> and uniquely define a file’s location.</li>
+        </ul>
+        <h4>Example Structure:</h4>
+        <pre><code>
+/
+ ├── Applications
+ ├── Library
+ ├── System
+ ├── Users
+ │   └── yourname
+ │       ├── Documents
+ │       ├── Downloads
+ │       ├── Desktop
+ │       └── Pictures
+            </code></pre>
+        <p>
+            ⏩ <strong>Now, let’s navigate this structure like a pro using the Terminal!</strong>
+        </p>
+        <hr>
+    </section>
+
+    <!-- Part 2: Navigating the File System with Terminal -->
+    <section class="highlight-box">
+        <h4>Part 2: Navigating the File System with Terminal</h4>
+        <p>
+            Open the <strong>Terminal</strong> by navigating to <code>/Applications/Utilities</code> or searching for it via Spotlight.
+        </p>
+
+        <!-- 1. See Your Current Location -->
+        <h4>1. See Your Current Location</h4>
+        <p><strong>Command:</strong></p>
+        <pre><code class="language-bash">
+pwd
+            </code></pre>
+        <p><strong>When to use:</strong> The <code>pwd</code> command prints your current working directory.</p>
+
+        <!-- 2. List Files and Folders -->
+        <h4>2. List Files and Folders</h4>
+        <p><strong>Command:</strong></p>
+        <pre><code class="language-bash">
+ls
+            </code></pre>
+        <p>Use <code>ls -l</code> for a detailed listing or <code>ls -a</code> to show hidden files.</p>
+
+        <!-- 3. Change Directory -->
+        <h4>3. Change Directory</h4>
+        <p><strong>Command:</strong></p>
+        <pre><code class="language-bash">
+cd /Users/yourname/Documents  # Move to Documents folder
+cd ..                         # Move up one level
+cd /                         # Go to the root directory
+            </code></pre>
+        <p><strong>When to use:</strong> Use the <code>cd</code> command to navigate between directories.</p>
+
+        <!-- 4. Create New Folders -->
+        <h4>4. Create New Folders</h4>
+        <p><strong>Command:</strong></p>
+        <pre><code class="language-bash">
+mkdir MyFolder
+            </code></pre>
+        <p><strong>When to use:</strong> <code>mkdir</code> creates a new directory.</p>
+
+        <!-- 5. Create Files -->
+        <h4>5. Create Files</h4>
+        <p><strong>Command:</strong></p>
+        <pre><code class="language-bash">
+touch myfile.txt
+            </code></pre>
+        <p><strong>When to use:</strong> <code>touch</code> creates an empty file or updates its timestamp.</p>
+
+        <!-- 6. Delete Files and Folders -->
+        <h4>6. Delete Files and Folders</h4>
+        <p><strong>Command:</strong></p>
+        <pre><code class="language-bash">
+rm myfile.txt         # Delete a file
+rm -r MyFolder        # Remove a folder and its contents
+            </code></pre>
+        <p><strong>When to use:</strong> Use <code>rm</code> to delete files and <code>rm -r</code> to delete directories recursively.</p>
+
+        <!-- 7. Copy and Move Files -->
+        <h4>7. Copy and Move Files</h4>
+        <p><strong>Copy Files:</strong></p>
+        <pre><code class="language-bash">
+cp myfile.txt /Users/yourname/Backup/
+            </code></pre>
+        <p><strong>Move Files:</strong></p>
+        <pre><code class="language-bash">
+mv myfile.txt /Users/yourname/Backup/
+            </code></pre>
+        <p><strong>When to use:</strong> Use <code>cp</code> to copy files and <code>mv</code> to move or rename them.</p>
+        <hr>
+    </section>
+
+    <!-- Part 3: Intermediate Command Line Power Moves -->
+    <section class="highlight-box">
+        <h3>Part 3: Intermediate Command Line Power Moves</h3>
+        <p>Once you're comfortable with the basics, move on to more <strong>intermediate</strong> commands.</p>
+
+        <!-- 1. Open Applications -->
+        <h4>1. Open Applications</h4>
+        <p><strong>Command:</strong></p>
+        <pre><code class="language-bash">
+open -a "TextEdit"
+            </code></pre>
+        <p><strong>When to use:</strong> Use <code>open</code> with the <code>-a</code> flag to launch applications (here, TextEdit).</p>
+
+        <!-- 2. Check Disk Space -->
+        <h4>2. Check Disk Space</h4>
+        <p><strong>Command:</strong></p>
+        <pre><code class="language-bash">
+df -h
+            </code></pre>
+        <p><strong>When to use:</strong> <code>df -h</code> displays disk usage in a human-readable format.</p>
+
+        <!-- 3. Find Files Containing Specific Text -->
+        <h4>3. Find Files Containing Specific Text</h4>
+        <p><strong>Command:</strong></p>
+        <pre><code class="language-bash">
+grep "error" log.txt
+            </code></pre>
+        <p><strong>When to use:</strong> Use <code>grep</code> to search for text patterns within files.</p>
+
+        <!-- 4. Copy Multiple Files at Once -->
+        <h4>4. Copy Multiple Files at Once</h4>
+        <p><strong>Command:</strong></p>
+        <pre><code class="language-bash">
+cp *.txt /Users/yourname/Backup/
+            </code></pre>
+        <p><strong>When to use:</strong> Wildcards allow you to copy multiple files at once.</p>
+
+        <!-- 5. Clean Up Temporary Files -->
+        <h4>5. Clean Up Temporary Files</h4>
+        <p><strong>Command:</strong></p>
+        <pre><code class="language-bash">
+rm -rf /tmp/*
+            </code></pre>
+        <p><strong>When to use:</strong> Use <code>rm -rf</code> cautiously to remove temporary files and directories.</p>
+        <hr>
+    </section>
+
+    <!-- Final Challenge Section -->
+    <section class="highlight-box">
+        <h3>Final Challenge: Prove Your Command Line Captaincy</h3>
+        <p>Try these tasks:</p>
+        <ul>
+            <li><strong>Create</strong> a new folder called <code>Projects</code> inside <code>Documents</code>.</li>
+            <li><strong>Create</strong> a file called <code>readme.txt</code> inside <code>Projects</code> and write "Hello, Cap10!" into it.</li>
+            <li><strong>Rename</strong> the file to <code>info.txt</code>.</li>
+            <li><strong>Move</strong> <code>info.txt</code> to the <code>Desktop</code>.</li>
+            <li><strong>Delete</strong> <code>info.txt</code> from the <code>Desktop</code>.</li>
+            <li><strong>List</strong> all <code>.txt</code> files in your <code>/Users/yourname/Documents/</code> folder.</li>
+        </ul>
+        <p>
+            Master these tasks, and you'll be a Cap10 of the Mac Command Line! 🏴‍☠️
+        </p>
+        <p>
+            Would you like a <strong>cheat sheet</strong> with all these commands for quick reference? 🚀
+        </p>
+    </section>
+
+    <!-- Expanded Section: Key File Locations & Tools -->
+    <section class="highlight-box">
+        <h3>Key File Locations &amp; Tools Available in the CLI</h3>
+        <p>Now that you've learned how to navigate and manage files in the Terminal, it's important to know where to find key system files and the tools available in macOS. Here's a breakdown:</p>
+
+        <!-- Key File Locations -->
+        <h4>Key File Locations</h4>
+        <p>Common directories in macOS include:</p>
+        <ul>
+            <li><strong>/</strong> - The root directory of the system.</li>
+            <li><strong>/Applications</strong> - Where most applications are installed.</li>
+            <li><strong>/Users/yourname</strong> - Your home directory containing Documents, Downloads, Desktop, etc.</li>
+            <li><strong>/Library</strong> - Contains system and user libraries, preferences, and support files.</li>
+            <li><strong>/System</strong> - Holds essential system files (modify with caution).</li>
+        </ul>
+        <p><strong>Note:</strong> Use commands like <code>cd /Users/yourname</code> to navigate quickly.</p>
+
+        <!-- Essential Command Line Tools -->
+        <h4>Essential Command Line Tools</h4>
+        <p>Some fundamental commands for macOS Terminal include:</p>
+        <ul>
+            <li><strong>pwd</strong> - Prints the current working directory.</li>
+            <li><strong>ls</strong> - Lists directory contents (<code>ls -la</code> shows hidden files and details).</li>
+            <li><strong>cd</strong> - Changes the current directory.</li>
+            <li><strong>mkdir</strong> - Creates new directories.</li>
+            <li><strong>touch</strong> - Creates an empty file or updates its timestamp.</li>
+            <li><strong>rm</strong> - Removes files (<code>rm -r</code> for directories).</li>
+            <li><strong>cp</strong> - Copies files or directories.</li>
+            <li><strong>mv</strong> - Moves or renames files or directories.</li>
+            <li><strong>grep</strong> - Searches for text patterns within files.</li>
+            <li><strong>open</strong> - Opens files or applications (e.g., <code>open -a "Safari"</code>).</li>
+        </ul>
+        <p><strong>Note:</strong> Consult each command’s manual (e.g., <code>man ls</code>) for more details.</p>
+
+        <!-- Environment Variables -->
+        <h4>Environment Variables</h4>
+        <p>macOS uses environment variables to simplify navigation. For example:</p>
+        <ul>
+            <li><strong>$HOME</strong> - Your home directory (<code>/Users/yourname</code>).</li>
+            <li><strong>$PATH</strong> - A colon-separated list of directories where executables are located.</li>
+        </ul>
+        <p>Use these variables (e.g., <code>cd $HOME</code>) to save time.</p>
+    </section>
+</main>
+
+<footer class="highlight-box">
+    <p>&copy; 2025 Cap10Bill. All rights reserved.</p>
+</footer>
+
+<script src="blog.js"></script>
+</body>
+</html>
