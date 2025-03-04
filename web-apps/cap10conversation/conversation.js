@@ -231,7 +231,7 @@ function populateQuestionSelect() {
     questions[type].forEach((question, index) => {
       const option = document.createElement('option');
       option.value = JSON.stringify({ type, index });
-      const truncated = question.length > 60 ? question.substring(0, 60) + '...' : question;
+      const truncated = question.length > 84 ? question.substring(0, 84) + '...' : question;
       option.textContent = truncated;
       optGroup.appendChild(option);
     });
@@ -295,17 +295,25 @@ function renderConversationLog() {
 }
 
 // 9) Download all data as YAML
+// Updated downloadYAML function to include current person's name in the file name
 function downloadYAML() {
   const yamlText = jsyaml.dump(people);
+  let filename = 'cap10conversation.yaml';
+  if (currentPerson) {
+    // Replace any spaces or non-alphanumeric characters with underscores for a safe file name
+    const safeName = currentPerson.replace(/\s+/g, '_').replace(/[^\w\-]/g, '');
+    filename = `cap10conversation-${safeName}.yaml`;
+  }
   const blob = new Blob([yamlText], { type: 'text/yaml;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'conversations.yaml';
+  a.download = filename;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
 }
+
 
 // On page load, render the existing people from localStorage
 renderPeople();
