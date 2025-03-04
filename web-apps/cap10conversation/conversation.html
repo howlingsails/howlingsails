@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Cap10 Conversation</title>
+    <link rel="stylesheet" href="conversation.css" />
+    <!-- Include js-yaml library from CDN for YAML conversion -->
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+</head>
+<body>
+<header>
+    <h1>Cap10 Conversation</h1>
+    <p class="tagline">
+        Brought to you by
+        <a href="https://cap10.tech" target="_blank" rel="noopener">cap10.tech</a>
+    </p>
+    <!-- Person Switcher: shows current person and a button to switch -->
+    <div id="person-switcher" style="display: none;">
+        <strong>Currently Talking To: </strong>
+        <span id="selected-person-name"></span>
+        <button class="add-button" onclick="switchPerson()">Switch Person</button>
+    </div>
+</header>
+
+<main class="blog-content">
+    <!-- Introduction Section -->
+    <div id="introduction" class="highlight-box">
+        <h2>Welcome to Cap10 Conversation</h2>
+        <p>Discover the transformative power of reflective dialogue. This tool empowers you to craft your own values, shape your destiny and help you understand others.</p>
+        <blockquote>
+            "Deep, meaningful conversation is the safe space where our truths flourish, and every honest word plants the seeds of understanding."
+        </blockquote>
+        <p>Are you ready to claim your move this relationship to be a conversation that inspire self-discovery and genuine connection.</p>
+    </div>
+
+    <!-- People list container -->
+    <div id="people-container" class="highlight-box">
+        <input type="text" id="add-person-input" placeholder="Add Person" />
+        <button class="add-button" onclick="addPerson()">Add</button>
+        <ul id="people-list"></ul>
+    </div>
+
+    <!-- Conversation area (initially hidden until person is selected) -->
+    <div id="conversation-area" class="highlight-box" style="display: none;">
+        <label for="question-select" class="form-label">Choose a Question:</label>
+        <select id="question-select" onchange="updateQuestionPreview()"></select>
+
+        <label for="question-preview" class="form-label">Full Question:</label>
+        <textarea id="question-preview" readonly></textarea>
+
+        <label for="answer-input" class="form-label">Your Answer:</label>
+        <textarea id="answer-input" placeholder="Enter your answer here..."></textarea>
+
+        <button class="add-button" onclick="addConversation()">Add Conversation</button>
+        <div id="conversation-log"></div>
+
+        <!-- Button to download YAML -->
+        <button class="add-button" onclick="downloadYAML()">Download YAML</button>
+    </div>
+</main>
+
+<script src="conversation.js"></script>
+</body>
+</html>
