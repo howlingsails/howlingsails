@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
 /* cap10typez.css
 /* ============================
    🎨 CSS Variables for Colors
@@ -17,7 +19,7 @@
    🖥️ General Terminal Styling
    ============================ */
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'JetBrains Mono', monospace;
     background-color: var(--bg-dark);
     color: var(--text-primary);
     display: flex;
@@ -62,7 +64,7 @@ h2 {
 #commandsTextArea, #ownCommandsInput {
     background-color: black;
     color: var(--neon-green);
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'JetBrains Mono', monospace;
     border: 2px solid var(--neon-green);
     box-shadow: 0px 0px 10px rgba(57, 255, 20, 0.6);
     padding: 10px;
@@ -102,7 +104,7 @@ textarea::-webkit-resizer {
 #commandDisplay {
     background-color: black;
     color: var(--neon-green);
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'JetBrains Mono', monospace;
     border: 2px solid var(--neon-green);
     box-shadow: 0px 0px 10px rgba(57, 255, 20, 0.6);
     padding: 10px;
@@ -113,7 +115,7 @@ textarea::-webkit-resizer {
 #typingInput {
     background-color: black;
     color: var(--neon-green);
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'JetBrains Mono', monospace;
     border: 2px solid var(--neon-green);
     box-shadow: 0px 0px 10px rgba(57, 255, 20, 0.6);
     padding: 10px;
@@ -127,7 +129,7 @@ textarea::-webkit-resizer {
 /* Headings for Terminal Sections */
 #commandTerminal h3,
 #typingTerminal h3 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'JetBrains Mono', monospace;
     color: var(--neon-blue);
     margin-bottom: 5px;
 }
@@ -225,7 +227,7 @@ button:hover {
     border: 1px solid var(--border-color);
     padding: 8px;
     text-align: center;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 #historyTable th {

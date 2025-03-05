@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Cap10 Coffee</title>
+    <link rel="stylesheet" href="cap10coffee.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" sizes="512x512" href="android-chrome-512x512.png">
+    <!-- (Optional) Include a library for YAML conversion if you want to add download features -->
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+</head>
+<body>
+<header>
+    <h1>Cap10 Coffee</h1>
+    <p class="tagline">
+        Brought to you by <a href="https://cap10.tech" target="_blank" rel="noopener">cap10.tech</a>
+    </p>
+</header>
+
+<main class="blog-content">
+    <!-- Introduction Section -->
+    <div id="introduction" class="highlight-box">
+        <h2>Welcome to Cap10 Coffee</h2>
+        <p>Keep track of your freshly brewed coffee and know exactly when it’s time for a refill! Whether you’re using an insulated thermos, a glass pot, or another container type, this tool lets you monitor how old your brew is and alerts you when it’s getting stale.</p>
+        <p><strong>Note:</strong> All data is stored locally on your browser. It is not sent to any server and won’t be available on other devices or browsers unless you back it up.</p>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs">
+        <button class="tab-button" onclick="showSection('container-management')">Manage Containers</button>
+        <button class="tab-button" onclick="showSection('brew-management')">Brew Coffee</button>
+    </div>
+
+    <!-- Container Management Section -->
+    <div id="container-management" class="highlight-box section">
+        <h2>Container Management</h2>
+        <div class="form-group">
+            <input type="text" id="container-name" placeholder="Container Name" />
+            <input type="text" id="container-description" placeholder="Description" />
+        </div>
+        <div class="form-group">
+            <label for="container-type">Container Type:</label>
+            <select id="container-type"></select>
+        </div>
+        <div class="form-group">
+            <input type="url" id="container-image" placeholder="Image URL (optional)" />
+        </div>
+        <button class="add-button" onclick="addContainer()">Add Container</button>
+        <h3>Your Containers</h3>
+        <ul id="container-list"></ul>
+    </div>
+
+    <!-- Brew Coffee Section -->
+    <div id="brew-management" class="highlight-box section" style="display: none;">
+        <h2>Brew Coffee</h2>
+        <div class="form-group">
+            <label for="brew-container">Select Container:</label>
+            <select id="brew-container"></select>
+        </div>
+        <div class="form-group">
+            <input type="text" id="coffee-description" placeholder="Coffee Description / Name" />
+        </div>
+        <div class="form-group">
+            <input type="url" id="coffee-image" placeholder="Coffee Image URL (optional)" />
+        </div>
+        <button class="add-button" onclick="addBrew()">Record Brew</button>
+        <h3>Brew Log</h3>
+        <ul id="brew-log"></ul>
+    </div>
+</main>
+
+<script src="cap10coffee.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+  --bg-dark: #181a1f;
+  --bg-panel: #20252c;
+  --border-color: #3a4048;
+  --neon-green: #5CDC00;
+  --neon-blue: #36c2c2;
+  --neon-yellow: #Dfc700;
+  --text-primary: #c9d1d9;
+  --text-highlight: #ffffff;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 20px;
+  font-size: 1rem;
+}
+
+header {
+  background-color: var(--bg-panel);
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid var(--neon-green);
+  margin-bottom: 30px;
+}
+
+header h1 {
+  color: var(--neon-green);
+  margin: 0 0 8px;
+  text-shadow: 0 0 4px var(--neon-green);
+  font-size: 2.2rem;
+}
+
+.tagline a, .tagline a:visited {
+  color: var(--neon-green);
+  text-decoration: none;
+}
+
+.tagline a:hover {
+  color: var(--text-highlight);
+}
+
+.blog-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.highlight-box {
+  background-color: var(--bg-panel);
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  background-color: var(--neon-green);
+  border: none;
+  color: #000;
+  padding: 10px 15px;
+  font-size: 1rem;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-shadow: 0 0 2px var(--neon-green);
+  transition: background-color 0.3s ease;
+}
+
+.tab-button:hover {
+  background-color: var(--neon-blue);
+  color: var(--text-highlight);
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="url"],
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  margin-top: 5px;
+}
+
+.add-button {
+  background-color: var(--neon-green);
+  border: none;
+  color: #000;
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  text-shadow: 0 0 2px var(--neon-green);
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: var(--neon-blue);
+  color: var(--text-highlight);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+/* Status colors for brew log */
+.status-fresh {
+  color: var(--neon-green);
+}
+
+.status-warning {
+  color: var(--neon-yellow);
+}
+
+.status-expired {
+  color: var(--neon-blue);
+}
+
+/* Section styling */
+.section h2 {
+  color: var(--neon-green);
+  border-bottom: 1px solid var(--neon-green);
+  padding-bottom: 5px;
+  margin-top: 0;
+}

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 /* ./books/book.css
    ============================
    Terminal-Themed Book Styles
@@ -18,7 +19,7 @@
 }
 
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'JetBrains Mono', monospace;
     background-color: var(--bg-dark);
     color: var(--text-primary);
     margin: 0;
@@ -68,7 +69,7 @@ header h2 {
 
 /* Headings */
 h1, h2, h3 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'JetBrains Mono', monospace;
     line-height: 1.3;
 }
 

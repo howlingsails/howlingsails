@@ -3,6 +3,7 @@ const peopleList = document.getElementById('people-list');
 const conversationArea = document.getElementById('conversation-area');
 const selectedPersonName = document.getElementById('selected-person-name');
 const personSwitcher = document.getElementById('person-switcher');
+const introduction = document.getElementById('introduction');
 
 const addPersonInput = document.getElementById('add-person-input');
 const questionSelect = document.getElementById('question-select');
@@ -14,16 +15,16 @@ let people = JSON.parse(localStorage.getItem('people')) || {};
 let currentPerson = null;
 
 const questions = {
-  "self_discovery": [
-    "My desires are a complex interplay of inner drives and mimetic influences. I recognize the power of imitation, yet I strive to forge my own path, to create my own values.",
-    "My natural order is not one of passive acceptance, but of active self-overcoming. I embrace the challenges that life presents, transforming suffering into strength, and creating meaning from the depths of my being.",
-    "I will not succumb to resentment or envy, but cultivate a spirit of affirmation, celebrating my own unique potential.",
-    "Greatness is not a destination, but a continuous process of self-creation, a relentless pursuit of my highest self.",
-    "Therefore, I will embody strength, creativity, and authenticity, and live a life that reflects my own will to power.",
-    "Furthermore, I acknowledge my moral obligation to look ahead and work towards a better future for myself and society.",
-    "I will shoulder the responsibility of my own potential, striving to contribute meaningfully to the world around me.",
-    "I will be a force for good, cleaning my own room and acting with integrity, thus creating a ripple effect of positive change.",
-    "My pursuit of personal greatness is inextricably linked to my commitment to the betterment of society."
+"Desires": [
+    "In your experience, how have your inner drives and the influences around you shaped your desires, and what steps have you taken to forge your own path and create unique values?",
+    "Could you share examples of how you actively overcome life’s challenges and transform moments of suffering into strength and meaning rather than simply accepting circumstances?",
+    "What strategies have you found effective for letting go of resentment and envy, and how do you cultivate a mindset that celebrates your unique potential?",
+    "How do you define greatness as a continuous journey of self-creation, and what practices do you follow in your pursuit of your highest self?",
+    "In what ways do you embody strength, creativity, and authenticity so that your life reflects your personal will to power?",
+    "How do you interpret the idea of having a moral obligation to look ahead and work toward a better future for both yourself and society, and can you share any examples from your own life?",
+    "What does taking full responsibility for your potential mean to you, and how do you strive to contribute meaningfully to the world around you?",
+    "What practical actions do you take—such as maintaining personal discipline or keeping your environment in order—to create a ripple effect of positive change in your life and community?",
+    "How do you see the connection between your personal pursuit of greatness and your commitment to the betterment of society, and what steps do you take to nurture both aspects in your life?"
   ],
   "building_connections": [
     "What are some things that truly excite you? What drives you in your daily life?",
@@ -108,9 +109,9 @@ const questions = {
     "Can you think of a specific moral value that is held strongly in your culture but might be viewed differently in another culture? How does that difference manifest?",
     "Do you think that morality is objective or relative to culture? Why?",
     "How do people in your culture typically express emotions or build relationships? Are there specific communication styles or social norms that are important?",
-    "What are some common misunderstandings that can arise when people from different cultures interact? How can these be avoided?",
-    "In what ways do you find it easy or challenging to connect with people from different cultural backgrounds?",
-    "What subcultures do you identify with, and what are their defining characteristics? How do these subcultures differ from the mainstream culture?",
+    "How do different cultures approach concepts like family, community, and individual responsibility?",
+    "What are the core values of the subcultures you identify with?",
+    "How do those values differ from mainstream values?",
     "How do subcultures within a society challenge or reinforce the dominant cultural values?",
     "How does a subculture define its own version of right and wrong?",
     "From a philosophical standpoint, how do you see the relationship between individual freedom and cultural norms? Where do you draw the line between personal choice and societal expectations?",
@@ -174,7 +175,6 @@ const questions = {
   ]
 };
 
-
 // 1) Add a person
 function addPerson() {
   const name = addPersonInput.value.trim();
@@ -203,23 +203,25 @@ function selectPerson(person) {
   currentPerson = person;
   selectedPersonName.textContent = person;
 
-  // Hide the people list, show the conversation area
+  // Hide the people list and collapse the introduction
   peopleContainer.style.display = 'none';
-  conversationArea.style.display = 'block';
+  introduction.classList.add('collapsed');
 
-  // Show the top switcher with current person's name
+  // Show the conversation area and person switcher
+  conversationArea.style.display = 'block';
   personSwitcher.style.display = 'inline-block';
 
   renderConversationLog();
   populateQuestionSelect();
 }
 
-// 4) Switch Person: hide conversation area, show people list again
+// 4) Switch Person: hide conversation area, show people list, and expand introduction
 function switchPerson() {
   conversationArea.style.display = 'none';
   peopleContainer.style.display = 'block';
   personSwitcher.style.display = 'none';
   currentPerson = null;
+  introduction.classList.remove('collapsed');
 }
 
 // 5) Populate the question dropdown
@@ -237,7 +239,6 @@ function populateQuestionSelect() {
     });
     questionSelect.appendChild(optGroup);
   }
-  // Show first question in preview by default
   if (questionSelect.options.length > 0) {
     questionSelect.selectedIndex = 0;
     updateQuestionPreview();
@@ -295,12 +296,10 @@ function renderConversationLog() {
 }
 
 // 9) Download all data as YAML
-// Updated downloadYAML function to include current person's name in the file name
 function downloadYAML() {
   const yamlText = jsyaml.dump(people);
   let filename = 'cap10conversation.yaml';
   if (currentPerson) {
-    // Replace any spaces or non-alphanumeric characters with underscores for a safe file name
     const safeName = currentPerson.replace(/\s+/g, '_').replace(/[^\w\-]/g, '');
     filename = `cap10conversation-${safeName}.yaml`;
   }
@@ -314,6 +313,4 @@ function downloadYAML() {
   document.body.removeChild(a);
 }
 
-
-// On page load, render the existing people from localStorage
 renderPeople();

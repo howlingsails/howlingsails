@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Cap10 Meetup OC Tech Edition</title>
+    <link rel="stylesheet" href="meetup.css" />
+</head>
+<body>
+<header>
+    <h1>Cap10 Meetup OC Tech Edition</h1>
+    <p class="tagline">A dynamic deep-dive into the OC tech industry</p>
+</header>
+
+<main class="main-content">
+    <!-- Owner Info Section -->
+    <section id="owner-info-section" class="card">
+        <h2>Device Owner Information:</h2>
+        <form id="owner-info-form">
+            <label>Your Name:</label>
+            <input type="text" id="owner-name" placeholder="Your name">
+            <label>Your Email:</label>
+            <input type="email" id="owner-email" placeholder="Your email">
+            <label>Your Phone:</label>
+            <input type="text" id="owner-phone" placeholder="Your phone">
+
+            <!-- Removed the Save button (auto-save is enabled) -->
+            <button type="button" class="submit-button" onclick="copyOwnerInfo()">Copy My Contact Info</button>
+            <button type="button" class="submit-button" onclick="shareOwnerInfo()">Share My Contact Info</button>
+        </form>
+    </section>
+
+    <!-- EVENT LIST / CREATE SECTION -->
+    <section id="event-list-section" class="card">
+        <h2>Events</h2>
+        <div id="existing-events"></div>
+        <hr>
+        <h3>Create New Event</h3>
+        <form id="create-event-form">
+            <label for="new-event-name">Event Name:</label>
+            <input type="text" id="new-event-name" placeholder="Enter event name" required>
+
+            <label for="new-event-password">Password:</label>
+            <input type="password" id="new-event-password" placeholder="Enter a password" required>
+
+            <button type="submit" class="submit-button">Create Event</button>
+        </form>
+    </section>
+
+    <!-- EVENT LOGIN SECTION -->
+    <section id="event-login-section" class="card" style="display:none;">
+        <h2>Join Event: <span id="login-event-name"></span></h2>
+        <form id="event-login-form">
+            <label for="event-login-password">Enter Password:</label>
+            <input type="password" id="event-login-password" placeholder="Password" required>
+            <button type="submit" class="submit-button">Enter Event</button>
+        </form>
+        <button id="back-to-event-list" class="submit-button">Back to Events</button>
+    </section>
+
+    <!-- EVENT VIEW SECTION -->
+    <section id="event-view-section" style="display:none;">
+        <!-- Navigation Menu -->
+        <nav id="event-menu">
+            <button id="menu-share-info">Share Your Info</button>
+            <button id="menu-dashboard">Event Dashboard</button>
+            <button id="menu-logout">Log Out</button>
+        </nav>
+
+        <!-- Share Your Info Form -->
+        <section id="share-info-section" class="card">
+            <p>
+                The information is saved exclusively on this device for its owner.
+            </p>
+            <h2>Share Your Info</h2>
+            <form id="share-info-form">
+                <!-- The dynamic form will be injected here -->
+            </form>
+        </section>
+
+        <!-- Event Dashboard -->
+        <section id="dashboard-section" class="card" style="display:none;">
+            <h2>Event Dashboard</h2>
+            <div id="dashboard-content">
+                <!-- Aggregated data (charts/tables) will be rendered here -->
+            </div>
+        </section>
+
+        <!-- Registered Attendees List -->
+        <section id="attendees-section" class="card">
+            <h2>Registered Attendees</h2>
+            <ul id="attendees-list"></ul>
+        </section>
+    </section>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+<script src="meetup.js"></script>
+</body>
+</html>
