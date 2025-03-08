@@ -195,3 +195,72 @@ textarea {
 .ranking-header span {
   font-weight: bold;
 }
+
+
+/* Limit container height and enable vertical scrolling */
+.ranking-container,
+.dynamic-options {
+  max-height: 300px; /* adjust as needed */
+  overflow-y: auto;
+  position: relative; /* needed for sticky positioning */
+}
+
+/* Sticky ranking header */
+.ranking-header {
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-panel);
+  padding: 5px;
+  z-index: 10;
+}
+
+/* Sticky checklist header */
+.checklist-header {
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-panel);
+  padding: 5px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+
+/* Scrollbar styling for WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 8px; /* Adjust width to your liking */
+    background-color: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--neon-green);
+    border-radius: 4px;
+    border: 1px solid var(--border-color); /* optional border */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--neon-blue);
+}
+/* Style the slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 8px;
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: var(--neon-green); /* Always green */
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: -4px; /* Align thumb with track */
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background-color: var(--neon-green); /* Remains green on hover */
+}

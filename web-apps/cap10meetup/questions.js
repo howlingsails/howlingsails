@@ -28,6 +28,10 @@ export function renderShareInfoForm(currentEvent) {
       div.innerHTML += `
         <label>Name:</label>
         <input type="text" name="contact_name" required>
+        <label>What should I know about your:</label>
+        <input type="text" name="contact_what" required>
+        <label>Web:</label>
+        <input type="text" name="contact_web">
         <label>Email:</label>
         <input type="email" name="contact_email">
         <label>Phone:</label>
@@ -102,49 +106,56 @@ export function renderShareInfoForm(currentEvent) {
       };
       container.appendChild(addOptBtn);
       div.appendChild(container);
-    } else if (q.type === "checklist") {
-      // Render each option with a slider (0-100) next to it.
-      const container = document.createElement('div');
-      container.className = "dynamic-options";
-      q.options.forEach((opt, idx) => {
-        const wrapper = document.createElement('div');
-        wrapper.style.marginBottom = "8px";
-        const label = document.createElement('label');
-        label.textContent = opt + ": ";
-        wrapper.appendChild(label);
+    } // In the "checklist" branch of renderShareInfoForm:
+      else if (q.type === "checklist") {
+        const container = document.createElement('div');
+        container.className = "dynamic-options";
 
-        const slider = document.createElement('input');
-        slider.type = "range";
-        slider.min = "0";
-        slider.max = "100";
-        slider.value = "0";
-        slider.name = `${q.id}_slider_${idx}`;
-        wrapper.appendChild(slider);
+        // Create a header for the checklist options.
+        const checklistHeader = document.createElement('div');
+        checklistHeader.className = "checklist-header";
+        checklistHeader.textContent = "Options";
+        container.appendChild(checklistHeader);
 
-        const sliderValue = document.createElement('span');
-        sliderValue.textContent = slider.value;
-        slider.addEventListener('input', () => {
+        q.options.forEach((opt, idx) => {
+          const wrapper = document.createElement('div');
+          wrapper.style.marginBottom = "8px";
+          const label = document.createElement('label');
+          label.textContent = opt + ": ";
+          wrapper.appendChild(label);
+
+          const slider = document.createElement('input');
+          slider.type = "range";
+          slider.min = "0";
+          slider.max = "100";
+          slider.value = "0";
+          slider.name = `${q.id}_slider_${idx}`;
+          wrapper.appendChild(slider);
+
+          const sliderValue = document.createElement('span');
           sliderValue.textContent = slider.value;
+          slider.addEventListener('input', () => {
+            sliderValue.textContent = slider.value;
+          });
+          wrapper.appendChild(sliderValue);
+          container.appendChild(wrapper);
         });
-        wrapper.appendChild(sliderValue);
-        container.appendChild(wrapper);
-      });
-      const addOptBtn = document.createElement('button');
-      addOptBtn.type = "button";
-      addOptBtn.textContent = "Add Option";
-      addOptBtn.onclick = () => {
-        const newOpt = prompt("Enter new option:");
-        if (newOpt) {
-          q.options.push(newOpt);
-          renderShareInfoForm(currentEvent);
-        }
-      };
-      container.appendChild(addOptBtn);
-      div.appendChild(container);
-    } else if (q.type === "phrase") {
+        const addOptBtn = document.createElement('button');
+        addOptBtn.type = "button";
+        addOptBtn.textContent = "Add Option";
+        addOptBtn.onclick = () => {
+          const newOpt = prompt("Enter new option:");
+          if (newOpt) {
+            q.options.push(newOpt);
+            renderShareInfoForm(currentEvent);
+          }
+        };
+        container.appendChild(addOptBtn);
+        div.appendChild(container);
+      } else if (q.type === "phrase") {
       const textarea = document.createElement('textarea');
       textarea.name = q.id;
-      textarea.rows = 3;
+      textarea.rows = 5;
       textarea.placeholder = "Enter your response here...";
       div.appendChild(textarea);
     }
@@ -168,6 +179,8 @@ export function attachShareInfoFormHandler(currentEvent, events, currentEventNam
       if (q.type === "contact") {
         response[q.id] = {
           name: formData.get("contact_name"),
+          what: formData.get("contact_what"),
+          web: formData.get("contact_web"),
           email: formData.get("contact_email"),
           phone: formData.get("contact_phone")
         };

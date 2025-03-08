@@ -19,8 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function loadOwnerInfo() {
     const storedOwnerInfo = JSON.parse(localStorage.getItem('cap10meetup_owner_info')) || {};
     document.getElementById('owner-name').value = storedOwnerInfo.name || '';
+    document.getElementById('owner-what-they-should-know').value = storedOwnerInfo.what || '';
+    document.getElementById('owner-web').value = storedOwnerInfo.web || '';
     document.getElementById('owner-email').value = storedOwnerInfo.email || '';
     document.getElementById('owner-phone').value = storedOwnerInfo.phone || '';
+
   }
   loadOwnerInfo();
 
@@ -28,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function saveOwnerInfo() {
     const ownerInfo = {
       name: document.getElementById('owner-name').value.trim(),
+      what: document.getElementById('owner-what-they-should-know').value.trim(),
+      web: document.getElementById('owner-web').value.trim(),
       email: document.getElementById('owner-email').value.trim(),
       phone: document.getElementById('owner-phone').value.trim()
     };
@@ -35,6 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("Owner contact info saved.");
   }
   document.getElementById('owner-name').addEventListener('change', saveOwnerInfo);
+  document.getElementById('owner-what-they-should-know').addEventListener('change', saveOwnerInfo);
+  document.getElementById('owner-web').addEventListener('change', saveOwnerInfo);
   document.getElementById('owner-email').addEventListener('change', saveOwnerInfo);
   document.getElementById('owner-phone').addEventListener('change', saveOwnerInfo);
 
@@ -199,14 +206,17 @@ document.addEventListener('DOMContentLoaded', () => {
       alert("No contact info available to copy.");
       return;
     }
-    const formattedText =
+const formattedText =
 `📌 ${ownerName}'s Contact Info:
 👤 Name: ${ownerInfo.name || "(Not Provided)"}
+📝 What You Should Know About Them: ${ownerInfo.what || "(Not Provided)"}
+🌐 Website: ${ownerInfo.web || "(Not Provided)"}
 📧 Email: ${ownerInfo.email || "(Not Provided)"}
-📞 Phone: ${ownerInfo.phone || "(Not Provided)"}
+📱 Phone: ${ownerInfo.phone || "(Not Provided)"}
 
-🔹 It's Who know what you know, just who you know.
+🔹 It is, Who know what you know, just who you know.
 🔗 Brought to you by https://cap10.tech`;
+
     navigator.clipboard.writeText(formattedText)
       .then(() => alert(`${ownerName}'s contact info copied to clipboard!`))
       .catch(() => {
@@ -231,13 +241,15 @@ document.addEventListener('DOMContentLoaded', () => {
       alert("No contact info available to share.");
       return;
     }
-    const formattedText =
+const formattedText =
 `📌 ${ownerName}'s Contact Info:
 👤 Name: ${ownerInfo.name || "(Not Provided)"}
+📝 What You Should Know About Them: ${ownerInfo.what || "(Not Provided)"}
+🌐 Website: ${ownerInfo.web || "(Not Provided)"}
 📧 Email: ${ownerInfo.email || "(Not Provided)"}
-📞 Phone: ${ownerInfo.phone || "(Not Provided)"}
+📱 Phone: ${ownerInfo.phone || "(Not Provided)"}
 
-🔹 It's Who know what you know, just who you know.
+🔹 It is, Who know what you know, just who you know.
 🔗 Brought to you by https://cap10.tech`;
     if (navigator.share) {
       navigator.share({ title: `${ownerName}'s Contact Info`, text: formattedText })

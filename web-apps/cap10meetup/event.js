@@ -116,12 +116,13 @@ export function attachNewEventHandler() {
       password: password,
       questions: [
         { id: "contact_info", type: "contact", prompt: "Please provide your contact information" },
-        { id: "technical_skills", type: "ranking", prompt: "Rate your technical skills (Current and Desired)", options: defaultSkills },
-        { id: "positions_held", type: "checklist", prompt: "Select positions you have held", options: defaultPositions },
+        { id: "what_to_remember", type: "phrase", prompt: "What should I remember?" },
         { id: "innovation_drive", type: "phrase", prompt: "What drives you to innovate in tech?" },
         { id: "tech_challenge", type: "phrase", prompt: "What challenge in the tech industry are you most passionate about solving?" },
-        { id: "future_oc_tech", type: "phrase", prompt: "How do you see the future of OC tech evolving?" },
-        { id: "recent_breakthrough", type: "phrase", prompt: "Share a recent breakthrough or insight that inspired you." }
+        { id: "future_oc_tech", type: "phrase", prompt: "How do you see the future of tech evolving?" },
+        { id: "recent_breakthrough", type: "phrase", prompt: "Share a recent breakthrough or insight that inspired you." },
+        { id: "technical_skills", type: "ranking", prompt: "Rate your technical skills (Current and Desired)", options: defaultSkills },
+        { id: "positions_held", type: "checklist", prompt: "Select positions you have held", options: defaultPositions },
       ],
       responses: [],
       attendees: []

@@ -52,8 +52,8 @@ export function updateHeaderForEventMode(isEvent, eventName = "") {
   const header = document.querySelector("header");
   const tagline = header.querySelector(".tagline");
   if (isEvent) {
-    tagline.textContent = `Event Mode: ${eventName}`;
+    tagline.textContent = `Event Mode: ${eventName} [PERSONAL MODE - STORED LOCAL ONLY ENCRYPTED]`;
   } else {
-    tagline.textContent = "A dynamic deep-dive into the OC tech industry";
+    tagline.textContent = "Who knows what you know? Let's share";
   }
 }
