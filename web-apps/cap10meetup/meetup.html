@@ -9,98 +9,98 @@
 <body>
 <header>
     <h1>Cap10.Tech Meetup</h1>
-    <p class="tagline">It's who know what you know tech</p>
+    <p class="tagline">It's who knows what you know tech</p>
+    <nav id="breadcrumbs"></nav>
+    <div id="feedback" class="feedback" style="display:none;"></div>
 </header>
 
 <main class="main-content">
-    <!-- Owner Info Section (for when not in an event) -->
     <section id="owner-info-section" class="card">
         <h2>How would you like to be introduced?</h2>
-        <p>
-            Provide your details below so others at the meetup can get to know you.
-            Use these details to introduce yourself as the Host (if you're organizing) or as a Participant.
-        </p>
         <form id="owner-info-form">
             <label>Your Name:</label>
-            <input type="text" id="owner-name" placeholder="Your name">
+            <input type="text" id="owner-name">
             <label>🔑 What they should know about you:</label>
-            <textarea id="owner-what-they-should-know" placeholder="What would be helpful for this person to know about you" rows="5"></textarea>
+            <textarea id="owner-what"></textarea>
             <label>🌏 Your Website:</label>
-            <input type="text" id="owner-web" placeholder="Your website">
+            <input type="text" id="owner-web">
             <label>📧 Your Email:</label>
-            <input type="email" id="owner-email" placeholder="Your email">
+            <input type="email" id="owner-email">
             <label>📱 Your Phone:</label>
-            <input type="text" id="owner-phone" placeholder="Your phone">
-            <!-- New code with IDs instead of inline onclick -->
-            <button type="button" id="copy-owner-info" class="submit-button">Copy <span id="owner-copy-label">My</span>Copy Contact Info</button>
-            <button type="button" id="share-owner-info" class="submit-button">Share <span id="owner-share-label">My</span>Share Contact Info</button>
+            <input type="text" id="owner-phone">
+            <button type="button" id="copy-owner-info" class="submit-button">Copy Contact Info</button>
+            <button type="button" id="share-owner-info" class="submit-button">Share Contact Info</button>
         </form>
     </section>
 
-    <!-- EVENT LIST / CREATE SECTION -->
     <section id="event-list-section" class="card">
         <h2>Events</h2>
         <div id="existing-events"></div>
         <hr>
-        <h3>Create New Event</h3>
         <form id="create-event-form">
-            <label for="new-event-name">Event Name:</label>
-            <input type="text" id="new-event-name" placeholder="Enter event name" required>
-            <label for="new-event-password">Password:</label>
-            <input type="password" id="new-event-password" placeholder="Enter a password" required autocomplete="new-password">
-            <button type="submit" class="submit-button">Create Event</button>
+            <label>Event Name:</label>
+            <input type="text" id="new-event-name" autocomplete="username">
+            <label>Password:</label>
+            <input type="password" id="new-event-password" autocomplete="new-password">
+            <button class="submit-button">Create Event</button>
         </form>
+
     </section>
 
-    <!-- EVENT LOGIN SECTION -->
     <section id="event-login-section" class="card" style="display:none;">
         <h2>Join Event: <span id="login-event-name"></span></h2>
         <form id="event-login-form">
-            <!-- Hidden field to store event name as username -->
-            <input type="hidden" id="login-event-username" name="username" autocomplete="username">
-            <label for="event-login-password">Enter Password:</label>
-            <input type="password" id="event-login-password" placeholder="Password" required autocomplete="current-password">
-            <button type="submit" class="submit-button">Enter Event</button>
+            <input type="hidden" id="login-username" name="username" autocomplete="username">
+            <label>Password:</label>
+            <input type="password" id="event-login-password" autocomplete="password">
+            <button class="submit-button">Enter Event</button>
         </form>
-        <button id="back-to-event-list" class="submit-button">Back to Events</button>
+        <button id="back-to-event-list" class="submit-button">Back</button>
     </section>
 
-    <!-- EVENT VIEW SECTION -->
     <section id="event-view-section" style="display:none;">
-        <!-- Navigation Menu -->
         <nav id="event-menu">
             <button id="menu-share-info">Build Connection</button>
-            <button id="menu-dashboard">Event Dashboard</button>
+            <button id="menu-dashboard">Dashboard</button>
             <button id="menu-logout">Log Out</button>
         </nav>
-        <!-- Share Your Info Form -->
+
         <section id="share-info-section" class="card">
-            <p id="share-info-text">
-                "It's Who knows what you know, not just who you know!" – Share your details so others can know you better.
-            </p>
-            <h2>Share My Info</h2>
+            <article>
+                <header>
+                    <h2>Let's Connect</h2>
+                </header>
+                <p>
+                    Hi there! I’m <strong>[Your Name]</strong>—and here's a bit about me: <em>[Share something unique]</em>.
+                </p>
+                <p>
+                    "It's not who you know, it's who knows what you know." so lets build a meaningful connection.
+                </p>
+            </article>
             <form id="share-info-form">
-                <!-- Dynamic form will be injected here -->
+                <!-- Dynamic form elements will be injected here -->
             </form>
         </section>
-        <!-- Event Dashboard -->
         <section id="dashboard-section" class="card" style="display:none;">
-            <h2>Event Dashboard</h2>
-            <div id="dashboard-content">
-                <!-- Aggregated data (charts/tables) will be rendered here -->
-            </div>
+            <h2>Dashboard</h2>
+            <div id="dashboard-content"></div>
         </section>
-        <!-- Registered Attendees List -->
+
         <section id="attendees-section" class="card">
             <h2>Connections Made</h2>
             <ul id="attendees-list"></ul>
         </section>
     </section>
 </main>
-<!-- Load external libraries -->
+
+<!-- Feedback container -->
+<div id="feedback" class="feedback" style="display:none;"></div>
+
+<!-- Breadcrumb container -->
+<nav id="breadcrumbs" class="breadcrumbs"></nav>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
-<!-- Load our main module -->
 <script type="module" src="meetup.js"></script>
 </body>
 </html>

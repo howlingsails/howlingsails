@@ -1,4 +1,5 @@
-// File: web-apps/cap10meetup/data.js
+// data.js: handles event data encryption/decryption & storage.
+
 export function encryptEventData(data, password) {
   const plaintext = JSON.stringify(data);
   return CryptoJS.AES.encrypt(plaintext, password).toString();
@@ -11,6 +12,7 @@ export function decryptEventData(ciphertext, password) {
     if (!decryptedText) return null;
     return JSON.parse(decryptedText);
   } catch (e) {
+    console.error("Decryption failed:", e);
     return null;
   }
 }
@@ -27,8 +29,13 @@ export function saveEvents(events) {
 
 export function loadEncryptedEvents() {
   const stored = localStorage.getItem('cap10meetup_events');
-  if (stored) {
-    return JSON.parse(stored);
-  }
-  return {};
+  return stored ? JSON.parse(stored) : {};
+}
+
+
+// data.js: Add helper to read current owner settings
+
+export function getCurrentOwnerSettings() {
+  // Read the current owner info from localStorage (set by meetup.js)
+  return JSON.parse(localStorage.getItem('cap10meetup_owner_info')) || {};
 }
