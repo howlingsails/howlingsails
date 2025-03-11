@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<!-- FilePath: web-apps\cap10markdown\markdown2jira.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cap10 Markdown to Jira</title>
+    <link rel="stylesheet" href="cap10markdown.css" />
+</head>
+<body>
+<header>
+    <h1>Cap10 Markdown to Jira</h1>
+    <p class="tagline">
+        Convert Markdown to Jira Wiki Syntax; <strong>Safely</strong> in local in browser memory only.
+    </p>
+</header>
+
+<main class="content">
+    <div class="highlight-box">
+        <h2>Markdown Input</h2>
+        <textarea id="markdownInput" placeholder="Enter Markdown text here..."></textarea>
+        <button class="add-button" onclick="copyToClipboard('markdownInput')">Copy</button>
+    </div>
+
+    <div class="center">
+        <button class="add-button" onclick="convertMarkdownToJira()">Convert to Jira Format</button>
+    </div>
+
+    <div class="highlight-box">
+        <h2>Jira Format Output</h2>
+        <pre id="jiraOutput"></pre>
+        <button class="add-button" onclick="copyToClipboard('jiraOutput')">Copy</button>
+    </div>
+</main>
+
+<script src="cap10markdown.js"></script>
+</body>
+</html>

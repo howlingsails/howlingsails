@@ -1,314 +1,171 @@
 <!DOCTYPE html>
-<!-- FilePath: blog/windows-command-line.html -->
+<!-- FilePath: blog\markdown-guide.html -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>cap10.tech: Windows Command Line: File System & Navigation</title>
-    <link rel="stylesheet" href="blog.css">
+    <title>Markdown Guide for Logbooking</title>
+    <link rel="stylesheet" href="./blog.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" sizes="16x16" href="/favicon-16x16.png">
     <link rel="icon" sizes="32x32" href="/favicon-32x32.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
     <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
-    <link rel="manifest" href="/site.web-manifest">
 </head>
 <body>
+
 <header>
     <nav>
-        <a class="cta-button" href="blogs.html">Return to Logbooking</a>
+        <a class="cta-button" href="blogs.html">Return to Log Book</a>
     </nav>
-    <h1>Windows Command Line: File System &amp; Navigation</h1>
+    <h1>Markdown Guide for Effective Logbooking</h1>
 </header>
 
 <main class="blog-content">
-    <!-- Introduction Section -->
-    <section class="highlight-box">
-        <h2>🏴‍☠️ Becoming a Cap10 of the Command Line: Windows File System &amp; Navigation</h2>
-        <blockquote>
-            <p><strong>Objective:</strong> Teach absolute beginners how to confidently navigate and manage files in Windows using the command line (Command Prompt and PowerShell).</p>
-        </blockquote>
-        <hr>
-    </section>
+    <p>
+        Markdown is a lightweight markup language that makes writing and formatting text easy. It’s widely used in documentation,
+        technical writing, and logbooking. Whether you're keeping track of project changes, documenting troubleshooting steps, or
+        maintaining compliance logs, Markdown helps structure information effectively.
+    </p>
 
-    <!-- Part 1: Understanding the Windows File System -->
-    <section class="highlight-box">
-        <h4>Part 1: Understanding the Windows File System</h4>
-        <p>
-            Before we dive into the command line, let’s get the <strong>big picture</strong> of how Windows organizes files.
-        </p>
-        <h4>Key Concepts:</h4>
+    <nav class="table-of-contents">
+        <h2>Table of Contents</h2>
         <ul>
-            <li><strong>Drives (C:\, D:\, etc.):</strong> Windows organizes storage into <strong>drives</strong>.</li>
-            <li><strong>Folders (Directories):</strong> These are containers inside drives—just like on your desktop.</li>
-            <li><strong>Files:</strong> Individual items stored inside folders (e.g., <code>.txt</code>, <code>.exe</code>, <code>.png</code>).</li>
-            <li><strong>Paths:</strong> A file’s <strong>location</strong> on the system (e.g., <code>C:\Users\John\Documents\report.txt</code>).</li>
+            <li><a href="#basics">1. Markdown Basics</a></li>
+            <li><a href="#headings">2. Headings and Structure</a></li>
+            <li><a href="#lists">3. Lists</a></li>
+            <li><a href="#code">4. Code Blocks and Syntax Highlighting</a></li>
+            <li><a href="#tables">5. Tables for Log Formats</a></li>
+            <li><a href="#links-images">6. Links and Images</a></li>
+            <li><a href="#industry-formats">7. Industry-Specific Log Formats</a></li>
         </ul>
-        <h4>Example Structure:</h4>
-        <pre><code>
-C:\
- ├── Users\
- │   ├── John\
- │   │   ├── Documents\
- │   │   ├── Downloads\
- │   │   ├── Desktop\
- │   │   ├── Pictures\
- ├── Program Files\
- ├── Windows\
- ├── Temp\
-            </code></pre>
-        <p>
-            ⏩ <strong>Now, let’s navigate this like a pro using the command line!</strong>
-        </p>
-        <hr>
-    </section>
+    </nav>
 
-    <!-- Part 2: Navigating the File System with CMD &amp; PowerShell -->
-    <section class="highlight-box">
-        <h4>Part 2: Navigating the File System with CMD &amp; PowerShell</h4>
-        <p>
-            First, open the <strong>Command Prompt</strong> or <strong>PowerShell</strong>:
-        </p>
-        <ul>
-            <li><strong>Command Prompt (cmd.exe):</strong> Press <code>Win + R</code>, type <code>cmd</code>, and hit <strong>Enter</strong>.</li>
-            <li><strong>PowerShell:</strong> Press <code>Win + X</code> and select <strong>Windows PowerShell</strong>.</li>
-        </ul>
+    <hr>
 
-        <!-- 1. See Your Current Location -->
-        <h4>1. See Your Current Location</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-echo %CD%
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-pwd  # Returns the current directory
-$PWD  # PowerShell object way, same result as `pwd`
-            </code></pre>
-        <p><strong>When to use:</strong> In CMD, <code>echo %CD%</code> prints the current directory, and in PowerShell, <code>pwd</code> gives the current directory. The <code>$PWD</code> object is handy for scripts and interactive use.</p>
+    <h2 id="basics">1. Markdown Basics</h2>
+    <p>
+        Markdown uses simple symbols to format text, making it easy to read and write without cluttering your content with
+        complex HTML or styling.
+    </p>
+    <pre><code>
+# Heading 1
+## Heading 2
+### Heading 3
 
-        <!-- 2. List Files and Folders -->
-        <h4>2. List Files and Folders</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-dir
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-ls
-            </code></pre>
-        <p><strong>When to use:</strong> Both commands list files in the current directory. Use <code>dir /w</code> in CMD for wide format or apply filters in PowerShell.</p>
+**Bold Text**
+*Italic Text*
+~~Strikethrough~~
+    </code></pre>
 
-        <!-- 3. Move Around (Change Directory) -->
-        <h4>3. Move Around (Change Directory)</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-cd C:\Users\John\Documents  # Move to Documents folder
-cd ..                       # Move up one level
-cd /d D:\Projects           # Switch to another drive
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-cd C:\Users\John\Documents  # Move to Documents folder
-cd ..                       # Move up one level
-cd /d D:\Projects           # Switch to another drive (works like CMD)
-Set-Location C:\Users\John  # Alternative PowerShell cmdlet
-            </code></pre>
-        <p><strong>When to use:</strong> Use <code>cd</code> in CMD and PowerShell; for clearer scripts in PowerShell, consider <code>Set-Location</code>.</p>
+    <hr>
 
-        <!-- 4. Create New Folders -->
-        <h4>4. Create New Folders</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-mkdir MyFolder
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-mkdir MyFolder
-New-Item MyFolder -ItemType Directory  # Alternative in PowerShell
-            </code></pre>
-        <p><strong>When to use:</strong> Both approaches create directories; PowerShell’s <code>New-Item</code> provides extra control when needed.</p>
+    <h2 id="headings">2. Headings and Structure</h2>
+    <p>
+        Use headings to structure your logbook entries. Markdown supports six levels of headings, with <code>#</code> being the largest and
+        <code>######</code> the smallest.
+    </p>
+    <pre><code>
+# Project Log - January 2025
+## Task Breakdown
+### Subtask 1: Initial Setup
+    </code></pre>
 
-        <!-- 5. Create Files -->
-        <h4>5. Create Files</h4>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-New-Item myfile.txt -ItemType File
-            </code></pre>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-echo "Hello World" > myfile.txt
-            </code></pre>
-        <p><strong>When to use:</strong> PowerShell’s <code>New-Item</code> is ideal for scripted workflows, while CMD’s redirection is great for quick file creation.</p>
+    <hr>
 
-        <!-- 6. Delete Files and Folders -->
-        <h4>6. Delete Files and Folders</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-del myfile.txt
-rmdir MyFolder
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-Remove-Item myfile.txt
-Remove-Item MyFolder -Recurse
-            </code></pre>
-        <p><strong>When to use:</strong> CMD uses <code>del</code> and <code>rmdir</code>, while PowerShell’s <code>Remove-Item</code> can handle both files and folders with additional options.</p>
+    <h2 id="lists">3. Lists</h2>
+    <p>Organize your notes efficiently with ordered and unordered lists.</p>
+    <h3>Unordered List:</h3>
+    <pre><code>
+- Bullet point
+- Another point
+    </code></pre>
+    <h3>Ordered List:</h3>
+    <pre><code>
+1. Step one
+2. Step two
+    </code></pre>
 
-        <!-- 7. Copy and Move Files -->
-        <h4>7. Copy and Move Files</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-copy myfile.txt C:\Backup\
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-Move-Item myfile.txt C:\Backup\
-Copy-Item myfile.txt C:\Backup\
-            </code></pre>
-        <p><strong>When to use:</strong> Use CMD’s <code>copy</code> or PowerShell’s <code>Copy-Item</code> and <code>Move-Item</code> for file operations with added flexibility.</p>
-        <hr>
-    </section>
+    <hr>
 
-    <!-- Part 3: Intermediate Command Line Power Moves -->
-    <section class="highlight-box">
-        <h3>Part 3: Intermediate Command Line Power Moves</h3>
-        <p>Once comfortable, let's move to more <strong>intermediate</strong> commands.</p>
+    <h2 id="code">4. Code Blocks and Syntax Highlighting</h2>
+    <p>For technical logbooks, including code snippets is essential.</p>
+    <pre><code>
+```python
+print("Hello, World!")
+```
+    </code></pre>
 
-        <!-- 1. Open Programs -->
-        <h4>1. Open Programs</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-start notepad.exe
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-start notepad.exe
-            </code></pre>
+    <hr>
 
-        <!-- 2. Check Your Disk Space -->
-        <h4>2. Check Your Disk Space</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-wmic logicaldisk get size,freespace,caption
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-Get-PSDrive
-            </code></pre>
+    <h2 id="tables">5. Tables for Log Formats</h2>
+    <p>Tables make structured logging easy. Below is an example of a project log table.</p>
+    <pre><code>
+| Date       | Task            | Status  |
+|------------|---------------|---------|
+| 2025-02-01 | Setup Database | Done    |
+| 2025-02-02 | Develop API    | In Progress |
+    </code></pre>
 
-        <!-- 3. Find Files Containing Specific Text -->
-        <h4>3. Find Files Containing Specific Text</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-findstr "error" log.txt
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-Select-String -Path log.txt -Pattern "error"
-            </code></pre>
+    <hr>
 
-        <!-- 4. Copy Multiple Files at Once -->
-        <h4>4. Copy Multiple Files at Once</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-copy *.txt C:\Backup\
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-Copy-Item *.txt -Destination C:\Backup\
-            </code></pre>
+    <h2 id="links-images">6. Links and Images</h2>
+    <p>Markdown allows adding links and images easily.</p>
+    <pre><code>
+[GitHub](https://github.com)
 
-        <!-- 5. Clean Up Temp Files -->
-        <h4>5. Clean Up Temp Files</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-del /q C:\Users\%USERNAME%\AppData\Local\Temp\*
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-Remove-Item "$env:LOCALAPPDATA\Temp\*" -Force -Recurse
-            </code></pre>
-        <hr>
-    </section>
+![Sample Image](https://via.placeholder.com/150)
+    </code></pre>
 
-    <!-- Final Challenge Section -->
-    <section class="highlight-box">
-        <h3>Final Challenge: Prove Your Command Line Captaincy</h3>
-        <p>Try these:</p>
-        <ul>
-            <li><strong>Create</strong> a new folder called <code>Projects</code> inside <code>Documents</code>.</li>
-            <li><strong>Create</strong> a file called <code>readme.txt</code> inside <code>Projects</code> and write "Hello, Cap10!" inside it.</li>
-            <li><strong>Rename</strong> the file to <code>info.txt</code>.</li>
-            <li><strong>Move</strong> <code>info.txt</code> to the <code>Desktop</code>.</li>
-            <li><strong>Delete</strong> <code>info.txt</code> from the <code>Desktop</code>.</li>
-            <li><strong>List</strong> all <code>.txt</code> files in your <code>C:\Users\YourName\Documents\</code> folder.</li>
-        </ul>
-        <p>
-            Master these, and you're a Cap10 of the Command Line! 🏴‍☠️
-        </p>
-        <p>
-            Would you like a <strong>cheat sheet</strong> with all these commands for quick reference? 🚀
-        </p>
-    </section>
+    <hr>
 
-    <!-- Expanded Section: Key File Locations & Tools -->
-    <section class="highlight-box">
-        <h3>Key File Locations &amp; Tools Available in the CLI</h3>
-        <p>Now that you've learned how to navigate and manage files in the command line, it's important to understand where to find key system files and the tools you have access to in the CLI. Here's a breakdown of the most commonly used directories and utilities that will be helpful when you're working with files in Windows:</p>
+    <h2 id="industry-formats">7. Industry-Specific Log Formats</h2>
+    <p>
+        Different industries have their own logging requirements. Here are some Markdown adaptations for specific fields:
+    </p>
 
-        <!-- Key File Locations -->
-        <h4>Key File Locations</h4>
-        <p>Here are some important file locations in Windows that you will frequently interact with through the command line:</p>
-        <ul>
-            <li><strong>C:\</strong> - The root directory of the system. This is where your Windows installation resides, along with important folders like <strong>Program Files</strong>, <strong>Windows</strong>, and <strong>Users</strong>.</li>
-            <li><strong>C:\Users\YourName\</strong> - Your personal user directory. This is where your documents, desktop files, and settings are stored.</li>
-            <li><strong>C:\Program Files (x86)\</strong> - Contains installed programs (32-bit applications are usually stored here, while 64-bit apps are in <strong>C:\Program Files\</strong>).</li>
-            <li><strong>C:\Windows\</strong> - The system directory containing all operating system files. Handle with care.</li>
-            <li><strong>C:\Temp\</strong> - A folder for temporary files. Regular cleanup can free up space.</li>
-            <li><strong>C:\ProgramData\</strong> - Stores application data shared between users (this folder is hidden by default).</li>
-            <li><strong>C:\Users\YourName\AppData\</strong> - A hidden folder where applications store user-specific data like settings and cache.</li>
-        </ul>
-        <p><strong>Note:</strong> Use the <code>cd</code> command with these paths (e.g., <code>cd C:\Users\YourName\</code>) to quickly navigate.</p>
+    <h3>Software Development Logs</h3>
+    <pre><code>
+# Debugging Log - [Project Name]
+**Issue:** Application crashes on startup
+**Date:** 2025-02-01
+**Steps Taken:**
+- Checked error logs
+- Identified missing dependency
+**Resolution:** Installed missing package
+    </code></pre>
 
-        <!-- Essential Command Line Tools -->
-        <h4>Essential Command Line Tools</h4>
-        <p>Here are some useful tools and utilities available in the Windows command line:</p>
-        <ul>
-            <li><strong>dir</strong> - Lists the contents of a directory. Use <code>dir /s</code> or <code>dir /b</code> for additional formats.</li>
-            <li><strong>cd</strong> - Changes the current directory.</li>
-            <li><strong>mkdir</strong> - Creates a new directory.</li>
-            <li><strong>del</strong> - Deletes files (use <code>del /f</code> for force deletion).</li>
-            <li><strong>copy</strong> - Copies files from one location to another.</li>
-            <li><strong>move</strong> - Moves files from one location to another.</li>
-            <li><strong>xcopy</strong> - Copies entire directories including subdirectories.</li>
-            <li><strong>robocopy</strong> - An advanced tool for copying files with options for resuming and network copying.</li>
-            <li><strong>findstr</strong> - Searches for text within files (similar to Linux's grep).</li>
-            <li><strong>choco</strong> - The Chocolatey package manager for installing or updating software.</li>
-            <li><strong>wmic</strong> - Retrieves system information, such as disk usage.</li>
-            <li><strong>tasklist</strong> - Displays all running processes.</li>
-            <li><strong>taskkill</strong> - Terminates a running process by name or PID.</li>
-        </ul>
-        <p><strong>Note:</strong> Most tools work in both CMD and PowerShell, though PowerShell cmdlets may offer extra features.</p>
+    <h3>IT Operations Log</h3>
+    <pre><code>
+# Server Maintenance Log
+**Date:** 2025-02-01
+**Server:** WebServer01
+**Actions Taken:**
+- Updated security patches
+- Restarted services
+- Verified connectivity
+    </code></pre>
 
-        <!-- File Path Environment Variables -->
-        <h4>File Path Environment Variables</h4>
-        <p>Environment variables let you access common directories without typing full paths. Examples include:</p>
-        <ul>
-            <li><strong>%USERPROFILE%</strong> - Your personal user directory (<code>C:\Users\YourName\</code>).</li>
-            <li><strong>%APPDATA%</strong> - Application settings directory (<code>C:\Users\YourName\AppData\Roaming\</code>).</li>
-            <li><strong>%TEMP%</strong> - Temporary files directory (<code>C:\Users\YourName\AppData\Local\Temp</code>).</li>
-            <li><strong>%PROGRAMFILES%</strong> - Directory for installed programs (<code>C:\Program Files</code>).</li>
-            <li><strong>%WINDIR%</strong> - Windows system directory (<code>C:\Windows</code>).</li>
-        </ul>
-        <p>Using these variables (e.g., <code>cd %TEMP%</code>) can save you time.</p>
-    </section>
+    <h3>Manufacturing Log</h3>
+    <pre><code>
+# Machine Performance Log
+**Machine ID:** CNC-204
+**Date:** 2025-02-01
+**Observations:**
+- Temperature within normal range
+- Minor vibration detected
+**Next Steps:** Schedule preventive maintenance
+    </code></pre>
+
+    <p>
+        Using Markdown for logbooking makes it easy to maintain structured, clear, and efficient logs across various industries.
+        Whether you’re a developer, IT professional, or engineer, Markdown can help keep your records streamlined and readable.
+    </p>
+
+    <hr>
+
 </main>
 
-<footer class="highlight-box">
-    <p>&copy; 2025 Cap10Bill. All rights reserved.</p>
-</footer>
-
-<script src="blog.js"></script>
+<script src="../blog.js"></script>
 </body>
 </html>
