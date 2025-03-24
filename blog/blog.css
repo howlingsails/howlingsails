@@ -7,18 +7,15 @@
 
 /* Root Variables */
 :root {
-    /* Slightly lighter dark background */
-    --bg-dark: #181a1f;          /* was #181a1f */
-    --bg-panel: #20252c;         /* was #20252c */
-    --border-color: #454c54;     /* was #3a4048 */
+    --bg-dark: #181a1f;
+    --bg-panel: #20252c;
+    --border-color: #454c54;
 
-    /* Softer neon green so it's less harsh on the eyes */
-    --neon-green: #40c000;       /* was #5CDC00 */
+    --neon-green: #40c000;
     --neon-blue: #36c2c2;
     --neon-yellow: #dfc700;
 
-    /* Lighten the primary text color slightly */
-    --text-primary: #d3d9df;     /* was #c9d1d9 */
+    --text-primary: #d3d9df;
     --text-highlight: #ffffff;
 }
 
@@ -83,9 +80,9 @@ header h1 {
    just controls width and vertical spacing. */
 main.blog-content {
     max-width: 900px;
-    margin: 0 auto 20px auto;
+    margin:  auto 20px auto;
     /* Remove background/border/shadow so main isn't one giant box */
-    padding: 0; /* We'll let each section control its own padding */
+    padding: 20px; /* We'll let each section control its own padding */
 }
 
 /* "Highlight Box" for sections you want to stand out */
