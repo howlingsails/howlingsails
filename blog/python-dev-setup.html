@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!-- FilePath: blog/python-dev-setup.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cap10.tech: Mac Command Line: File System &amp; Navigation</title>
+    <link rel="stylesheet" href="./blog.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="manifest" href="/site.web-manifest">
+</head><body>
+<header>
+    <nav>
+        <a class="cta-button" href="blogs.html">Return to Logbooking</a>
+    </nav>
+    <h1>🏴‍☠️ Python Dev Setup & Environments</h1>
+</header>
+
+<main class="blog-content container">
+    <!-- Introduction -->
+    <section id="intro" class="highlight-box">
+        <h2>Raising Python Sails: Human Reasons to Get It Right</h2>
+        <blockquote>
+            <p><strong>Objective:</strong> Walk through installing and managing Python so that your code runs smoothly—no more mystery errors or “but it worked yesterday” headaches.</p>
+        </blockquote>
+        <p>Imagine you're preparing for a long voyage. You wouldn’t set sail with a leaky hull or mismatched sails, right? Your Python environment is the hull of your project—it needs to be solid. Get your setup wrong, and you’ll spend more time fixing environment snafus than writing code. In this guide, we’ll cover not just the commands, but the conversational reasoning behind each choice—so you feel confident the next time you share your code or deploy to production.</p>
+        <hr>
+        <figure style="max-width: 121px; align: center;">
+
+            <img src="../images/robot/robot-cli-python-venv-conda.png" style="max-width: 342px " alt="Robot at CLI working with python, venv, and conda"/>
+        </figure>
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="table-of-contents highlight-box">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#install-python">1. Installing Python: Protect the System</a></li>
+            <li><a href="#global-vs-venv">2. The Hidden Risks of Global Installs</a></li>
+            <li><a href="#venv-setup">3. Mastering <code>venv</code>: Your Project’s Safe Harbor</a></li>
+            <li><a href="#conda-setup">4. Embrace Conda for Complex Stacks</a></li>
+            <li><a href="#libraries">5. Dependency Management & Lock Files</a></li>
+            <li><a href="#pipx-poetry">6. pipx & Poetry: Modern Tooling</a></li>
+            <li><a href="#running-scripts">7. Cloning & Running Code from GitHub</a></li>
+            <li><a href="#reset-environment">8. Cleaning Up: Fresh Starts</a></li>
+        </ul>
+    </nav>
+
+    <!-- Part 1 -->
+    <section id="install-python" class="highlight-box">
+        <h2>1. Installing Python: Protect the System</h2>
+        <p>You rely on macOS tools every day—scripts behind the scenes power Finder, Spotlight, and more. Overwriting the system Python can break these tools without warning. By installing a separate Python via Homebrew or <code>pyenv</code>, you create a sandbox where you can experiment without risking your OS stability. It’s like building a workshop next to your house instead of tearing down the house walls to make improvements.</p>
+        <pre><code class="language-bash">brew install python
+# For multiple versions:
+brew install pyenv
+pyenv install 3.10.4
+pyenv global 3.10.4</code></pre>
+        <p>Now, when you type <code>python3</code>, you’re using your curated interpreter, leaving the OS tools untouched. Feel the peace of mind knowing system scripts continue running smoothly.</p>
+        <hr>
+    </section>
+
+    <!-- Part 2 -->
+    <section id="global-vs-venv" class="highlight-box">
+        <h2>2. The Hidden Risks of Global Installs</h2>
+        <p>Maybe you’ve run <code>pip install requests</code> and thought, “Great, HTTP calls work.” But months later, another project needs an older version of <code>requests</code>. Suddenly your first project throws errors. Or you find yourself repeatedly using <code>sudo pip install</code> and worrying whether you’re trashing system files. These pain points derail productivity and breed frustration.</p>
+        <p>Rather than wrestling with conflicting versions or permissions, you can isolate each project. That way, one project’s library bumps don’t cascade into another’s failures. It’s the equivalent of having separate toolboxes—no cross-contamination.</p>
+        <hr>
+    </section>
+
+    <!-- Part 3 -->
+    <section id="venv-setup" class="highlight-box">
+        <h2>3. Mastering <code>venv</code>: Your Project’s Safe Harbor</h2>
+        <p>A <code>venv</code> is like your personal dock: it keeps everything contained. Create one, and pip installs go inside that dock—not your global system. You can tear it down and rebuild it in seconds, restoring a clean state when experiments get messy.</p>
+        <pre><code class="language-bash">python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip</code></pre>
+        <p>Inside, install only the packages your project needs. When your coworker clones your repo, they run <code>pip install -r requirements.txt</code> and get the exact setup you tested. No second-guessing, no “it works on my machine” excuses. That’s the confidence boost that keeps your team sailing smoothly.</p>
+        <hr>
+    </section>
+
+    <!-- Part 4 -->
+    <section id="conda-setup" class="highlight-box">
+        <h2>4. Embrace Conda for Complex Stacks</h2>
+        <p>Some Python projects lean on numerical libraries compiled in C or Fortran. Trying to pip-install these can start a long compile process or fail altogether. Conda steps in like a seasoned crew, delivering pre-built binaries for <code>numpy</code>, <code>pandas</code>, and more, ready to go.</p>
+        <pre><code class="language-bash">brew install --cask miniconda
+conda init zsh
+conda create -n cap10-py python=3.10 numpy pandas scipy
+conda activate cap10-py</code></pre>
+        <p>Now you’ve got a predictable, cross-platform environment. Share <code>environment.yml</code>, and teammates or CI pipelines recreate the same environment in minutes. No more hunting build logs when a library fails to compile on someone else’s machine.</p>
+        <hr>
+    </section>
+
+    <!-- Part 5 -->
+    <section id="libraries" class="highlight-box">
+        <h2>5. Dependency Management & Lock Files</h2>
+        <p>Think of dependencies as cargo. You need an accurate manifest so you know exactly what’s on board. Lock files—<code>requirements.txt</code> for venv or <code>environment.yml</code> for Conda—are that manifest. They prevent surprise version bumps when you or your CI run installs months later.</p>
+        <ul>
+            <li>Generate with <code>pip freeze &gt; requirements.txt</code> or <code>conda env export &gt; environment.yml</code>.</li>
+            <li>Commit the lock file to version control so every rebuild uses the same versions.</li>
+        </ul>
+        <p>When you need a library, check the lock file first to verify compatibility. It’s the difference between arriving at port on schedule and discovering a missing sail.</p>
+        <hr>
+    </section>
+
+    <!-- Part 6 -->
+    <section id="pipx-poetry" class="highlight-box">
+        <h2>6. pipx & Poetry: Modern Tooling</h2>
+        <p>Over time, you collect global CLI tools—linters, formatters, test runners. pipx installs these in isolated environments, so they never conflict with project deps or each other.</p>
+        <pre><code class="language-bash">brew install pipx
+pipx ensurepath
+pipx install black click</code></pre>
+        <p>Poetry, on the other hand, is your all-in-one project manager. It creates a clean project structure, resolves dependencies intelligently, and writes lock files automatically. Forget juggling requirements and setup scripts—Poetry streamlines the process so you can focus on code.</p>
+        <pre><code class="language-bash">curl -sSL https://install.python-poetry.org | python3 -
+poetry new my-project
+cd my-project
+poetry add requests pandas
+poetry shell</code></pre>
+        <p>Your embrace of Poetry means your team never wonders which version to install. It also comes with built-in version bump and publishing commands—treat it as your project’s quartermaster.</p>
+        <hr>
+    </section>
+
+    <!-- Part 7 -->
+    <section id="running-scripts" class="highlight-box">
+        <h2>7. Cloning & Running Code from GitHub</h2>
+        <p>You find an awesome data analysis script on GitHub. How do you avoid turning it into a gremlin-laden nightmare? Follow these steps and you’ll go from clone to insights without tears.</p>
+        <pre><code class="language-bash">git clone https://github.com/username/repo.git
+cd repo
+
+# For venv
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python main.py
+
+# Or with Conda
+conda env create -f environment.yml
+conda activate repo-env
+python main.py</code></pre>
+        <p>Always read the project’s README first—it often contains environment tips. Use <code>--help</code> flags to discover available options. By following this ritual, you avoid the frustration of missing dependencies or mismatched versions.</p>
+        <hr>
+    </section>
+
+    <!-- Part 8 -->
+    <section id="reset-environment" class="highlight-box">
+        <h2>8. Cleaning Up: Fresh Starts</h2>
+        <p>Sometimes you need to burn it all down and start fresh—especially after chasing dependency ghosts. Here’s how to reset:</p>
+        <ul>
+            <li><strong>Remove venv:</strong> <code>rm -rf .venv</code> erases the project’s environment completely.</li>
+            <li><strong>Delete Conda env:</strong> <code>conda remove -n cap10-py --all</code> wipes the named environment.</li>
+            <li><strong>Clear caches:</strong> <code>pip cache purge</code> and <code>conda clean --all</code> free up space and remove stale files.</li>
+        </ul>
+        <p>Then rebuild your environment from the lock file. This resets hidden issues and ensures a predictable environment every time. It’s the emotional equivalent of a deep ocean cleanse—fresh, clear, and ready for your next voyage.</p>
+        <hr>
+    </section>
+
+    <!-- Conclusion -->
+    <section id="conclusion" class="highlight-box">
+        <h2>Conclusion & Next Steps</h2>
+        <p>Setting up Python environments thoughtfully is the unsung hero behind every reliable script and scalable application. You’ve learned to protect system Python, isolate projects, manage complex dependencies, and recover from disasters. Next, we’ll chart courses through debugging, performance tuning, and deploying containerized Python apps. Until then; sail confidently, your environment is now shipshape!</p>
+    </section>
+</main>
+
+<footer class="highlight-box">
+    <p>&copy; 2025 cap10bill. All rights reserved.</p>
+</footer>
+<script src="./blog.js"></script>
+</body>
+</html>

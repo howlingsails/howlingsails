@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!-- FilePath: blog/homebrew-dev-setup.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cap10.tech: Mac Command Line: File System &amp; Navigation</title>
+    <link rel="stylesheet" href="./blog.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="manifest" href="/site.web-manifest">
+</head>
+<body>
+<header>
+    <nav>
+        <a class="cta-button" href="blogs.html">Return to Logbooking</a>
+    </nav>
+    <h1>Homebrew & Developer Tools Setup</h1>
+</header>
+
+<main class="blog-content container">
+    <!-- Introduction -->
+    <section id="intro" class="highlight-box">
+        <h2>Setting Sail with Homebrew</h2>
+        <blockquote>
+            <p><strong>Objective:</strong> Guide captains through installing Homebrew, essential IDEs, runtimes, window managers, and the top 100 tools for Big Data development on macOS.</p>
+        </blockquote>
+        <hr>
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="table-of-contents highlight-box">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#install-brew">1. Installing Homebrew</a></li>
+            <li><a href="#ide-window">2. IDEs & Window Control</a></li>
+            <li><a href="#runtimes">3. Languages & Package Managers</a></li>
+            <li><a href="#top-tools">4. Top 100 Big Data & Dev Tools</a></li>
+        </ul>
+    </nav>
+
+    <!-- Part 1 -->
+    <section id="install-brew" class="highlight-box">
+        <h2>1. Installing Homebrew</h2>
+        <p>Homebrew is the captain’s toolkit for macOS package management. To install:</p>
+        <pre><code class="language-bash">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+        <p>Verify with <code>brew --version</code>. Once installed, brew lives in <code>/usr/local/bin</code> (Intel) or <code>/opt/homebrew/bin</code> (Apple Silicon). Hoist the mainsail!</p>
+        <hr>
+    </section>
+
+    <!-- Part 2 -->
+    <section id="ide-window" class="highlight-box">
+        <h2>2. IDEs & Window Control</h2>
+        <p>Install your code islands and window manager:</p>
+        <ul>
+            <li><strong>Visual Studio Code</strong>: <code>brew install --cask visual-studio-code</code> – A lightweight, extendable editor; use when you need rapid iteration and integrated terminal.</li>
+            <li><strong>IntelliJ IDEA Community</strong>: <code>brew install --cask intellij-idea-ce</code> – Powerful Java IDE; ideal for JVM and Kotlin voyages.</li>
+            <li><strong>PyCharm Community</strong>: <code>brew install --cask pycharm-ce</code> – Pythonista’s preferred deck; excellent code navigation and debugging.</li>
+            <li><strong>Rectangle</strong>: <code>brew install --cask rectangle</code> – Window snapping in quadrants and halves; keeps your workspace tidy like neatly furled sails.</li>
+        </ul>
+        <hr>
+    </section>
+
+    <!-- Part 3 -->
+    <section id="runtimes" class="highlight-box">
+        <h2>3. Languages & Package Managers</h2>
+        <p>Load the engines that power your applications:</p>
+        <ul>
+            <li><strong>Python 3</strong>: <code>brew install python</code> – For data scripts and AI experiments; check with <code>python3 --version</code>.</li>
+            <li><strong>Node.js & npm</strong>: <code>brew install node</code> – JavaScript runtime for web tooling; <code>npm</code> powers package installations and <code>npx</code> runs binaries without global install.</li>
+            <li><strong>OpenJDK</strong>: <code>brew install openjdk</code> – Java 11+ runtime and <code>javac</code> compiler; essential for Hadoop and Spark.</li>
+            <li><strong>Maven</strong>: <code>brew install maven</code> – Build automation for Java projects; use when orchestrating multi-module builds.</li>
+            <li><strong>Gradle</strong>: <code>brew install gradle</code> – Flexible build tool; ideal for modern JVM and Android builds.</li>
+        </ul>
+        <hr>
+    </section>
+
+    <!-- Part 4 -->
+    <section id="top-tools" class="highlight-box">
+        <h2>4. Top 100 Big Data & Dev Tools</h2>
+        <p>Equip your ship with these utilities. Install many with <code>brew install</code> or <code>brew install --cask</code>. Below you'll find when to use each category and the emotions you’ll feel when they save your day.</p>
+
+        <h3>Core Utilities</h3>
+        <p>These are your daily compass—always within reach:</p>
+        <ul>
+            <li><strong>git</strong>: Version control; crucial when collaborating under stormy timelines.</li>
+            <li><strong>curl</strong>: Fetch HTTP resources; instant gratification when testing APIs.</li>
+            <li><strong>wget</strong>: Download files recursively; calm reassurance when mirrors fail.</li>
+            <li><strong>htop</strong>: Interactive process viewer; clarity amidst resource chaos.</li>
+            <li><strong>jq</strong>: JSON processor; serenity when parsing nested data.</li>
+            <li><strong>tmux</strong>: Terminal multiplexer; empowerment when juggling sessions.</li>
+            <li><strong>zsh / fish</strong>: Modern shells; joy of autocompletion magic.</li>
+            <li><strong>tree</strong>: Visual directory tree; satisfaction of structural overview.</li>
+            <li><strong>grep / ripgrep</strong>: Search text fast; relief when locating elusive strings.</li>
+            <li><strong>fzf</strong>: Fuzzy finder; delight in lightning file searches.</li>
+            <li><strong>bat / exa</strong>: Enhanced <code>cat</code> & <code>ls</code>; aesthetic pride in colorful output.</li>
+            <li><strong>fd</strong>: Intuitive find; confidence in quick lookups.</li>
+            <li><strong>watch</strong>: Periodic command runner; anticipation as data updates live.</li>
+            <li><strong>httpie</strong>: Friendly HTTP client; empowerment testing REST endpoints.</li>
+            <li><strong>iperf3</strong>: Network throughput tests; assurance in bandwidth peeking.</li>
+        </ul>
+
+        <h3>Containers & Orchestration</h3>
+        <p>When isolating environments or scaling your fleet:</p>
+        <ul>
+            <li><strong>docker / docker-compose</strong>: Containerization; relief when dependencies disappear.</li>
+            <li><strong>podman</strong>: Daemonless containers; contentment in rootless security.</li>
+            <li><strong>kubectl</strong>: Kubernetes CLI; power of cluster command in one tool.</li>
+            <li><strong>minikube / kind</strong>: Local K8s clusters; joy of testing manifests offline.</li>
+            <li><strong>helm</strong>: Package manager for K8s; organization amid chart chaos.</li>
+            <li><strong>skaffold / tilt</strong>: Dev loops for K8s; satisfaction of instant code reloads.</li>
+            <li><strong>riff</strong>: Serverless on K8s; excitement of event-driven functions.</li>
+        </ul>
+
+        <h3>Cloud & Infrastructure</h3>
+        <p>When your ship sails the cloud seas:</p>
+        <ul>
+            <li><strong>awscli / azure-cli / gcloud</strong>: Cloud SDKs; confidence managing resources remotely.</li>
+            <li><strong>terraform</strong>: Infrastructure as code; joy constructing reproducible stacks.</li>
+            <li><strong>packer</strong>: Image builder; pride in golden machine artifacts.</li>
+            <li><strong>ansible / vault</strong>: Configuration & secrets; tranquility in automated provisioning.</li>
+            <li><strong>consul / nomad</strong>: Service mesh & scheduler; assurance in service discovery.</li>
+        </ul>
+
+        <h3>Big Data Frameworks</h3>
+        <p>When processing oceans of data:</p>
+        <ul>
+            <li><strong>hadoop / spark</strong>: Batch & in-memory computing; exhilaration under heavy workloads.</li>
+            <li><strong>kafka / zookeeper</strong>: Event streaming; confidence in real-time pipelines.</li>
+            <li><strong>cassandra / elasticsearch</strong>: NoSQL & search; relief when data volumes surge.</li>
+            <li><strong>kibana / logstash</strong>: Visualization & ingestion; clarity from raw logs.</li>
+            <li><strong>flink / airflow</strong>: Stream & workflow orchestration; satisfaction in automated DAGs.</li>
+        </ul>
+
+        <h3>Databases</h3>
+        <p>Where your ship’s manifests rest:</p>
+        <ul>
+            <li><strong>postgresql / mysql</strong>: Relational staples; stability for transactional needs.</li>
+            <li><strong>mongodb</strong>: Document store; flexibility when schemas evolve.</li>
+            <li><strong>redis</strong>: In-memory cache; exhilaration in sub-millisecond lookups.</li>
+            <li><strong>mariadb / cockroachdb</strong>: Scalable SQL; resilience under node failures.</li>
+            <li><strong>influxdb / timescaledb</strong>: Time-series; precision in metrics over time.</li>
+            <li><strong>prometheus / grafana</strong>: Monitoring & dashboards; comfort in real-time health views.</li>
+        </ul>
+
+        <h3>Development & Build Tools</h3>
+        <p>Compiling and packaging your sails:</p>
+        <ul>
+            <li><strong>gradle / maven / ant</strong>: Java builds; confidence in predictable outputs.</li>
+            <li><strong>bazel</strong>: Large-scale builds; pride in superfast caching.</li>
+            <li><strong>sbt / leiningen</strong>: Scala/Clojure; joy in REPL-driven dev.</li>
+            <li><strong>go / rust</strong>: Compiled languages; thrill in zero-cost abstractions.</li>
+            <li><strong>gcc / llvm</strong>: C/C++ compilers; power when optimizing binaries.</li>
+        </ul>
+
+        <h3>Networking & Security</h3>
+        <p>Guarding your vessel’s perimeter:</p>
+        <ul>
+            <li><strong>nmap</strong>: Port scanning; vigilance in open port discovery.</li>
+            <li><strong>sshuttle / tmate</strong>: Secure tunnels; relief in remote troubleshooting.</li>
+            <li><strong>openssl / gpg</strong>: Encryption; peace of mind in data privacy.</li>
+            <li><strong>wireguard-tools</strong>: VPN setup; assurance in lightweight security.</li>
+            <li><strong>tshark / zgrab2</strong>: Packet capture & banner grabs; insight in network forensics.</li>
+            <li><strong>ssmtp / curlie</strong>: Mail & HTTP clients; quick checks of endpoints.</li>
+        </ul>
+
+        <h3>Monitoring & Logging</h3>
+        <p>Keeping watch on every voyage:</p>
+        <ul>
+            <li><strong>glances</strong>: System overview; comfort in full-stack metrics at glance.</li>
+            <li><strong>telegraf / fluent-bit</strong>: Metric & log collectors; satisfaction in unified telemetry.</li>
+            <li><strong>loki / promtail</strong>: Log aggregation; calm when logs stream seamlessly.</li>
+            <li><strong>vector / loki</strong>: Event pipelines; reliability in log transformations.</li>
+            <li><strong>netdata / collectd</strong>: Real-time charts; delight in live performance dashboards.</li>
+        </ul>
+
+        <h3>Productivity & Misc</h3>
+        <p>Small tools, big impact:</p>
+        <ul>
+            <li><strong>rectangle / iterm2</strong>: Window and terminal enhancements; zest in lightning navigation.</li>
+            <li><strong>alfred / karabiner-elements</strong>: Workflow boosters; joy in bespoke shortcuts.</li>
+            <li><strong>mas</strong>: App Store CLI; convenience installing App Store apps.</li>
+            <li><strong>hub / gh</strong>: GitHub CLI; pride in pull request mastery.</li>
+            <li><strong>tldr</strong>: Simplified man pages; relief when manuals overwhelm.</li>
+        </ul>
+
+        <p>To install all at once, script your arsenal:</p>
+        <pre><code class="language-bash">brew install git curl wget htop jq tmux zsh fish tree grep sed awk fzf ripgrep bat exa fd watch httpie iperf3 \
+  docker docker-compose podman kubectl minikube helm skaffold tilt kind riff \
+  awscli azure-cli google-cloud-sdk terraform packer ansible vault consul nomad \
+  hadoop spark kafka zookeeper cassandra elasticsearch kibana logstash flink airflow \
+  postgresql mysql mongodb-community redis mariadb cockroachdb influxdb prometheus grafana timescaledb \
+  gradle maven ant bazel sbt leiningen go rust gcc llvm \
+  nmap sshuttle tmate openssl gpg wireguard-tools tshark zgrab2 ssmtp curlie \
+  glances telegraf fluent-bit loki promtail vector netdata collectd \
+  rectangle iterm2 alfred karabiner-elements mas hub gh tldr</code></pre>
+
+        <p>Customize as your voyage demands. These 100 tools lay the foundation for any Big Data expedition on macOS. Fair winds, and may your brew always pour true!</p>
+    </section>
+</main>
+
+<footer class="highlight-box">
+    <p>&copy; 2025 cap10bill. All rights reserved.</p>
+</footer>
+<script src="./blog.js"></script>
+</body>
+</html>
