@@ -13,37 +13,43 @@
     <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
 </head>
 <body>
+<main>
 
-<header>
-    <nav>
-        <a class="cta-button" href="blogs.html">Return to Log Book</a>
-    </nav>
-    <h1>Markdown Guide for Effective Logbooking</h1>
-</header>
-
-<main class="blog-content">
-    <p>
+    <section class="highlight-box">
+        <header class="site-header">
+            <div class="header-branding">
+                <a href="blogs.html" class="logo-link">
+                    <img src="/images/neon/neon-logbook.png" alt="Return to logbook library" class="header-logo"/>
+                </a>
+                <div class="header-text">
+                    <h1>Markdown Guide for Effective Logbooking</h1>
+                    <h3>Scan the cap10.tech armada’s bookshelf</h3>
+                </div>
+            </div>
+        </header>
+    <p class="highlight-box">
         Markdown is a lightweight markup language that makes writing and formatting text easy. It’s widely used in documentation,
         technical writing, and logbooking. Whether you're keeping track of project changes, documenting troubleshooting steps, or
         maintaining compliance logs, Markdown helps structure information effectively.
     </p>
+        <nav class="table-of-contents highlight-box">
+            <section>
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li><a href="#basics">1. Markdown Basics</a></li>
+                    <li><a href="#headings">2. Headings and Structure</a></li>
+                    <li><a href="#lists">3. Lists</a></li>
+                    <li><a href="#code">4. Code Blocks and Syntax Highlighting</a></li>
+                    <li><a href="#tables">5. Tables for Log Formats</a></li>
+                    <li><a href="#links-images">6. Links and Images</a></li>
+                    <li><a href="#industry-formats">7. Industry-Specific Log Formats</a></li>
+                </ul>
+            </section>
+        </nav>
 
-    <nav class="table-of-contents">
-        <h2>Table of Contents</h2>
-        <ul>
-            <li><a href="#basics">1. Markdown Basics</a></li>
-            <li><a href="#headings">2. Headings and Structure</a></li>
-            <li><a href="#lists">3. Lists</a></li>
-            <li><a href="#code">4. Code Blocks and Syntax Highlighting</a></li>
-            <li><a href="#tables">5. Tables for Log Formats</a></li>
-            <li><a href="#links-images">6. Links and Images</a></li>
-            <li><a href="#industry-formats">7. Industry-Specific Log Formats</a></li>
-        </ul>
-    </nav>
 
-    <hr>
-
-    <h2 id="basics">1. Markdown Basics</h2>
+        <section id="basics" class="highlight-box">
+            <h2>Markdown Basics</h2>
     <p>
         Markdown uses simple symbols to format text, making it easy to read and write without cluttering your content with
         complex HTML or styling.
@@ -57,10 +63,9 @@
 *Italic Text*
 ~~Strikethrough~~
     </code></pre>
-
-    <hr>
-
-    <h2 id="headings">2. Headings and Structure</h2>
+        </section>
+        <section id="headings" class="highlight-box">
+            <h2>Headings and Structure</h2>
     <p>
         Use headings to structure your logbook entries. Markdown supports six levels of headings, with <code>#</code> being the largest and
         <code>######</code> the smallest.
@@ -71,9 +76,9 @@
 ### Subtask 1: Initial Setup
     </code></pre>
 
-    <hr>
-
-    <h2 id="lists">3. Lists</h2>
+        </section>
+        <section id="lists" class="highlight-box">
+            <h2>Lists</h2>
     <p>Organize your notes efficiently with ordered and unordered lists.</p>
     <h3>Unordered List:</h3>
     <pre><code>
@@ -86,9 +91,10 @@
 2. Step two
     </code></pre>
 
-    <hr>
+        </section>
+        <section id="code" class="highlight-box">
 
-    <h2 id="code">4. Code Blocks and Syntax Highlighting</h2>
+            <h2>4. Code Blocks and Syntax Highlighting</h2>
     <p>For technical logbooks, including code snippets is essential.</p>
     <pre><code>
 ```python
@@ -96,9 +102,10 @@ print("Hello, World!")
 ```
     </code></pre>
 
-    <hr>
+        </section>
+        <section id="tables" class="highlight-box">
 
-    <h2 id="tables">5. Tables for Log Formats</h2>
+            <h2>5. Tables for Log Formats</h2>
     <p>Tables make structured logging easy. Below is an example of a project log table.</p>
     <pre><code>
 | Date       | Task            | Status  |
@@ -107,9 +114,10 @@ print("Hello, World!")
 | 2025-02-02 | Develop API    | In Progress |
     </code></pre>
 
-    <hr>
+        </section>
+        <section id="links-images" class="highlight-box">
 
-    <h2 id="links-images">6. Links and Images</h2>
+            <h2>6. Links and Images</h2>
     <p>Markdown allows adding links and images easily.</p>
     <pre><code>
 [GitHub](https://github.com)
@@ -117,9 +125,10 @@ print("Hello, World!")
 ![Sample Image](https://via.placeholder.com/150)
     </code></pre>
 
-    <hr>
+        </section>
+        <section id="industry-formats" class="highlight-box">
 
-    <h2 id="industry-formats">7. Industry-Specific Log Formats</h2>
+            <h2>7. Industry-Specific Log Formats</h2>
     <p>
         Different industries have their own logging requirements. Here are some Markdown adaptations for specific fields:
     </p>
@@ -163,9 +172,11 @@ print("Hello, World!")
     </p>
 
     <hr>
+        </section>
 
 </main>
 
-<script src="../blog.js"></script>
+<script src="blog.js"></script>
+
 </body>
 </html>

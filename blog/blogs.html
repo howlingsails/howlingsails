@@ -1,34 +1,37 @@
+<!-- FilePath: blog/blogs.html -->
 <!DOCTYPE html>
-<!-- File: blog/blogs.html -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cap10's Logbooking</title>
+    <title>Logbooking Summary</title>
     <link rel="stylesheet" href="blog.css">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="icon" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
-    <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
-    <link rel="manifest" href="/site.web-manifest">
+    <link rel="icon" href="/favicon.ico">
 </head>
 <body>
+<div class="container">
+    <header class="site-header">
+        <div class="header-branding">
+            <a href="../index.html" class="logo-link">
+                <img src="/android-chrome-192x192.png" alt="cap10.tech ship icon" class="header-logo"/>
+            </a>
+            <div class="header-text">
+                <h1>Logbooks</h1>
+                <h3>Scan the cap10.tech armada’s bookshelf</h3>
+            </div>
+        </div>
+    </header>
 
-<header>
-    <nav>
-        <a class="cta-button" href="../index.html">Return to Cap10.Tech</a>
-    </nav>
-    <h1>Logbooking with Cap10.Tech</h1>
-</header>
-
-<!-- Main blog container still controls overall width & margin -->
-<main class="blog-content">
-
-    <!-- Join the Movement -->
     <section class="highlight-box repository-pitch blog-content">
-        <h2>Join the Movement</h2>
-        <h3>Free digital guide and tool box</h3>
+        <h3>Mastering Tech Logbooks</h3>
+        <p class="summary">
+            This is not a blog post — it’s a blueprint. Discover how Logbooking turns your daily dev work into long-term wisdom. Backed by psychology, packed with templates, and designed for IDEs like VS Code & IntelliJ, this guide will help you think faster, learn deeper, and never lose an insight again.
+        </p>
+        <a class="cta-button" href="tech-logbooking.html">Read the Ultimate Logbooking Guide</a>
+    </section>
+
+    <section class="highlight-box repository-pitch blog-content">
+        <h2>Document Your Growth</h2>
+        <h3>Free digital guide, valuable templates and toolbox</h3>
         <p>
             Our mission is to revolutionize the way you capture and preserve knowledge. The Cap10.Tech repository is where innovation meets discipline.
             Discover the full power of our logbooking process, access the source code, and join a community of forward-thinking tech enthusiasts.
@@ -38,86 +41,23 @@
             Visit our repository, explore the code, and be part of a future of unmatched clarity and precision.
         </p>
         <h3><a class="cta-button" href="https://github.com/cap10tech/logbooking-template" target="_blank" rel="noreferrer">
-            Get Your FREE Digital Tool Box And Guides
+            FREE Digital Toolbox and Guides on GitHub
         </a></h3>
     </section>
 
-    <!-- What Is Logbooking? -->
     <section class="highlight-box">
-        <h2><a href="tech-logbooking.html">What Is Logbooking?</a></h2>
-        <p>
-            “Logbooking” is the act of carefully documenting your work, thoughts, and insights as you progress through tasks.
-            It’s not just about note-taking—it's a disciplined method of planning, doing, and reviewing that promotes deeper
-            learning and efficiency.
-        </p>
-        <p>
-            Whether you're grappling with new commands or sailing into uncharted coding waters,
-            jotting down your experiences can help you stay afloat.
-            By reflecting on challenges and breakthroughs, you’ll chart a clearer course toward skill mastery—and help
-            your future self navigate those same waters with confidence.
-        </p>
-        <h3><a href="tech-logbooking.html" class="cta-button">Explore Tech Logbooking</a></h3>
+        <h2>Logbooking: Your Path to Mastery</h2>
+        <p>Some of our most popular logbook entries are:</p>
+        <main id="posts-container" class="posts-grid">
+            <!-- Dynamic cards injected via blog.js -->
+        </main>
     </section>
 
-    <!-- Latest Log Entries -->
-    <section class="highlight-box">
-        <h2>Latest Log Entries</h2>
+    <footer>
+        <p>&copy; 2025 Cap10Bill. All rights reserved.</p>
+    </footer>
+</div>
 
-        <article class="blog-post-listing">
-            <h3><a href="git-operational-guide.html">Git Operational Guide</a></h3>
-            <p>
-                Ready to conquer the chaotic seas of version control?
-                Our <strong>Git Operational Guide</strong> is a friendly, step-by-step introduction that
-                shows you how to clone, commit, push, and pull like a seasoned coding adventurer.
-            </p>
-            <p>
-                Say goodbye to fear of merge conflicts—this guide will have you forging new branches
-                (and alliances!) with total confidence. Perfect for beginners or anyone needing a
-                quick refresher on Git and GitHub basics.
-            </p>
-            <a class="cta-button" href="git-operational-guide.html">Open the Git Guide</a>
-        </article>
-
-        <article class="blog-post-listing">
-            <h3><a href="windows-command-line.html">Windows Command Line: File System &amp; Navigation</a></h3>
-            <p>
-                Learn to navigate and manage files in Windows using the command line with ease!
-                Our guide helps beginners understand the essentials of working with the Windows file system using both Command Prompt and PowerShell.
-            </p>
-            <p>
-                From listing files to creating directories and handling files, this guide covers it all—ensuring you confidently manage your files like a pro.
-            </p>
-            <a class="cta-button" href="windows-command-line.html">Open the Windows Command Line Guide</a>
-        </article>
-
-        <article class="blog-post-listing">
-            <h3><a href="markdown-guide.html">Markdown Guide for Effective Logbooking</a></h3>
-            <p>
-                Streamline your logbook with the power of Markdown! Learn the basics and advanced techniques to structure your logs clearly and concisely.
-            </p>
-            <p>
-                Whether you're documenting troubleshooting steps, project changes, or keeping compliance logs, this guide will help you make the most of Markdown’s simplicity and flexibility.
-            </p>
-            <a class="cta-button" href="markdown-guide.html">Open the Markdown Guide</a>
-        </article>
-
-        <article class="blog-post-listing">
-            <h3><a href="chocolatey-windows-installer.html">Complete Chocolatey Guide for Windows</a></h3>
-            <p>
-                Unlock the power of Chocolatey, the package manager for Windows, and streamline your software management process.
-                This guide covers everything from installation to troubleshooting, providing you with the tools to manage packages effortlessly.
-            </p>
-            <p>
-                Perfect for developers, system administrators, and anyone looking to automate their software management, Chocolatey helps keep your environment updated and secure with just a few commands.
-            </p>
-            <a class="cta-button" href="chocolatey-windows-installer.html">Open the Chocolatey Guide</a>
-        </article>
-    </section>
-</main>
-
-<footer>
-    <p>&copy; 2025 Cap10Bill. All rights reserved.</p>
-</footer>
-
+<script src="blog.js"></script>
 </body>
 </html>

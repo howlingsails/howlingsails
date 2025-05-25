@@ -1,13 +1,13 @@
 /* File: blog.css
    ============================
-   Terminal-Themed Blog Styles
+   Terminal-Themed Blog Styles (Updated for Full-Width & Centered Container)
    ============================
 */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
 /* Root Variables */
 :root {
-    --bg-dark: #181a1f;
+    --bg-dark: #080a0f;
     --bg-panel: #20252c;
     --border-color: #454c54;
 
@@ -19,48 +19,68 @@
     --text-highlight: #ffffff;
 }
 
+/* 1. Full-viewport reset */
+html, body {
+    background-color: var(--bg-dark);
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
+/* 2. Flex layout for sticky footer and full-height background */
 body {
-    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    flex-direction: column;
     background-color: var(--bg-dark);
     color: var(--text-primary);
-    margin: 0;
-    padding: 20px;
-    line-height: 1.8;       /* was 1.7, slightly more spacing between lines */
-    font-size: 1.42rem;     /* was 1rem, a bit larger for better readability */
+    font-family: 'JetBrains Mono', monospace;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+/* 3. Centered container for content width constraint */
+.container {
+    width: 100%;
+    max-width: 1042px;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+/* Header & Footer full-width panels */
+header,
+footer {
+    width: 100%;
+    background-color: var(--bg-panel);
+    padding: 0px;
+    margin: 0px;
+
+    align-items: left;
+
+    vertical-align: bottom;
+}
+
+/* Center nav in header */
+header nav {
+    display: flex;
+    justify-content: center;
+    padding: 13px 0;
 }
 
 /* Example: reduce heading text shadows */
 header h1 {
     color: var(--neon-green);
     margin: 0 0 8px;
-    /* Remove or reduce text-shadow for clarity */
     text-shadow: 0 0 2px var(--neon-green);
-    font-size: 2.2rem;
+    font-size: 1.42rem;
 }
 
-
-/* Header */
-header {
-    background-color: var(--bg-panel);
-    padding: 20px;
-    text-align: center;
-    border-bottom: 2px solid var(--neon-green);
-    margin-bottom: 30px;
-}
-
-header h1 {
-    color: var(--neon-green);
-    margin: 0 0 8px;
-    text-shadow: 0 0 4px var(--neon-green);
-    font-size: 2.2rem;
-}
-
-/* Navigation Button Styles (matching index.css) */
+/* Navigation Button Styles */
 .cta-button {
     display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
+    margin-top: 7px;
+    padding: 2px 3px;
     background-color: var(--neon-green);
     color: #000;
     text-decoration: none;
@@ -76,13 +96,10 @@ header h1 {
     color: var(--text-highlight);
 }
 
-/* Main Blog Container: NO neon highlight here;
-   just controls width and vertical spacing. */
+/* Main content wrapper now uses .container */
 main.blog-content {
-    max-width: 900px;
-    margin:  auto 20px auto;
-    /* Remove background/border/shadow so main isn't one giant box */
-    padding: 20px; /* We'll let each section control its own padding */
+    width: 100%;
+    padding: 20px 0;
 }
 
 /* "Highlight Box" for sections you want to stand out */
@@ -95,7 +112,7 @@ main.blog-content {
     margin-bottom: 30px;
 }
 
-/* Blog Post Listing: each article gets a smaller neon box */
+/* Blog Post Listing: smaller boxes */
 .blog-post-listing {
     background-color: var(--bg-panel);
     border: 1px solid var(--border-color);
@@ -108,14 +125,14 @@ main.blog-content {
 /* Typography */
 p {
     margin: 15px 0;
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: 0.84rem;
+    line-height: 1.2;
 }
 
 ul,
 ol {
     margin: 15px 0 15px 40px;
-    line-height: 1.7;
+    line-height: 1.2;
 }
 
 /* Headings */
@@ -128,15 +145,13 @@ h6 {
     font-family: 'JetBrains Mono', monospace;
     line-height: 1.3;
 }
-
 h2 {
     color: var(--neon-green);
     border-bottom: 1px solid var(--neon-green);
     padding-bottom: 5px;
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 7px;
 }
-
 h3 {
     color: var(--neon-blue);
     margin-top: 0;
@@ -147,7 +162,6 @@ a {
     color: var(--neon-green);
     text-decoration: none;
 }
-
 a:hover {
     color: var(--text-highlight);
 }
@@ -156,17 +170,15 @@ a:hover {
 pre {
     background-color: #2d2d2d;
     color: #f8f8f2;
-    padding: 15px;
+    padding: 7px;
     border-radius: 5px;
     overflow: auto;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 }
-
 code {
     font-family: 'JetBrains Mono', monospace;
 }
-
 .copy-button {
     position: absolute;
     top: 10px;
@@ -181,43 +193,41 @@ code {
     opacity: 0.8;
     transition: opacity 0.3s ease;
 }
-
 .copy-button:hover {
     opacity: 1;
 }
 
 /* Images */
 img {
-    width: 180px;
+    width: auto;
     height: auto;
-    float: left;
+    /*float: left;*/
+    background: var(--bg-panel);
     margin: 0 20px 20px 0;
-    border-radius: 50%;
-    border: 2px solid var(--neon-green);
+
+
 }
 
-/* Footer */
+/* Footer styling */
 footer {
     text-align: center;
-    padding: 20px;
     background-color: var(--bg-panel);
     color: var(--text-primary);
     border-top: 2px solid var(--neon-green);
-    margin-top: 30px;
+    padding: 20px 0;
+    margin-top: auto;
 }
 
-/* Scrollbar styling for WebKit (Chrome, Safari, Edge) */
+/* Scrollbar styling for WebKit */
 ::-webkit-scrollbar {
     width: 8px;
     background-color: var(--bg-dark);
 }
-
 ::-webkit-scrollbar-thumb {
     background-color: var(--neon-green);
     border-radius: 4px;
     border: 1px solid var(--border-color);
 }
-
 ::-webkit-scrollbar-thumb:hover {
     background-color: var(--neon-blue);
 }
@@ -231,16 +241,108 @@ footer {
 /* Logbook Hook Styling */
 .logbook-hook {
     background-color: var(--bg-panel);
-    /* border-left: 5px solid var(--neon-yellow); */
     padding: 20px;
     margin: 30px 0;
     font-style: italic;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--text-highlight);
     box-shadow: 0 0 17px var(--neon-green);
     line-height: 1.8;
 }
-
 .logbook-hook p {
     margin: 0;
+}
+
+
+/* Append at end of existing CSS */
+
+/* Responsive grid for summary cards */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.42rem;
+  padding: 1.42rem 0;
+}
+
+/* Card styling */
+.post-card {
+  background-color: var(--bg-panel);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 255, 0, 0.3);
+}
+
+
+
+.post-card h3 {
+  margin-top: 0;
+  color: var(--neon-blue);
+}
+
+.post-card .summary {
+  flex-grow: 1;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Ensure Read More button sits at bottom */
+.post-card .cta-button {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+
+/* Header Layout Overhaul */
+.site-header {
+    background-color: var(--bg-panel);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.42rem 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-branding {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.header-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 12px var(--neon-green);
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: rotate(-21deg) scale(1.84);
+}
+
+.header-text h1 {
+    color: var(--neon-green);
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.2;
+}
+
+.header-text h3 {
+    color: var(--neon-blue);
+    margin: 4px 0 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.2;
 }

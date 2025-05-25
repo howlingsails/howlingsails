@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- FilePath: blog/git-guide.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Git Operational Guide for Beginners</title>
+    <link rel="stylesheet" href="./blog.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="manifest" href="/site.web-manifest">
+</head>
+<body>
+<div class="container">
+
+    <header>
+        <nav>
+            <a class="cta-button" href="blogs.html">Return to Log Book</a>
+        </nav>
+        <h1>Git Operational Guide for Absolute Beginners</h1>
+    </header>
+
+    <main class="blog-content highlight-box">
+        <p><strong>Welcome!</strong> This guide helps you master Git from zero. Through simple analogies, step-by-step examples, and under-the-hood insights, you’ll learn how to track changes, branch safely, collaborate, and resolve conflicts like a seasoned captain.</p>
+
+        <h2>Quick Reference</h2>
+        <ul>
+            <li><code>git init</code> – Initialize a new repository (creates a hidden <code>.git</code> folder).</li>
+            <li><code>git clone &lt;url&gt;</code> – Copy a remote repo locally (sets up origin, pulls history).</li>
+            <li><code>git status</code> – See modified, staged, and untracked files.</li>
+            <li><code>git add &lt;file&gt;</code> / <code>git add .</code> – Stage changes for the next commit.</li>
+            <li><code>git commit -m "Message"</code> – Create a snapshot with a descriptive message.</li>
+            <li><code>git log</code> – View commit history. Add <code>--oneline</code> or <code>--graph</code> for compact view.</li>
+            <li><code>git branch &lt;name&gt;</code> / <code>git switch -c &lt;name&gt;</code> – Create (and switch to) a new branch.</li>
+            <li><code>git switch &lt;name&gt;</code> – Switch between branches.</li>
+            <li><code>git merge &lt;branch&gt;</code> – Merge another branch into the current one.</li>
+            <li><code>git remote add origin &lt;url&gt;</code> – Link a remote repo named "origin".</li>
+            <li><code>git push -u origin &lt;branch&gt;</code> – Push commits to the remote and set upstream.</li>
+            <li><code>git pull origin &lt;branch&gt;</code> – Fetch and merge remote changes into local branch.</li>
+            <li><code>git stash</code> – Temporarily store uncommitted changes.</li>
+            <li><code>git reset HEAD~1</code> – Undo the last commit (keep changes staged or unstaged).</li>
+        </ul>
+
+        <h3>Ship’s Timeline</h3>
+        <pre><code class="language-mermaid">flowchart LR
+  WD[Working Directory] -- stage --> ST[Staging Area]
+  ST -- commit --> LP[Local Repository]
+  LP -- push --> RP[Remote Repository]
+  RP -- pull --> WD</code></pre>
+    </main>
+
+    <nav class="table-of-contents highlight-box">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#init">Initializing a Repository</a></li>
+            <li><a href="#staging">Staging &amp; Committing</a></li>
+            <li><a href="#branching">Branching &amp; Merging</a></li>
+            <li><a href="#remotes">Working with Remotes</a></li>
+            <li><a href="#conflicts">Resolving Conflicts</a></li>
+            <li><a href="#conclusion">Conclusion &amp; Next Steps</a></li>
+        </ul>
+    </nav>
+
+    <section id="init" class="highlight-box">
+        <h2>Initializing a Repository</h2>
+        <p>Imagine finding an uncharted island and planting your flag. <strong>git init</strong> turns your folder into a ship’s log by creating a hidden <code>.git</code> folder.</p>
+        <pre><code class="language-bash">git init</code></pre>
+        <p>Under the hood, Git creates an internal database (<code>.git</code>) that tracks all snapshots (objects) and pointers (refs). This is your project’s time machine – no log entries without it.</p>
+    </section>
+
+    <section id="staging" class="highlight-box">
+        <h2>Staging &amp; Committing</h2>
+        <p>Staging is packing cargo; committing is sealing the crate and dating it in your logbook.</p>
+
+        <h3>Stage Changes (<code>git add</code>)</h3>
+        <pre><code class="language-bash">git add &lt;file&gt;</code></pre>
+        <p>Puts file changes into the staging area. Git snapshots the content in its index, ready for the next commit.</p>
+
+        <h3>Commit Snapshot (<code>git commit</code>)</h3>
+        <pre><code class="language-bash">git commit -m "Describe changes"</code></pre>
+        <p>Records a complete snapshot of staged files, along with author, timestamp, and message. Each commit is a waypoint in your voyage.</p>
+    </section>
+
+    <section id="branching" class="highlight-box">
+        <h2>Branching &amp; Merging</h2>
+        <p>Branches are parallel decks on your ship – experiment on one deck while keeping the main deck stable. When ready, merge decks back together.</p>
+
+        <h3>Create &amp; Switch Decks</h3>
+        <pre><code class="language-bash">git branch &lt;name&gt;
+git switch &lt;name&gt;</code></pre>
+        <p><code>git branch</code> labels a commit; <code>git switch</code> sails you to that deck (updates working files).</p>
+
+        <h3>Merge Decks (<code>git merge</code>)</h3>
+        <pre><code class="language-bash">git merge &lt;branch&gt;</code></pre>
+        <p>Performs a three-way merge from the common ancestor. If lines overlap, Git flags a conflict for you to resolve.</p>
+    </section>
+
+    <section id="remotes" class="highlight-box">
+        <h2>Working with Remotes</h2>
+        <p>Your remote repository is the fleet’s mothership. Push your commits aboard and pull updates back to stay in sync.</p>
+
+        <pre><code class="language-bash">git remote add origin &lt;url&gt;
+git push -u origin main
+git pull origin main</code></pre>
+        <p>Add <code>origin</code> to register the URL. <code>push</code> uploads, <code>pull</code> fetches and merges remote changes.</p>
+    </section>
+
+    <section id="conflicts" class="highlight-box">
+        <h2>Resolving Conflicts</h2>
+        <p>When two sailors rewrite the same log entry, Git flags a conflict. You’ll see markers and must choose the final text.</p>
+
+        <pre><code class="language-bash"># Edit out markers <<<<<<< ======= >>>>>>>
+git add &lt;file&gt;
+git commit -m "Resolve conflict in &lt;file&gt;"</code></pre>
+        <p>Conflict markers show both versions. Edit the file to the intended result, then stage and commit to finish the merge.</p>
+    </section>
+
+    <section id="conclusion" class="highlight-box">
+        <h2>Conclusion &amp; Next Steps</h2>
+        <p>You’ve navigated Git’s core maneuvers: init, add, commit, branch, merge, push, pull, and resolve conflicts. Practice these until they’re second nature.</p>
+        <ul>
+            <li>Make small, focused commits with clear messages.</li>
+            <li>Create branches for every feature or fix.</li>
+            <li>Pull often before you push to avoid surprises.</li>
+            <li>Embrace conflicts – resolving them builds understanding.</li>
+        </ul>
+        <p>With these tools, you wield a time machine for your code and a fleet for collaboration. Fair winds and smooth seas on your Git voyage! ⚓</p>
+    </section>
+
+</div>
+
+<script src="blog.js"></script>
+</body>
+</html>

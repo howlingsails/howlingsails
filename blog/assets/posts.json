@@ -1,0 +1,28 @@
+[
+  {
+    "title": "Mac Terminal Mastery: File System & Navigation",
+    "url": "mac-command-line.html",
+    "summary": "Feel at home in the macOS Terminal. This guide gives you the confidence to navigate, organize, and manage your Mac’s file system like a pro—from basic commands to powerful file operations. Perfect for anyone ready to replace fear with fluency."
+  },
+  {
+    "title": "Mastering Git: Your Code, Your Command",
+    "url": "git-operational-guide.html",
+    "summary": "Git isn’t just version control—it’s tactical memory for your codebase. Learn how to commit with confidence, stash like a strategist, and push like a pro. This guide transforms chaos into clarity and gives you total control over your dev history."
+  },
+    {
+    "title": "Command Your Files: Windows CLI Made Easy",
+    "url": "windows-command-line.html",
+    "summary": "Take control of your digital terrain. Whether you're using CMD or PowerShell, this guide helps you navigate, manipulate, and master the file system like a pro—building unshakable confidence one keystroke at a time."
+  },
+  {
+    "title": "Markdown Mastery: Make Every Log Speak Clearly",
+    "url": "markdown-guide.html",
+    "summary": "Tame the chaos of your notes with clean, structured Markdown. This guide shows you how to build clear, consistent, and professional logbooks using one powerful syntax—perfect for developers, IT pros, and system thinkers who value clarity and speed."
+  },
+  {
+    "title": "Automate Everything: Chocolatey for Windows Pros",
+    "url": "chocolatey-windows-installer.html",
+    "summary": "Tired of hunting installers? This guide unlocks the power of Chocolatey—turning Windows into a command-driven installation machine. Automate your toolkit and reclaim hours of your life with one simple tool."
+  }
+
+]
