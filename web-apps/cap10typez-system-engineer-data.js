@@ -1,5 +1,30 @@
 // cap10typez-system-engineer-data.js
 const commandCategories = {
+    "bash": [
+    {
+        "command": "bash",
+        "description": "A Unix shell and command language used for scripting and command execution in Linux and macOS environments. Use this when you need to execute shell commands or write scripts."
+    },
+    {
+        "command": "sed",
+        "description": "A stream editor for filtering and transforming text in a pipeline. Use this when you need to perform text substitutions or manipulations in files or streams."
+    }
+    ],
+
+    "cap10isms": [
+    {
+    "command": "Always automate repetitive tasks to save time and reduce errors.",
+    "description": "This cap10ism emphasizes the importance of automation in system engineering to enhance efficiency and reliability. Use this principle when designing scripts or workflows that involve repetitive tasks."
+    },
+    {
+    "command": "Document everything clearly to ensure knowledge transfer and maintainability.",
+    "description": "This cap10ism highlights the need for thorough documentation in system engineering. It is crucial when creating scripts, configurations, or processes that others may need to understand or maintain in the future."
+    },
+    {
+    "command": "Prioritize security in every aspect of system design and implementation.",
+    "description": "This cap10ism stresses the importance of security in system engineering. Always consider security implications when writing scripts, configuring systems, or deploying applications."
+    }
+    ],
     "sed commands": [
     {
     "command": "sed 's/error/issue/g' system_events.log",

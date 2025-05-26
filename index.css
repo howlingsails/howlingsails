@@ -1,233 +1,261 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
-/* ./index.css
-   ============================
-   Easier-to-Read Terminal Theme
-   ============================ */
+/* -----------------------------------
+   # index.css
+   Terminal-Themed Home Styles (2024 Parity)
+   ----------------------------------- */
 
+/* Import JetBrains Mono font */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
+
+/* -------------------------
+   Root Variables
+------------------------- */
 :root {
-    /* Dark, but not pitch black */
-    --bg-dark: #181a1f;
-    /* Slightly lighter panel background */
-    --bg-panel: #20252c;
-    /* Subtle border color */
-    --border-color: #3a4048;
+  --bg-dark: #080a0f;
+  --bg-panel: #20252c;
+  --border-color: #454c54;
 
-    /* Softer, readable accent colors */
-    --neon-green: #5CDC00;
-    --neon-blue: #36c2c2;
-    --neon-yellow: #Dfc700;
+  --neon-green: #40c000;
+  --neon-blue:  #36c2c2;
+  --neon-yellow: #dfc700;
+  --neon-red:   #ff4d4d;
+  --neon-purple: #a040c0;
+  --neon-orange: #ff8c00;
+  --neon-pink:  #ff40c0;
+  --neon-cyan:  #00c0c0;
 
-    /* Text colors */
-    --text-primary: #c9d1d9;
-    --text-highlight: #ffffff; /* For hover states or highlights */
+  --text-primary:   #d3d9df;
+  --text-highlight: #ffffff;
 }
 
+/* -------------------------
+   Reset & Core Setup
+------------------------- */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  background-color: var(--bg-dark);
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
-    font-family: 'JetBrains Mono', monospace;
-    background-color: var(--bg-dark);
-    color: var(--text-primary);
-    margin: 0;
-    padding: 20px;
-    line-height: 1.3;
-    font-size: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.8;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Header */
-header {
-    background-color: var(--bg-panel);
-    padding: 20px;
-    text-align: center;
-    border-bottom: 2px solid var(--neon-green);
-    margin-bottom: 30px;
+/* -------------------------
+   Scrollbar Styling
+------------------------- */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--neon-green) var(--bg-dark);
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--neon-green);
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--neon-blue);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--neon-green) var(--bg-dark);
 }
 
-
-header h1 {
-    color: var(--neon-green);
-    margin: 0 0 8px;
-    text-shadow: 0 0 4px var(--neon-green);
-    font-size: 2.2rem;
+/* -------------------------
+   Layout Containers
+------------------------- */
+.container {
+  width: 100%;
+  max-width: 1042px;
+  margin: 0 auto;
+  padding: 1rem;
+  flex: 1;
 }
 
+/* -------------------------
+   Header & Branding
+------------------------- */
+header,
+.site-header {
+  background-color: var(--bg-panel);
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+.header-branding {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+.header-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 12px var(--neon-green);
+  transition: transform 0.3s ease;
+  margin-right: 1rem;
+}
+.header-logo:hover {
+  transform: rotate(-21deg) scale(1.84);
+}
+.header-text h1 {
+  font-size: 2.2rem;
+  line-height: 1.1;
+  color: var(--neon-green);
+  text-shadow: 0 0 2px var(--neon-green);
+  font-weight: 800;
+  margin: 0 0 8px 0;
+}
+.header-text h3,
 header h2 {
-    color: var(--neon-blue);
-    text-shadow: 0 0 4px var(--neon-blue);
-    margin: 0;
-    font-size: 1.2rem;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  color: var(--neon-blue);
+  margin: 0;
+  text-shadow: 0 0 2px var(--neon-blue);
 }
 
-/* Sections */
-section {
-    padding: 21px;
-    margin: 0 auto 20px auto;
-    max-width: 900px;
-    background-color: var(--bg-panel);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgba(124, 252, 0, 0.4);
+/* -------------------------
+   Navigation Button
+------------------------- */
+nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+.cta-button,
+a.cta-button {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.33rem 0.88rem;
+  background-color: var(--neon-green);
+  color: var(--bg-panel);
+  border: 2px solid var(--neon-green);
+  border-radius: 0.33rem;
+  text-decoration: none;
+  font-weight: 800;
+  text-shadow: 1px 1px 1px var(--neon-blue);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s;
+  font-size: 1rem;
+}
+.cta-button:hover,
+a.cta-button:hover {
+  background-color: var(--neon-blue);
+  color: var(--text-highlight);
+  transform: rotate(0.42deg) scale(1.13);
 }
 
-/* Images */
-img {
-    width: 284px;
-    height: auto;
-    float: center;
-    margin: 0 0px 0px 0;
-    box-shadow: 0 0 12px var(--neon-green);
-
+/* -------------------------
+   Typography
+------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'JetBrains Mono', monospace;
+  text-rendering: optimizeLegibility;
+  font-weight: 700;
 }
 
-/* Headings */
-h1, h2, h3 {
-    font-family: 'JetBrains Mono', monospace;
-    line-height: 1.3;
+h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 0.7rem;
+  color: var(--neon-green);
+  text-shadow: 0 0 2px var(--neon-green);
 }
 
 h2 {
-    color: var(--neon-green);
-    border-bottom: 1px solid var(--neon-green);
-    padding-bottom: 5px;
-    clear: both;
-    margin-top: 0;
-    margin-bottom: 13px;
+  font-size: 1.7rem;
+  margin-bottom: 0.8rem;
+  color: var(--neon-green);
+  border-bottom: 1px solid var(--neon-green);
+  padding-bottom: 0.2rem;
+  clear: both;
 }
 
 h3 {
-    color: var(--neon-blue);
-    margin-top: 40px;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--neon-blue);
+  margin-top: 1.7rem;
 }
 
-/* Paragraphs */
 p {
-    margin: 13px 0;
-    font-size: 1rem;
-    line-height: 1.3;
+  margin: 1.1rem 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
-/* Links & CTA Buttons */
+ul, ol {
+  margin: 1.1rem 0;
+  padding-left: 1.5rem;
+  line-height: 1.5;
+}
+
 a {
-    color: var(--neon-green);
-    text-decoration: none;
+  color: var(--neon-green);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover, a:focus {
+  color: var(--text-highlight);
+}
+.toc-link {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--neon-blue);
+  text-decoration: underline;
 }
 
-a:hover {
-    color: var(--text-highlight);
+/* -------------------------
+   Main Content & Sections
+------------------------- */
+section {
+  padding: 1.4rem;
+  margin: 0 auto 2rem auto;
+  max-width: 900px;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(64,192,0,0.32);
 }
 
-a.cta-button {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: var(--neon-green);
-    color: #000;
-    text-decoration: none;
-    border: 2px solid var(--neon-green);
-    border-radius: 5px;
-    text-shadow: 0 0 3px var(--neon-green);
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
+/* -------------------------
+   Images
+------------------------- */
+img {
+  width: 284px;
+  height: auto;
+  margin: 0 auto 1.1rem auto;
+  display: block;
+  box-shadow: 0 0 12px var(--neon-green);
 }
 
-a.cta-button:hover {
-    background-color: var(--neon-blue);
-    color: var(--text-highlight);
-}
-
-/* Testimonials */
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
-}
-
-.testimonial {
-    padding: 20px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    background-color: var(--bg-dark);
-    box-shadow: 0 0 8px rgba(124, 252, 0, 0.3);
-    position: relative;
-    min-height: 150px;
-}
-
-.testimonial img {
-    float: left;
-    margin: 0 15px 10px 0;
-    border-radius: 50%;
-    max-width: 60px;
-    border: 2px solid var(--neon-green);
-}
-
-.testimonial p {
-    margin: 0 0 10px 0;
-    line-height: 1.5;
-    font-size: 0.95rem;
-}
-
-.testimonial-author {
-    font-style: italic;
-    color: var(--neon-yellow);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: var(--bg-panel);
-    color: var(--text-primary);
-    border-top: 2px solid var(--neon-green);
-    margin-top: 30px;
-}
-
-/* Scrollbar styling for WebKit (Chrome, Safari, Edge) */
-::-webkit-scrollbar {
-    width: 8px; /* Adjust width to your liking */
-    background-color: var(--bg-dark);
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: var(--neon-green);
-    border-radius: 4px;
-    border: 1px solid var(--border-color); /* optional border */
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: var(--neon-blue);
-}
-
-/* Scrollbar styling for Firefox */
-* {
-    scrollbar-width: thin; /* "auto" or "thin" */
-    scrollbar-color: var(--neon-green) var(--bg-dark);
-}
-
-/* Styling the copy button */
-.copy-button {
-    background-color: var(--neon-green);
-    border: none;
-    color: var(--bg-dark);
-    padding: 10px 20px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.copy-button:hover {
-    background-color: var(--neon-green);
-    transform: scale(1.05);
-}
-
-.copy-button:focus {
-    outline: none;
-}
-
-
-/* ------------------------------------
-   Blog-style Resource Cards & Grid
-   ------------------------------------ */
+/* -------------------------
+   Testimonials & Resource Cards
+------------------------- */
+.testimonial-grid,
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -235,46 +263,182 @@ footer {
   margin-top: 20px;
 }
 
+.testimonial,
 .post-card {
-  background-color: var(--bg-panel);
   padding: 1.5rem;
+  border: 1px solid var(--border-color);
   border-radius: 0.75rem;
+  background-color: var(--bg-panel);
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.post-card {
-  /* existing styles… */
+  min-height: 150px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .post-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 20px rgba(0, 255, 0, 0.3);
 }
-
-
+.testimonial img {
+  float: left;
+  margin: 0 15px 10px 0;
+  border-radius: 50%;
+  max-width: 60px;
+  border: 2px solid var(--neon-green);
+}
+.post-card h3 {
+  margin-bottom: 0.5rem;
+}
 .post-card .summary {
   flex-grow: 1;
   margin: 1rem 0;
   font-size: 0.95rem;
   line-height: 1.4;
 }
-
 .post-card .cta-button {
   align-self: flex-start;
   margin-top: auto;
 }
-
-/* Optional “coming soon” flavor */
 .post-card.coming-soon h3 {
   color: var(--neon-yellow);
 }
 
-#resources > h2 {
-  color: var(--neon-green);
-  border-bottom: 1px solid var(--neon-green);
-  padding-bottom: 0.5rem;
+.testimonial-author {
+  font-style: italic;
+  color: var(--neon-yellow);
+}
+
+/* -------------------------
+   Footer
+------------------------- */
+footer {
+  background-color: var(--bg-panel);
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: auto;
+  color: var(--text-primary);
+}
+
+/* -------------------------
+   Code Blocks & Copy Button
+------------------------- */
+pre {
+  background-color: #2d2d2d;
+  color: #f8f8f2;
+  padding: 1.1rem;
+  border-radius: 0.5rem;
+  overflow: auto;
   margin-bottom: 1.5rem;
+  position: relative;
+}
+code {
+  font-family: 'JetBrains Mono', monospace;
+}
+.copy-button {
+  background-color: var(--neon-green);
+  border: none;
+  color: var(--bg-dark);
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  opacity: 0.85;
+}
+.copy-button:hover,
+.copy-button:focus {
+  background-color: var(--neon-blue);
+  color: var(--text-highlight);
+  transform: scale(1.07);
+  outline: 2px solid var(--neon-yellow);
+}
+
+/* -------------------------
+   Accessibility
+------------------------- */
+/* Visually hidden (for screen reader only text) */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Accessibility: Skip Link */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  background: var(--neon-green);
+  color: #000;
+  padding: 0.5rem 1.2rem;
+  font-weight: bold;
+  z-index: 1000;
+  border-radius: 0.33rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  transition: left 0.2s;
+}
+.skip-link:focus {
+  left: 10px;
+  top: 10px;
+  width: auto;
+  height: auto;
+  outline: 2px solid var(--neon-blue);
+  box-shadow: 0 0 0 2px var(--neon-yellow);
+}
+
+/* -------------------------
+   Responsive: Mobile First Enhancements
+------------------------- */
+@media (max-width: 700px) {
+  html {
+    font-size: 104.2%; /* Easier reading on mobile */
+  }
+  .container {
+    padding: 0.7rem;
+  }
+  header, .site-header,
+  footer {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  h1 {
+    font-size: 2.2rem;
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
+  h3 {
+    font-size: 1.15rem;
+  }
+  p,
+  .post-card .summary {
+    font-size: 1.1rem;
+  }
+  section,
+  .highlight-box,
+  .blog-post-listing {
+    padding: 1rem;
+  }
+  .posts-grid,
+  .testimonial-grid {
+    gap: 0.7rem;
+    margin: 1rem 0;
+  }
+  .header-logo {
+    width: 48px;
+    height: 48px;
+  }
 }

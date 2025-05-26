@@ -1,319 +1,431 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+/* -----------------------------------
+   # cap10typez.css
+   Cap10Typez Terminal Game Theme – Golden Parity
+   ----------------------------------- */
 
-/* cap10typez.css
-/* ============================
-   🎨 CSS Variables for Colors
-   ============================ */
+/* Import JetBrains Mono font */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
+
+/* -------------------------
+   Root Variables
+------------------------- */
 :root {
-    --bg-dark: #0d1117;
-    --bg-panel: #161b22;
-    --border-color: #30363d;
-    --neon-green: #39ff14;
-    --neon-red: #ff473a;
-    --neon-blue: #00ffff;
-    --neon-yellow: #ffd700;
-    --text-primary: #c9d1d9;
+  --bg-dark: #080a0f;
+  --bg-panel: #20252c;
+  --border-color: #454c54;
+
+  --neon-green:  #40c000;
+  --neon-blue:   #36c2c2;
+  --neon-yellow: #dfc700;
+  --neon-red:    #ff4d4d;
+  --neon-purple: #a040c0;
+  --neon-orange: #ff8c00;
+  --neon-pink:   #ff40c0;
+  --neon-cyan:   #00c0c0;
+
+  --text-primary:   #d3d9df;
+  --text-highlight: #ffffff;
 }
 
-/* ============================
-   🖥️ General Terminal Styling
-   ============================ */
+/* -------------------------
+   Reset & Core Setup
+------------------------- */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  background-color: var(--bg-dark);
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
-    font-family: 'JetBrains Mono', monospace;
-    background-color: var(--bg-dark);
-    color: var(--text-primary);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.8;
+  font-size: 1rem;
+  padding: 20px;
 }
 
-/* Header */
+/* -------------------------
+   Accessibility: Skip Link & Screen Reader
+------------------------- */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  background: var(--neon-green);
+  color: #000;
+  padding: 0.5rem 1.2rem;
+  font-weight: bold;
+  z-index: 1000;
+  border-radius: 0.33rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  transition: left 0.2s;
+}
+.skip-link:focus {
+  left: 10px;
+  top: 10px;
+  width: auto;
+  height: auto;
+  outline: 2px solid var(--neon-blue);
+  box-shadow: 0 0 0 2px var(--neon-yellow);
+}
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* -------------------------
+   Header & Main Branding
+------------------------- */
 h1 {
-    color: var(--neon-green);
-    margin-bottom: 10px;
-    text-shadow: 0px 0px 8px var(--neon-green);
-    text-align: center;
+  color: var(--neon-green);
+  margin-bottom: 10px;
+  text-shadow: 0 0 8px var(--neon-green);
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
 }
-
 h3 {
-    color: var(--neon-blue);
-    text-align: center;
+  color: var(--neon-blue);
+  text-align: center;
+  margin-top: 1.6rem;
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
-/* Section Containers */
-#selectionArea, #gameArea, #history, #charts {
-    width: 80%;
-    max-width: 800px;
-    background-color: var(--bg-panel);
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.2);
-    margin-bottom: 20px;
+/* -------------------------
+   Section Containers & Main Game Blocks
+------------------------- */
+#introSection, #selectionArea, #gameArea, #history, #charts {
+  width: 100%;
+  max-width: 820px;
+  background-color: var(--bg-panel);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(64, 192, 0, 0.20);
+  margin-bottom: 2rem;
 }
 
-/* Section Titles */
+section {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0 0 8px rgba(64,192,0,0.32);
+  margin-bottom: 2rem;
+  max-width: 820px;
+}
+
 h2 {
-    color: var(--neon-green);
-    border-bottom: 1px solid var(--neon-green);
-    padding-bottom: 5px;
+  color: var(--neon-green);
+  border-bottom: 1px solid var(--neon-green);
+  padding-bottom: 0.2rem;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  font-weight: 800;
 }
 
-/* Terminal-Style Text Areas */
-#commandsTextArea, #ownCommandsInput {
-    background-color: black;
-    color: var(--neon-green);
-    font-family: 'JetBrains Mono', monospace;
-    border: 2px solid var(--neon-green);
-    box-shadow: 0px 0px 10px rgba(57, 255, 20, 0.6);
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    display: block;
-    margin: 0 auto;
-    resize: vertical;
+/* -------------------------
+   Typography
+------------------------- */
+p {
+  margin: 1.1rem 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+ul, ol {
+  margin: 1.1rem 0;
+  padding-left: 1.5rem;
+  line-height: 1.5;
+}
+li {
+  font-size: 1.05rem;
+}
+ul li {
+  color: var(--neon-yellow);
+  margin-bottom: 5px;
 }
 
-/* Styled text box resizer */
-textarea::-webkit-resizer {
-    background-color: var(--neon-green);
+/* Inline Neon */
+span[style*="var(--neon-green)"] { color: var(--neon-green); }
+span[style*="var(--neon-yellow)"] { color: var(--neon-yellow); }
+span[style*="var(--neon-blue)"]   { color: var(--neon-blue); }
+span[style*="var(--neon-red)"]    { color: var(--neon-red); }
+
+em, i { color: var(--neon-pink); }
+
+/* -------------------------
+   Terminal/Box Styling
+------------------------- */
+#fakeTerminal {
+  width: 400px;
+  height: 50px;
+  background-color: black;
+  border: 2px solid var(--neon-green);
+  color: var(--neon-green);
+  font-size: 22px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(64, 192, 0, 0.6);
+  margin: 0 auto 1rem auto;
+  border-radius: 8px;
+  padding-left: 14px;
+}
+#terminalCursor::after {
+  content: "  $ _ ";
+  color: var(--neon-green);
+  animation: blink 1.2s infinite steps(2, start);
+  font-weight: bold;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
-/* Neon-themed scrollbar */
-::-webkit-scrollbar {
-    width: 12px;
+/* Terminal Areas */
+#commandsTextArea, #ownCommandsInput, #commandDisplay, #typingInput {
+  background-color: black;
+  color: var(--neon-green);
+  font-family: 'JetBrains Mono', monospace;
+  border: 2px solid var(--neon-green);
+  box-shadow: 0 0 10px rgba(64, 192, 0, 0.5);
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0.7rem auto;
+  border-radius: 6px;
+  font-size: 1.07rem;
+  resize: vertical;
 }
 
-::-webkit-scrollbar-track {
-    background: var(--bg-panel);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--neon-green);
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px rgba(57, 255, 20, 0.8);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--neon-yellow);
-}
-
-/* Command Display and Typing Input */
+/* Command Display Box */
 #commandDisplay {
-    background-color: black;
-    color: var(--neon-green);
-    font-family: 'JetBrains Mono', monospace;
-    border: 2px solid var(--neon-green);
-    box-shadow: 0px 0px 10px rgba(57, 255, 20, 0.6);
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
+  margin: 5px 0;
+  min-height: 32px;
 }
 
 #typingInput {
-    background-color: black;
-    color: var(--neon-green);
-    font-family: 'JetBrains Mono', monospace;
-    border: 2px solid var(--neon-green);
-    box-shadow: 0px 0px 10px rgba(57, 255, 20, 0.6);
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    display: block;
-    margin: 0 auto;
-    border-radius: 5px;
+  margin-top: 0.5rem;
 }
 
-/* Headings for Terminal Sections */
 #commandTerminal h3,
 #typingTerminal h3 {
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--neon-blue);
-    margin-bottom: 5px;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--neon-blue);
+  margin-bottom: 5px;
 }
 
-/* Fake Terminal Box */
-#fakeTerminal {
-    width: 400px;
-    height: 50px;
-    background-color: black;
-    border: 2px solid var(--neon-green);
-    color: var(--neon-green);
-    font-size: 22px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    position: relative;
-    box-shadow: 0px 0px 10px rgba(57, 255, 20, 0.6);
-    margin-bottom: 10px;
+/* Command Descriptions */
+#descriptionTerminal, #scoreTerminal {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 1.3rem;
 }
 
-/* Blinking Cursor */
-#terminalCursor::after {
-    content: "  $ _       ";
-    display: inline-block;
-    color: var(--neon-green);
-    animation: blink 2s 15;
+/* -------------------------
+   Buttons (Game Controls)
+------------------------- */
+button, .cta-button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  background-color: var(--neon-green);
+  border: 2px solid var(--neon-green);
+  border-radius: 5px;
+  color: var(--bg-panel);
+  cursor: pointer;
+  text-shadow: 0 0 4px var(--neon-green);
+  font-weight: 800;
+  margin-top: 10px;
+  width: 100%;
+  transition: background 0.2s, color 0.2s, transform 0.16s;
+}
+button:hover, .cta-button:hover, button:focus, .cta-button:focus {
+  background-color: var(--neon-blue);
+  color: var(--text-highlight);
+  transform: scale(1.07);
+  outline: 2px solid var(--neon-yellow);
 }
 
-@keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-/* Introduction Section */
-#introSection {
-    background-color: var(--bg-panel);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    border: 1px solid var(--neon-green);
-    width: 80%;
-    max-width: 800px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.2);
-}
-
-#introSection p {
-    font-size: 16px;
-}
-
-#introSection ul {
-    text-align: left;
-    list-style: none;
-    padding: 0;
-}
-
-#introSection li {
-    font-size: 16px;
-    color: var(--neon-yellow);
-    margin-bottom: 5px;
-}
-
-/* Game Controls (Buttons) */
-button {
-    padding: 12px 20px;
-    font-size: 16px;
-    background-color: var(--neon-green);
-    border: 2px solid var(--neon-green);
-    border-radius: 5px;
-    color: black;
-    cursor: pointer;
-    text-shadow: 0px 0px 5px var(--neon-green);
-    margin-top: 10px;
-    width: 100%;
-}
-
-button:hover {
-    background-color: var(--neon-blue);
-    color: white;
-}
-
-/* History Table */
+/* -------------------------
+   History Table
+------------------------- */
 #historyTable {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
-
 #historyTable th, #historyTable td {
-    border: 1px solid var(--border-color);
-    padding: 8px;
-    text-align: center;
-    font-family: 'JetBrains Mono', monospace;
+  border: 1px solid var(--border-color);
+  padding: 8px;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
 }
-
 #historyTable th {
-    background-color: var(--neon-green);
-    color: black;
+  background-color: var(--neon-green);
+  color: var(--bg-dark);
 }
 
-/* Points Chart */
+/* -------------------------
+   Points Chart
+------------------------- */
 #pointsChart {
-    background-color: var(--bg-panel);
-    border: 1px solid var(--neon-blue);
+  background-color: var(--bg-panel);
+  border: 1px solid var(--neon-blue);
+  width: 100%;
+  max-width: 700px;
+  border-radius: 8px;
+  margin: 1.1rem auto;
 }
-
-/* Chart Bar Colors */
 .chart-bar {
-    fill: var(--neon-yellow);
-    stroke: var(--neon-red);
-    stroke-width: 2;
+  fill: var(--neon-yellow);
+  stroke: var(--neon-red);
+  stroke-width: 2;
 }
 
-/* Stars & Points */
+/* -------------------------
+   Score/Stars/Feedback
+------------------------- */
 #starsDisplay {
-    font-size: 1.2em;
-    margin-top: 10px;
-    color: var(--neon-yellow);
-    text-shadow: 0px 0px 5px var(--neon-yellow);
+  font-size: 1.2em;
+  margin-top: 10px;
+  color: var(--neon-yellow);
+  text-shadow: 0 0 5px var(--neon-yellow);
 }
-
 #points {
-    color: var(--neon-green);
-    font-size: 20px;
-    font-weight: bold;
+  color: var(--neon-green);
+  font-size: 1.2em;
+  font-weight: bold;
 }
-
 #speed {
-    color: var(--neon-blue);
+  color: var(--neon-blue);
 }
 
-/* Progress Bar */
+/* -------------------------
+   Progress Bar
+------------------------- */
 #progressContainer {
-    width: 100%;
-    background-color: var(--bg-panel);
-    border-radius: 5px;
-    margin-top: 20px;
-    height: 20px;
-    position: relative;
+  width: 100%;
+  background-color: var(--bg-panel);
+  border-radius: 5px;
+  margin-top: 20px;
+  height: 20px;
+  position: relative;
 }
-
 #progressBar {
-    width: 0%;
-    height: 100%;
-    background-color: var(--neon-green);
-    border-radius: 5px;
-    text-align: center;
-    color: black;
-    font-weight: bold;
+  width: 0%;
+  height: 100%;
+  background-color: var(--neon-green);
+  border-radius: 5px;
+  text-align: center;
+  color: var(--bg-dark);
+  font-weight: bold;
+  transition: width 0.3s;
 }
 
-/* Category Grid Styles */
+/* -------------------------
+   Category Grid Styles
+------------------------- */
 #categoryGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    max-height: 300px;
-    overflow-y: auto;
-    padding: 10px;
-    border: 1px solid var(--neon-green);
-    border-radius: 5px;
-    margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid var(--neon-green);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background: var(--bg-panel);
 }
-
 .category-item {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
-
 .category-item input[type="checkbox"] {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
-/* Mobile Responsive Tweaks */
-@media (max-width: 768px) {
-    #selectionArea, #gameArea, #history, #charts {
-        width: 100%;
-    }
-    #categoryGrid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+/* -------------------------
+   Scrollbar Styling
+------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--bg-panel);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--neon-green);
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--neon-blue);
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--neon-green) var(--bg-dark);
+}
+
+/* -------------------------
+   Responsive: Mobile Tweaks
+------------------------- */
+@media (max-width: 820px) {
+  #introSection, #selectionArea, #gameArea, #history, #charts {
+    width: 100%;
+    padding: 1rem;
+    max-width: 100%;
+  }
+  #categoryGrid {
+    grid-template-columns: 1fr;
+  }
+  #fakeTerminal {
+    width: 100%;
+    min-width: 180px;
+    max-width: 100%;
+    font-size: 1.09rem;
+  }
+  h1 {
+    font-size: 1.6rem;
+  }
+  h2 {
+    font-size: 1.13rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  p, li, #commandsTextArea, #ownCommandsInput, #commandDisplay, #typingInput {
+    font-size: 1.05rem;
+  }
+  button, .cta-button {
+    font-size: 1rem;
+    padding: 10px 10px;
+  }
+}
+
+/* Additional focus ring for all inputs/buttons for accessibility */
+input:focus, textarea:focus, button:focus {
+  outline: 2px solid var(--neon-yellow);
+  background: var(--bg-panel);
 }

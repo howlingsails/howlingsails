@@ -2,27 +2,43 @@
   {
     "title": "Mac Terminal Mastery: File System & Navigation",
     "url": "mac-command-line.html",
-    "summary": "Feel at home in the macOS Terminal. This guide gives you the confidence to navigate, organize, and manage your Mac’s file system like a pro—from basic commands to powerful file operations. Perfect for anyone ready to replace fear with fluency."
+    "summary": "Transform the macOS Terminal into your productivity engine. This guide empowers you to navigate create and organize files with precision using essential commands. Gain speed consistency and confidence in every keystroke and streamline your workflow like never before.",
+    "callToAction": "Master Mac Terminal",
+    "buttonTitle": "Become a Mac Terminal captain today"
   },
   {
-    "title": "Mastering Git: Your Code, Your Command",
+    "title": "Git Operational Guide: Your Digital Time Machine",
     "url": "git-operational-guide.html",
-    "summary": "Git isn’t just version control—it’s tactical memory for your codebase. Learn how to commit with confidence, stash like a strategist, and push like a pro. This guide transforms chaos into clarity and gives you total control over your dev history."
+    "summary": "Turn Git into your ultimate safety net and version control powerhouse. This guide teaches you to rewind mistakes record every change and collaborate seamlessly. Gain the confidence to experiment fearlessly and keep your projects organized and secure.",
+    "callToAction": "Unlock Git Mastery",
+    "buttonTitle": "Start your Git journey now"
   },
-    {
+  {
+  "title": "Python Dev Setup & Environments",
+  "url": "python-dev-setup.html",
+  "summary": "Build rock solid Python environments that eliminate mystery errors and version conflicts. This guide walks you through safe Python installs isolated venvs Conda for complex stacks dependency lock files pipx and Poetry so your code runs smoothly every time and your team never says it worked on my machine again.",
+  "callToAction": "Optimize Your Python Environment",
+  "buttonTitle": "Set up Python with confidence"
+},
+  {
     "title": "Command Your Files: Windows CLI Made Easy",
     "url": "windows-command-line.html",
-    "summary": "Take control of your digital terrain. Whether you're using CMD or PowerShell, this guide helps you navigate, manipulate, and master the file system like a pro—building unshakable confidence one keystroke at a time."
+    "summary": "Transform Windows file management into a command-line superpower. This guide empowers you to navigate organize and manipulate your file system with precision using CMD and PowerShell. Ideal for beginners and pros alike who demand speed reliability and confidence at every keystroke.",
+    "callToAction": "Master Windows CLI Now",
+    "buttonTitle": "Become a Windows CLI captain today"
   },
   {
-    "title": "Markdown Mastery: Make Every Log Speak Clearly",
+    "title": "Markdown Mastery for Effective Logbooking",
     "url": "markdown-guide.html",
-    "summary": "Tame the chaos of your notes with clean, structured Markdown. This guide shows you how to build clear, consistent, and professional logbooks using one powerful syntax—perfect for developers, IT pros, and system thinkers who value clarity and speed."
+    "summary": "Turn your notes into a strategic asset with clean structured Markdown. This guide teaches you to craft clear consistent and professional logbooks that boost retention accelerate onboarding and streamline collaboration across your team.",
+    "callToAction": "Master Markdown Logbooking",
+    "buttonTitle": "Elevate your logs today"
   },
   {
-    "title": "Automate Everything: Chocolatey for Windows Pros",
+    "title": "Complete Chocolatey Guide for Windows",
     "url": "chocolatey-windows-installer.html",
-    "summary": "Tired of hunting installers? This guide unlocks the power of Chocolatey—turning Windows into a command-driven installation machine. Automate your toolkit and reclaim hours of your life with one simple tool."
+    "summary": "Transform Windows software management from a chore into a competitive edge. This guide shows you how to automate installs, stay protected against security risks, and reclaim hours of manual work with one simple command-driven tool. Ideal for developers and IT pros who demand speed, reliability, and peace of mind.",
+    "callToAction": "Get the Complete Chocolatey Guide",
+    "buttonTitle": "Secure your system with Chocolatey now"
   }
-
 ]

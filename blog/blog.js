@@ -34,29 +34,32 @@ document.addEventListener('DOMContentLoaded', () => {
       const tocLink = document.createElement('a');
       tocLink.href = '#table-of-contents';
       tocLink.className = 'toc-link';
-      tocLink.textContent = 'Back to Table of Contents';
+      tocLink.textContent = 'Table of Contents';
       section.insertBefore(tocLink, section.firstChild);
     }
   });
 
-  // -------------------------------
-  // 3. Dynamic Blog Summary Rendering
-  // -------------------------------
-  fetch('assets/posts.json')
-    .then(response => response.json())
-    .then(posts => {
-      const container = document.getElementById('posts-container');
-      if (!container) return console.warn('posts-container not found.');
-      posts.forEach(({ title, url, summary }) => {
-        const card = document.createElement('article');
-        card.className = 'post-card';
-        card.innerHTML = `
-          <h3><a href="${url}">${title}</a></h3>
-          <p class="summary">${summary}</p>
-          <a class="cta-button" href="${url}">Read More</a>
-        `;
-        container.appendChild(card);
-      });
+fetch('assets/posts.json')
+  .then(response => response.json())
+  .then(posts => {
+    const container = document.getElementById('posts-container')
+    if (!container) return console.warn('posts-container not found.')
+    posts.forEach(({ title, url, summary, callToAction, buttonTitle }) => {
+      const card = document.createElement('article')
+      card.className = 'post-card'
+      card.innerHTML = `
+        <h3><a href="${url}">${title}</a></h3>
+        <p class="summary">${summary}</p>
+        <a
+          class="cta-button"
+          href="${url}"
+          title="${buttonTitle || callToAction}"
+        >
+          ${callToAction || 'Read More'}
+        </a>
+      `
+      container.appendChild(card)
     })
-    .catch(err => console.error('Failed to load posts.json', err));
+  })
+  .catch(err => console.error('Failed to load posts.json', err));
 });

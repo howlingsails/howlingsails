@@ -3,57 +3,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Logbooking Summary</title>
+    <title>Logbooking Summary – cap10.tech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="blog.css">
     <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="manifest" href="/site.web-manifest">
 </head>
 <body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <div class="container">
-    <header class="site-header">
+    <header class="site-header" aria-label="Site Header">
         <div class="header-branding">
-            <a href="../index.html" class="logo-link">
-                <img src="/android-chrome-192x192.png" alt="cap10.tech ship icon" class="header-logo"/>
+            <a href="../index.html" title="Return to the top deck" class="logo-link">
+                <img src="/android-chrome-192x192.png"
+                     alt="cap10.tech logo, neon green ship icon"
+                     class="header-logo"
+                     width="64" height="64"/>
             </a>
             <div class="header-text">
                 <h1>Logbooks</h1>
+                <h2 class="sr-only">cap10.tech armada’s bookshelf</h2>
                 <h3>Scan the cap10.tech armada’s bookshelf</h3>
             </div>
         </div>
     </header>
 
-    <section class="highlight-box repository-pitch blog-content">
-        <h3>Mastering Tech Logbooks</h3>
-        <p class="summary">
-            This is not a blog post — it’s a blueprint. Discover how Logbooking turns your daily dev work into long-term wisdom. Backed by psychology, packed with templates, and designed for IDEs like VS Code & IntelliJ, this guide will help you think faster, learn deeper, and never lose an insight again.
-        </p>
-        <a class="cta-button" href="tech-logbooking.html">Read the Ultimate Logbooking Guide</a>
-    </section>
+    <main id="main-content" role="main" tabindex="-1">
+        <section class="highlight-box repository-pitch blog-content" aria-labelledby="logbooking-guide-title">
+            <h2 id="logbooking-guide-title">Mastering Your Tech Logbook</h2>
+            <p class="summary"> Chart every coding voyage into lasting insight with Cap10.Tech’s logbooking blueprint. Rooted in cognitive science, filled with ready templates for VS Code and IntelliJ, this guide empowers you to sharpen your thinking, deepen your learning, and ensure no breakthrough ever drifts away. </p>
+            <a class="cta-button" href="tech-logbooking.html">Read the Ultimate Logbook Guide</a>
+        </section>
 
-    <section class="highlight-box repository-pitch blog-content">
-        <h2>Document Your Growth</h2>
-        <h3>Free digital guide, valuable templates and toolbox</h3>
-        <p>
-            Our mission is to revolutionize the way you capture and preserve knowledge. The Cap10.Tech repository is where innovation meets discipline.
-            Discover the full power of our logbooking process, access the source code, and join a community of forward-thinking tech enthusiasts.
-        </p>
-        <p>
-            Ready to transform your operational workflow? It’s completely free to explore, use, and contribute.
-            Visit our repository, explore the code, and be part of a future of unmatched clarity and precision.
-        </p>
-        <h3><a class="cta-button" href="https://github.com/cap10tech/logbooking-template" target="_blank" rel="noreferrer">
-            FREE Digital Toolbox and Guides on GitHub
-        </a></h3>
-    </section>
 
-    <section class="highlight-box">
-        <h2>Logbooking: Your Path to Mastery</h2>
-        <p>Some of our most popular logbook entries are:</p>
-        <main id="posts-container" class="posts-grid">
-            <!-- Dynamic cards injected via blog.js -->
-        </main>
-    </section>
 
-    <footer>
+        <section class="highlight-box" aria-labelledby="popular-title">
+            <h2 id="popular-title">Logbooking: Your Path to Mastery</h2>
+            <p>Some of our most popular logbook entries are:</p>
+            <div id="posts-container" class="posts-grid" aria-live="polite">
+                <!-- Dynamic cards injected via blog.js -->
+            </div>
+        </section>
+        <section class="highlight-box repository-pitch blog-content" aria-labelledby="growth-title">
+            <h2 id="growth-title">Fuel Your Growth Journey</h2>
+            <h3>Free digital toolbox forged from years at sea actionable templates and developer tools</h3>
+            <p>
+                Take the helm of your knowledge capture with Cap10.Tech’s open repository. Built from real world experience this collection delivers structured templates and digital utilities to lock in insights and accelerate your learning curve.
+            </p>
+            <p>
+                Dive into our proven logbooking workflow inspect the source code and collaborate alongside a crew of forward thinking developers charting new courses in clarity and precision.
+            </p>
+            <p>
+                Ready to elevate your operational playbook? It’s open source and free to explore use and contribute set your course for ship shape systems today.
+            </p>
+            <p>
+                <a class="cta-button" href="https://github.com/cap10tech/logbooking-template" target="_blank" rel="noopener noreferrer">
+                    FREE Digital Toolbox Templates and Guides on GitHub
+                </a>
+            </p>
+        </section>
+    </main>
+
+
+    <footer aria-label="Site Footer">
         <p>&copy; 2025 Cap10Bill. All rights reserved.</p>
     </footer>
 </div>

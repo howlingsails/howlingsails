@@ -1,8 +1,10 @@
-<!DOCTYPE html><!-- ./web-apps/cap10types.html -->
+<!DOCTYPE html>
+<!-- FilePath: web-apps/cap10types.html -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cap10Typez - Terminal Typing Game</title>
+    <title>Cap10Typez – Terminal Typing Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="cap10typez.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" sizes="16x16" href="/favicon-16x16.png">
@@ -11,145 +13,140 @@
     <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
     <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
     <link rel="manifest" href="/site.web-manifest">
-
 </head>
 <body>
 
-<!-- Fake Terminal Box (Always Visible) -->
-<h1>Cap10Typez</h1>
-<div id="fakeTerminal">
-    <span id="terminalCursor"></span>
-</div>
-<h3>Cap10.Tech Teaches Typing</h3>
+<!-- Skip to main content for accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
-<!-- Introduction Section -->
-
-
-<div id="introSection">
-    <h2>Do you really know how to type?</h2>
-    <p>
-        In the world of tech, every keystroke is a step toward mastery. Cap10Typez isn’t just a game—it’s your training ground for precision, speed, and relentless self-improvement. All those special commands ~`!@#$%^&*(){}[]\/?.,+_. Let see how fast you can type and can you go "Flappy Bird🦅" style and get 5 🌟?
-    </p>
-    <button id="readyButton">Let's Get Started!</button>
-    <h3>Refine Your Command-Line Mastery</h3>
-    <p>
-        It’s not enough to know the basics; true power lies in practicing until every keystroke becomes second nature. Here, you’ll challenge yourself with real commands that mirror the demands of high-stakes environments.
-    </p>
-    <h3>Why Push Your Limits?</h3>
-    <ul>
-        <li>🚆 <span style="color: var(--neon-green);">Transform Data Chaos into Clarity</span> — Sharpen your skills to distill overwhelming datasets into clear, actionable insights.</li>
-        <li>🏆 <span style="color: var(--neon-yellow);">Enhance Your Analytical Precision</span> — Master commands that slice through the noise to reveal hidden patterns and critical trends.</li>
-        <li>🎮 <span style="color: var(--neon-blue);">Develop Lightning-Fast Execution</span> — Train under pressure so you can respond swiftly and accurately when every second matters.</li>
-        <li>⚡ <span style="color: var(--neon-red);">Build Resilience in High-Stakes Environments</span> — Hone your ability to manage real-time challenges where every keystroke is vital.</li>
-    </ul>
-    <h3>Who Stands to Gain?</h3>
-    <ul>
-        <li>✅ <strong>Data Scientists</strong> — Tame messy datasets and accelerate your analysis with precise command-line skills.</li>
-        <li>✅ <strong>DevOps Engineers</strong> — Quickly pinpoint and resolve system issues to keep operations running smoothly.</li>
-        <li>✅ <strong>Security Professionals</strong> — Efficiently sift through vast logs to detect breaches and protect critical infrastructure.</li>
-        <li>✅ <strong>Auditors & Analysts</strong> — Piece together financial trails and uncover trends with robust command expertise.</li>
-        <li>✅ <strong>Digital Marketers</strong> — Decode complex interaction data to drive smarter, data-backed decisions.</li>
-        <li>✅ <strong>Geologists & Environmental Scientists</strong> — Discover hidden patterns in extensive field data, turning raw numbers into breakthrough insights.</li>
-    </ul>
-    <h3>Your Journey Begins Now</h3>
-    <p>
-        A command will appear at random—your task is to replicate it exactly, one keystroke at a time. Embrace mistakes as stepping stones; every error is a lesson that drives you closer to perfection.
-    </p>
-    <p>
-        <span style="color: var(--neon-red); font-weight: bold;">Remember:</span> Practice makes mastery.
-    </p>
-    <p><em>Ready to transform your skills?</em></p>
-</div>
-
-
-
-
-
-<!-- Command Selection Area -->
-<div id="selectionArea" style="display: none;">
-    <h2>📜 Select Command Categories</h2>
-
-    <!-- Scrolling Grid of Categories with Checkboxes -->
-    <div id="categoryGrid"></div>
-
-    <textarea id="commandsTextArea" rows="10" cols="50" readonly></textarea>
-
-    <!-- Div to display selected categories (shows only the category name) -->
-    <div id="selectedCategoriesList"></div>
-
-    <!-- Add Own Commands -->
-    <div id="addOwnCommands">
-        <h2>✏️ Add Your Own Commands</h2>
-        <textarea id="ownCommandsInput" placeholder="Paste your own commands here, one per line..."></textarea>
-        <button id="addCommandButton">Add Commands</button>
-    </div>
-
-    <!-- Start Game Button -->
-    <button id="startButton">Start Game</button>
-</div>
-
-<!-- Game Area -->
-<div id="gameArea" style="display:none;">
-    <!-- Command Description Box -->
-    <div id="descriptionTerminal">
-        <h3>Command Description:</h3>
-        <p id="commandDescription"></p>
-    </div>
-    <!-- Terminal-like Box for Command to Type -->
-    <div id="commandTerminal">
-        <h3>💻 Command to Type:</h3>
-        <div id="commandDisplay"></div>
-    </div>
-
-    <!-- Input Box Styled Like a Terminal -->
-    <div id="typingTerminal">
-        <h3>Type the Above:</h3>
-        <input type="text" id="typingInput" placeholder="Start typing here..." autocomplete="off" disabled />
-    </div>
-
-    <br>
-    <!-- Score & Attempts Box -->
-    <div id="scoreTerminal">
-        <h3>⭐ Score Information:</h3>
-        <p id="feedback"></p>
-        <p id="encouragement"></p>
-        <p>Attempts: <span id="attempts">0 / 5</span></p>
-        <p>Points: <span id="points">0</span></p>
-        <p>Stars: <span id="starsDisplay">0</span></p>
-        <p>Typing Speed: <span id="speed">N/A WPM</span></p>
-        <div id="progressContainer">
-            <div id="progressBar">0%</div>
+<main id="main-content" tabindex="-1" role="main">
+    <!-- App Branding and Fake Terminal -->
+    <header aria-label="Game Header">
+        <h1>Cap10Typez</h1>
+        <div id="fakeTerminal" aria-hidden="true">
+            <span id="terminalCursor"></span>
         </div>
-    </div>
-</div>
+        <h2 class="sr-only">Terminal-style touch-typing drills for devs</h2>
+        <h3><a href="/index.html">Cap10.Tech</a> Teaches Typing</h3>
+    </header>
 
-<!-- History Section -->
-<div id="history">
-    <h2>📜 History Summary</h2>
-    <table id="historyTable">
-        <thead>
-        <tr>
-            <th>Date</th>
-            <th>Points</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!-- History entries will be populated here -->
-        </tbody>
-    </table>
-</div>
+    <!-- Introduction Section -->
+    <section id="introSection" aria-labelledby="intro-title">
+        <h2 id="intro-title">Master Your Entire Keyboard — Every Key, Every Symbol!</h2>
+        <p>
+            Every bracket <code>[ ]</code>, brace <code>{ }</code>, and flag <code>--help</code> is fair game. Cap10Typez puts you through relentless drills on real-world commands, forging your fingers into precision tools able to execute any snippet instantly.
+        </p>
+        <button id="readyButton">Forge My Neuro-Muscular Pathways</button>
+        <h3>Build Bulletproof Muscle Memory</h3>
+        <p>
+            Backed by neuroscience of skill acquisition, Cap10Typez rewires your brain through targeted repetition. Loop special symbols, flags, and options until execution is automatic—no hesitation, no second-guessing.
+        </p>
+        <h3>Why You Can’t Afford to Skip This</h3>
+        <ul>
+            <li>🎯 <strong>Precision Under Pressure</strong> — Strike every character flawlessly, even when stakes are sky-high.</li>
+            <li>🧠 <strong>Neural Pathway Strengthening</strong> — Drill repetition for synaptic connections that make commands second nature.</li>
+            <li>🚀 <strong>Lightning-Fast Execution</strong> — Turn your keyboard into an extension of your intent.</li>
+            <li>🏋️‍♂️ <strong>Endurance & Resilience</strong> — Build stamina to command through marathon debugging or mission-critical deploys.</li>
+        </ul>
+        <h3>Who Will Rise to the Challenge?</h3>
+        <ul>
+            <li><strong>Systems Engineers</strong> — Dominate every shell prompt with surgical accuracy.</li>
+            <li><strong>DevOps Pros</strong> — Fire off lifesaving fixes before incidents escalate.</li>
+            <li><strong>Data Wranglers</strong> — Slice through massive logs and datasets at warp speed.</li>
+            <li><strong>Security Gurus</strong> — Hunt threats with unparalleled keystroke precision.</li>
+            <li><strong>Any Tech Titan</strong> — Ready to transcend “good enough” and become unstoppable.</li>
+        </ul>
+        <h3>The Forge Is Lit</h3>
+        <p>
+            Real commands will flash—your mission: reproduce them perfectly, every symbol, every flag. Each typo is a chance to sharpen reflexes and strengthen those newly forged neural pathways.
+            <span style="color: var(--neon-red); font-weight: bold;">Are you ready to weaponize your keyboard?</span>
+        </p>
+    </section>
 
-<!-- Charts Section -->
-<div id="charts">
-    <h2>📈 Points Chart (Last 5 Days)</h2>
-    <canvas id="pointsChart" width="700" height="300"></canvas>
+    <!-- Command Selection Area -->
+    <section id="selectionArea" style="display: none;" aria-labelledby="choose-title">
+        <h2 id="choose-title">📜 Choose Your Command Drills</h2>
+        <p>Select one or more categories—bash, sed, grep, Python, touch-typing drills, and more. Each unlocks fresh, real-world typing challenges.</p>
+        <!-- Category Grid of Checkboxes -->
+        <div id="categoryGrid" class="category-grid"></div>
+        <!-- Start Game Button -->
+        <div class="start-wrapper">
+            <button id="startButton" class="btn btn-primary">Launch Typing Drill</button>
+            <p class="note">10% max attempts per command. Accuracy earns points and stars!</p>
+        </div>
+        <h3>Commands Queue</h3>
+        <textarea id="commandsTextArea" rows="8" readonly placeholder="Your selected commands will appear here…"></textarea>
+        <div id="selectedCategoriesList" class="selected-list"></div>
+        <!-- Add Own Commands -->
+        <div id="addOwnCommands" class="custom-commands">
+            <h2>✏️ Add Custom Commands</h2>
+            <p>Paste any CLI snippet or code line—one per line—to drill your personal arsenal.</p>
+            <textarea id="ownCommandsInput" placeholder="e.g. git reset --hard HEAD~1"></textarea>
+            <button id="addCommandButton" class="btn">Add to Queue</button>
+        </div>
+    </section>
 
-    <h2>📊 Rolling Averages</h2>
-    <div id="averages">
-        <p>Average WPM (Last 5 Sessions): <span id="avg5">N/A</span></p>
-        <p>Average WPM (Last 10 Sessions): <span id="avg10">N/A</span></p>
-    </div>
-</div>
+    <!-- Game Area -->
+    <section id="gameArea" style="display:none;" aria-labelledby="game-title">
+        <h2 id="game-title" class="sr-only">Active Typing Drill</h2>
+        <div id="descriptionTerminal">
+            <h3>Command Description:</h3>
+            <p id="commandDescription"></p>
+        </div>
+        <div id="commandTerminal">
+            <h3>💻 Command to Type:</h3>
+            <div id="commandDisplay"></div>
+        </div>
+        <div id="typingTerminal">
+            <h3>Type the Above:</h3>
+            <input type="text" id="typingInput" placeholder="Start typing here..." autocomplete="off" disabled aria-label="Typing input for active command" />
+        </div>
+        <div id="scoreTerminal">
+            <h3>⭐ Score Information:</h3>
+            <p id="feedback"></p>
+            <p id="encouragement"></p>
+            <p>Attempts: <span id="attempts">0 / 5</span></p>
+            <p>Points: <span id="points">0</span></p>
+            <p>Stars: <span id="starsDisplay">0</span></p>
+            <p>Typing Speed: <span id="speed">N/A WPM</span></p>
+            <div id="progressContainer">
+                <div id="progressBar">0%</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" aria-labelledby="history-title">
+        <h2 id="history-title">📜 History Summary</h2>
+        <table id="historyTable">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Points</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- History entries will be populated here -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Charts Section -->
+    <section id="charts" aria-labelledby="charts-title">
+        <h2 id="charts-title">📈 Points Chart (Last 5 Days)</h2>
+        <canvas id="pointsChart" width="700" height="300"></canvas>
+        <h2>📊 Rolling Averages</h2>
+        <div id="averages">
+            <p>Average WPM (Last 5 Sessions): <span id="avg5">N/A</span></p>
+            <p>Average WPM (Last 10 Sessions): <span id="avg10">N/A</span></p>
+        </div>
+    </section>
+</main>
+
+<footer aria-label="Site Footer">
+    <p>&copy; 2025 Cap10Bill. All rights reserved.</p>
+</footer>
+
 <script src="cap10typez-system-engineer-data.js"></script>
 <script src="cap10typez.js"></script>
 </body>
