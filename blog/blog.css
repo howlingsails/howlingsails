@@ -375,8 +375,8 @@ footer {
     margin: 1rem 0;
   }
   .header-logo {
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    min-height: 64px;
   }
 }
 /* Accessibility: Skip Link */
@@ -404,3 +404,17 @@ footer {
   outline: 2px solid var(--neon-blue);
   box-shadow: 0 0 0 2px var(--neon-yellow);
 }
+
+
+/* -----------------------------------
+   Mermaid Scrollable Container
+   enforce min-dimensions + scrollbars
+----------------------------------- */
+.mermaid {
+  display: block;           /* ensure it’s a block-level box */
+  min-width: 400px;         /* pick your minimum width */
+  min-height: 800px;        /* pick your minimum height */
+  overflow: auto;           /* show scrollbars when content exceeds */
+}
+
+

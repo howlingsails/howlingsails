@@ -1,10 +1,12 @@
+# blog/chocolatey-windows-installer.html
 <!DOCTYPE html>
 <!-- FilePath: blog/chocolatey-windows-installer.html -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Complete Chocolatey Guide for Windows</title>
-    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="./blog.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" sizes="16x16" href="/favicon-16x16.png">
     <link rel="icon" sizes="32x32" href="/favicon-32x32.png">
@@ -14,36 +16,25 @@
     <link rel="manifest" href="/site.web-manifest">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="container">
+    <header class="site-header" aria-label="Site Header">
+        <div class="header-branding">
+            <a href="blogs.html" class="logo-link">
+                <img src="/images/neon/neon-logbook.png" alt="cap10.tech logo" class="header-logo" width="64" height="64" />
+            </a>
+            <div class="header-text">
+                <h1>Complete Chocolatey Guide for Windows</h1>
+                <h2 class="sr-only">Definitive Windows Package Management</h2>
+                <h3>Streamline software installs, updates, and maintenance</h3>
+            </div>
+        </div>
+    </header>
 
-<header>
-    <nav>
-        <a class="cta-button" href="blogs.html">Return to Logbooking</a>
-    </nav>
-    <h1>Complete Chocolatey Guide for Windows</h1>
-</header>
-
-<main class="blog-content content">
-    <!-- Introduction Section -->
-    <section class="highlight-box">
-        <p>
-            Welcome to the definitive guide to <strong>Chocolatey</strong>, the transformative package manager for Windows that revolutionizes how you install, update, and manage software. If you're stepping into the world of package managers for the first time, you're about to significantly streamline how you handle software.
-        </p>
-        <p>
-            Setting up a new machine or maintaining an existing one can be a breeze with Chocolatey, which automates the tedious tasks of software management. But the stakes are higher than just convenience. In today’s digital landscape, keeping your software up-to-date is not optional—it’s critical. Outdated software can expose you to security vulnerabilities, lead to data breaches, and even cause system failures, all of which can result in catastrophic loss of data, time, and ultimately, trust.
-        </p>
-        <p>
-            For developers, data analysts, and any tech-savvy users managing diverse software suites, the importance of timely updates cannot be overstated. Neglecting updates can leave you lagging behind with buggy software, vulnerable to hacks, and missing out on essential features that could drive your projects forward. Chocolatey automates your software management, ensuring that every tool in your arsenal is current and fully optimized. This is not just about keeping your system running; it’s about securing your digital environment against potential threats that prey on outdated applications.
-        </p>
-        <p>
-            Are you ready to take control and prevent the risks associated with outdated software? Let’s dive into this guide to maximize the benefits of Chocolatey and turn software management from a chore into a strategic advantage.
-        </p>
-        <hr>
-    </section>
-
-    <!-- Table of Contents Section -->
-    <section class="highlight-box">
+    <nav class="table-of-contents highlight-box">
         <h2>Table of Contents</h2>
-        <ol>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
             <li><a href="#what-is-chocolatey">What Is Chocolatey?</a></li>
             <li><a href="#why-use-chocolatey">Why Use Chocolatey?</a></li>
             <li><a href="#how-to-install-chocolatey">How to Install Chocolatey</a></li>
@@ -53,296 +44,162 @@
             <li><a href="#debugging--troubleshooting">Debugging &amp; Troubleshooting</a></li>
             <li><a href="#cap10-fun-pitch">Cap10 Fun Pitch</a></li>
             <li><a href="#additional-resources">Additional Resources</a></li>
-        </ol>
-        <hr>
-    </section>
-
-    <!-- Section: What Is Chocolatey -->
-    <section id="what-is-chocolatey" class="highlight-box">
-        <h2>1. What Is Chocolatey?</h2>
-        <p>
-            <strong>Chocolatey</strong> is a <strong>package manager for Windows</strong> that allows you to install, update, and manage software using simple commands in PowerShell or Command Prompt.
-        </p>
-        <p>
-            <strong>Think of it as</strong> the Windows version of what apt-get or Homebrew does for Linux/Mac—but specifically tailored to Windows.
-        </p>
-        <hr>
-    </section>
-
-    <!-- Section: Why Use Chocolatey -->
-    <section id="why-use-chocolatey" class="highlight-box">
-        <h2>2. Why Use Chocolatey?</h2>
-        <ul>
-            <li><strong>Saves Time:</strong> Instead of downloading multiple installers, you can get software with one command.</li>
-            <li><strong>Easy to Update:</strong> Upgrade all your software at once without visiting various websites.</li>
-            <li><strong>Automate &amp; Script:</strong> Perfect for setting up new machines or maintaining a fleet of computers.</li>
-            <li><strong>Trusted Community:</strong> Official repository at <a href="https://community.chocolatey.org/packages" target="_blank">Community Chocolatey</a> for thousands of free packages.</li>
+            <li><a href="#code-examples">Code Examples</a></li>
+            <li><a href="#mermaid-examples">Mermaid Diagrams</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
         </ul>
-        <hr>
-    </section>
+    </nav>
 
-    <!-- Section: How to Install Chocolatey -->
-    <section id="how-to-install-chocolatey" class="highlight-box">
-        <h2>3. How to Install Chocolatey</h2>
-        <h3>Step-by-Step Installation on Windows 10/11</h3>
-        <ol>
-            <li>
-                <strong>Open PowerShell as Administrator:</strong> Click the Start menu, type <code>PowerShell</code> (or <code>CMD</code>), right-click, and select <strong>Run as administrator</strong>.
-            </li>
-            <li>
-                <strong>Run the <a href="https://chocolatey.org/install">Official Installation</a> Command:</strong> In your Administrator PowerShell window, run:
-                <pre><code class="language-powershell">
-Set-ExecutionPolicy Bypass -Scope Process -Force; `
-    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; `
-    iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-                </code></pre>
-            </li>
-            <li>
-                <strong>Verify the Installation:</strong> After the script completes, close and reopen your PowerShell/Command Prompt (as Administrator). Then run:
-                <pre><code class="language-powershell">
-choco -v
-                </code></pre>
-                                                          You should see Chocolatey’s version number.
-            </li>
-        </ol>
-        <p><strong>That’s it!</strong> You now have Chocolatey installed.</p>
-        <hr>
-    </section>
+    <main id="main-content">
 
-    <!-- Section: Essential Chocolatey Commands -->
-    <section id="essential-chocolatey-commands" class="highlight-box">
-        <h2>4. Essential Chocolatey Commands</h2>
-        <p>Once Chocolatey is installed, here are the top commands you need to know:</p>
-        <h3>A. Install a Package</h3>
-        <pre><code class="language-powershell">
-choco install &lt;package-name&gt; -y
-        </code></pre>
-        <p>- The <code>-y</code> confirms “yes” to all prompts.</p>
-        <h3>B. Uninstall a Package</h3>
-        <pre><code class="language-powershell">
-choco uninstall &lt;package-name&gt; -y
-        </code></pre>
-        <h3>C. Upgrade a Specific Package</h3>
-        <pre><code class="language-powershell">
-choco upgrade &lt;package-name&gt; -y
-        </code></pre>
-        <h3>D. Upgrade All Installed Packages</h3>
-        <pre><code class="language-powershell">
+        <section id="introduction" class="highlight-box blog-content" aria-labelledby="introduction-title">
+            <h2 id="introduction-title">Introduction</h2>
+            <p>Welcome to the definitive guide to <strong>Chocolatey</strong>, the transformative package manager for Windows. If you're stepping into the world of package managers for the first time, you’re about to streamline software installs, updates, and maintenance like never before.</p>
+            <p>Keeping software up-to-date isn’t just about convenience—it’s critical for security, stability, and access to new features. Chocolatey automates these tasks so you can focus on what matters.</p>
+            <hr>
+        </section>
+
+        <section id="what-is-chocolatey" class="highlight-box blog-content" aria-labelledby="what-is-chocolatey-title">
+            <h2 id="what-is-chocolatey-title">1. What Is Chocolatey?</h2>
+            <p><strong>Chocolatey</strong> is a Windows package manager that lets you install, upgrade, and manage software via PowerShell or Command Prompt commands.</p>
+            <p>It functions like <em>apt-get</em> on Linux or <em>Homebrew</em> on macOS, but tailored for Windows ecosystems.</p>
+            <hr>
+        </section>
+
+        <section id="why-use-chocolatey" class="highlight-box blog-content" aria-labelledby="why-use-chocolatey-title">
+            <h2 id="why-use-chocolatey-title">2. Why Use Chocolatey?</h2>
+            <ul>
+                <li><strong>Saves Time:</strong> Install multiple applications with a single command.</li>
+                <li><strong>Easy Updates:</strong> Upgrade all software at once without manual downloads.</li>
+                <li><strong>Automation:</strong> Script machine provisioning and routine maintenance.</li>
+                <li><strong>Community Repository:</strong> Access thousands of vetted packages on <a href="https://community.chocolatey.org/packages" target="_blank" rel="noopener noreferrer">Community Chocolatey</a>.</li>
+            </ul>
+            <hr>
+        </section>
+
+        <section id="how-to-install-chocolatey" class="highlight-box blog-content" aria-labelledby="how-to-install-chocolatey-title">
+            <h2 id="how-to-install-chocolatey-title">3. How to Install Chocolatey</h2>
+            <h3>Step-by-Step on Windows 10/11</h3>
+            <ol>
+                <li><strong>Run PowerShell as Administrator.</strong></li>
+                <li><strong>Execute the install script:</strong>
+                    <pre><code class="language-powershell">Set-ExecutionPolicy Bypass -Scope Process -Force; \
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; \
+iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))</code></pre>
+                </li>
+                <li><strong>Verify installation:</strong>
+                    <pre><code class="language-powershell">choco -v</code></pre>
+                </li>
+            </ol>
+            <p><strong>That's it!</strong> Chocolatey is now ready to use.</p>
+            <hr>
+        </section>
+
+        <section id="essential-chocolatey-commands" class="highlight-box blog-content" aria-labelledby="essential-chocolatey-commands-title">
+            <h2 id="essential-chocolatey-commands-title">4. Essential Chocolatey Commands</h2>
+            <pre><code class="language-powershell"># Install
+choco install <package> -y
+# Uninstall
+choco uninstall <package> -y
+# Upgrade specific
+choco upgrade <package> -y
+# Upgrade all
 choco upgrade all -y
-        </code></pre>
-        <h3>E. List Installed Packages</h3>
-        <pre><code class="language-powershell">
-choco list
-        </code></pre>
-        <p>This command defaults to showing <strong>installed packages</strong>.</p>
-        <h3>F. Search for Packages</h3>
-        <pre><code class="language-powershell">
-choco search &lt;keyword&gt;
-        </code></pre>
-        <p>For example, to search for Python packages:</p>
-        <pre><code class="language-powershell">
-choco search python
-        </code></pre>
-        <h3>G. Get Package Info</h3>
-        <pre><code class="language-powershell">
-choco info &lt;package-name&gt;
-        </code></pre>
-        <p>Shows detailed info like version, description, dependencies, etc.</p>
-        <hr>
-    </section>
+# List installed
+choco list --local-only
+# Search
+choco search <keyword>
+# Info
+choco info <package></code></pre>
+            <hr>
+        </section>
 
-    <!-- Section: Real-World Examples -->
-    <section id="real-world-examples" class="highlight-box">
-        <h2>5. Real-World Examples</h2>
-        <h3>Example 1: Installing and Upgrading Git</h3>
-        <ol>
-            <li><strong>Install Git:</strong>
-                <pre><code class="language-powershell">
-choco install git -y
-                </code></pre>
-            </li>
-            <li><strong>Upgrade Git:</strong>
-                <pre><code class="language-powershell">
-choco upgrade git -y
-                </code></pre>
-            </li>
-        </ol>
-        <h3>Example 2: Installing Multiple Packages</h3>
-        <pre><code class="language-powershell">
-choco install googlechrome vlc 7zip -y
-        </code></pre>
-        <p><em>Installs Google Chrome, VLC media player, and 7-Zip in one shot.</em></p>
-        <h3>Example 3: Automate Updates</h3>
-        <pre><code class="language-powershell">
-choco upgrade all -y
-        </code></pre>
-        <p><em>Upgrades every Chocolatey-installed package on your system.</em></p>
-        <hr>
-    </section>
+        <section id="real-world-examples" class="highlight-box blog-content" aria-labelledby="real-world-examples-title">
+            <h2 id="real-world-examples-title">5. Real-World Examples</h2>
+            <h3>Batch Install Common Tools</h3>
+            <pre><code class="language-powershell">choco install git googlechrome vscode 7zip -y</code></pre>
+            <h3>Automate Updates</h3>
+            <pre><code class="language-powershell">choco upgrade all -y</code></pre>
+            <hr>
+        </section>
 
-    <!-- Section: Where Packages Are Installed -->
-    <section id="where-packages-are-installed" class="highlight-box">
-        <h2>6. Where Packages Are Installed</h2>
-        <p>
-            Understanding where Chocolatey installs packages on your Windows system can help you manage your applications and troubleshoot any issues that may arise. Here’s a breakdown of the typical installation paths and how to find installed executables:
-        </p>
-        <ul>
-            <li><strong>Chocolatey Root Folder:</strong> This is the main directory where Chocolatey maintains its operational files and where it installs software packages. By default, this is located at:
-                <pre><code>C:\ProgramData\chocolatey</code></pre>
-            </li>
-            <li><strong>Package Folder:</strong> Each individual package that you install via Chocolatey has its own folder within the Chocolatey library directory. Here, you can find all files associated with a specific package. The path is usually:
-                <pre><code>C:\ProgramData\chocolatey\lib\[package-name]\</code></pre>
-                                                 Replace <code>[package-name]</code> with the actual name of the package.
-            </li>
-            <li><strong>Finding Executables:</strong> Most applications installed through Chocolatey are automatically added to your system's PATH. To find the location of an executable, run:
-                <pre><code class="language-powershell">
-where.exe [executable-name]
-                </code></pre>
-                                                      For example:
-                <pre><code class="language-powershell">
-where.exe git
-                </code></pre>
-            </li>
-        </ul>
-        <p>
-            With these paths and commands, you can easily locate installed packages or executables for configuration and troubleshooting.
-        </p>
-        <hr>
-    </section>
+        <section id="where-packages-are-installed" class="highlight-box blog-content" aria-labelledby="where-packages-are-installed-title">
+            <h2 id="where-packages-are-installed-title">6. Where Packages Are Installed</h2>
+            <ul>
+                <li><strong>Root Directory:</strong> <code>C:\ProgramData\chocolatey</code></li>
+                <li><strong>Packages:</strong> <code>C:\ProgramData\chocolatey\lib\[package-name]</code></li>
+                <li><strong>Executables:</strong> Use <code>where.exe [exe-name]</code></li>
+            </ul>
+            <hr>
+        </section>
 
-    <!-- Section: Debugging & Troubleshooting -->
-    <section id="debugging--troubleshooting" class="highlight-box">
-        <h2>7. Debugging &amp; Troubleshooting</h2>
-        <h3>A. Check Logs</h3>
-        <p><strong>Log file path:</strong></p>
-        <pre><code>
-C:\ProgramData\chocolatey\logs\chocolatey.log
-        </code></pre>
-        <h3>B. Enable Verbose &amp; Debug Logging</h3>
-        <pre><code class="language-powershell">
-choco install &lt;package-name&gt; -dv
-        </code></pre>
-        <p>- <code>-d</code> = debug, <code>-v</code> = verbose</p>
-        <h3>C. Common Issues</h3>
-        <ul>
-            <li><strong>Run as Administrator:</strong> Many errors occur because the command prompt isn’t elevated.</li>
-            <li><strong>Internet/Firewall:</strong> Ensure your network allows connections to Chocolatey’s servers.</li>
-            <li><strong>Clear Cache:</strong>
-                <pre><code class="language-powershell">
-choco clean
-                </code></pre>
-                or manually clear:
-                <pre><code>
-C:\ProgramData\chocolatey\cache
-                </code></pre>
-            </li>
-        </ul>
-        <hr>
-    </section>
+        <section id="debugging--troubleshooting" class="highlight-box blog-content" aria-labelledby="debugging--troubleshooting-title">
+            <h2 id="debugging--troubleshooting-title">7. Debugging &amp; Troubleshooting</h2>
+            <ul>
+                <li><strong>View Logs:</strong> <code>C:\ProgramData\chocolatey\logs\chocolatey.log</code></li>
+                <li><strong>Debug &amp; Verbose:</strong>
+                    <pre><code class="language-powershell">choco install <package> -dv</code></pre>
+                </li>
+                <li><strong>Clear Cache:</strong>
+                    <pre><code class="language-powershell">choco clean</code></pre>
+                </li>
+            </ul>
+            <hr>
+        </section>
 
-    <!-- Section: Cap10 Fun Pitch -->
-    <section id="cap10-fun-pitch" class="highlight-box">
-        <h2>8. Cap10 Fun Pitch</h2>
-        <p>
-            <strong>Picture This:</strong> You’re tired of scouring the internet for the latest installers, clicking through endless “Next” buttons,
-                                           and dealing with constant updates. <strong>Chocolatey</strong> swoops in like a superhero—<strong>Cap10</strong> of your Windows realm—automating all those tedious steps with a single, clean command.
-        </p>
-        <ul>
-            <li><strong>Saves Time:</strong> One command can install dozens of apps while you sip your coffee.</li>
-            <li><strong>Saves Headaches:</strong> No more outdated software or random installer pop-ups.</li>
-            <li><strong>Saves Brainpower:</strong> Focus on creative tasks while Chocolatey handles the grunt work.</li>
-        </ul>
-        <p>
-            With Chocolatey’s superpowers, you’ll never look back at manual installs again!
-        </p>
-        <hr>
-    </section>
+        <section id="cap10-fun-pitch" class="highlight-box blog-content" aria-labelledby="cap10-fun-pitch-title">
+            <h2 id="cap10-fun-pitch-title">8. Cap10 Fun Pitch</h2>
+            <p>Let Chocolatey handle tedious installs while you focus on building incredible software.</p>
+            <hr>
+        </section>
 
-    <!-- Section: Additional Resources -->
-    <section id="additional-resources" class="highlight-box">
-        <h2>9. Additional Resources</h2>
-        <p>Explore top Chocolatey packages categorized by user needs, from productivity tools to development environments. Each category includes highly recommended packages complete with installation commands and a brief description of their utility.</p>
+        <section id="additional-resources" class="highlight-box blog-content" aria-labelledby="additional-resources-title">
+            <h2 id="additional-resources-title">9. Additional Resources</h2>
+            <h4>For Productivity:</h4>
+            <pre><code class="language-powershell">choco install evernote notepadplusplus adobereader -y</code></pre>
+            <h4>For Developers:</h4>
+            <pre><code class="language-powershell">choco install visualstudiocode pycharm intellijidea-ultimate docker-desktop postman -y</code></pre>
+            <h4>For Data Management &amp; Analysis:</h4>
+            <pre><code class="language-powershell">choco install tableau sql-server-management-studio hadoop mongodb r.project -y</code></pre>
+            <h4>For Data Scientists:</h4>
+            <pre><code class="language-powershell">choco install python miniconda3 rstudio -y</code></pre>
+            <h4>For System Administrators:</h4>
+            <pre><code class="language-powershell">choco install putty wireshark sysinternals -y</code></pre>
+            <h4>For General Users:</h4>
+            <pre><code class="language-powershell">choco install googlechrome libreoffice spotify -y</code></pre>
+            <hr>
+        </section>
 
-        <h4>For Productivity:</h4>
-        <p><strong>Evernote</strong> - Ideal for note-taking and organizing your projects. Capture your thoughts and access them from any device.</p>
-        <pre><code class="language-powershell">choco install evernote -y -dv</code></pre>
+        <section id="code-examples" class="highlight-box blog-content" aria-labelledby="code-examples-title">
+            <h2 id="code-examples-title">Code Examples</h2>
+            <pre><code class="language-powershell"># Install Node.js
+choco install nodejs -y
 
-        <p><strong>Notepad++</strong> - A powerful text editor packed with features to enhance code editing and writing tasks.</p>
-        <pre><code class="language-powershell">choco install notepadplusplus -y -dv</code></pre>
+# Uninstall VLC
+choco uninstall vlc -y</code></pre>
+            <hr>
+        </section>
 
-        <p><strong>Adobe Reader</strong> - Essential for viewing, printing, signing, and annotating PDFs.</p>
-        <pre><code class="language-powershell">choco install adobereader -y -dv</code></pre>
+        <section id="mermaid-examples" class="highlight-box blog-content" aria-labelledby="mermaid-examples-title">
+            <h2 id="mermaid-examples-title">Mermaid Diagrams</h2>
+            <div class="mermaid">
+                flowchart LR
+                A[Start] --> B[Install Chocolatey]
+                B --> C{Success?}
+                C -->|Yes| D[Install Packages]
+                C -->|No| E[Review Logs]
+                E --> B
+            </div>
+            <hr>
+        </section>
 
-        <h4>For Developers:</h4>
-        <p><strong>Visual Studio Code</strong> - A lightweight but powerful source code editor that supports a multitude of programming languages.</p>
-        <pre><code class="language-powershell">choco install visualstudiocode -y -dv</code></pre>
+        <section id="conclusion" class="highlight-box blog-content" aria-labelledby="conclusion-title">
+            <h2 id="conclusion-title">Conclusion</h2>
+            <p>With Chocolatey, you’ve gained a powerful ally for managing Windows software at scale—one command transforms installation, updates, and maintenance into a breeze.</p>
+        </section>
 
-        <p><strong>PyCharm</strong> - A Python IDE for professional developers with a wide range of essential tools.</p>
-        <pre><code class="language-powershell">choco install pycharm -y -dv</code></pre>
-
-        <p><strong>IntelliJ IDEA</strong> - Tailored for Java developers, this IDE provides advanced support for various programming languages.</p>
-        <pre><code class="language-powershell">choco install intellijidea-ultimate -y -dv</code></pre>
-
-        <p><strong>Docker</strong> - Enables containerized application development and deployment.</p>
-        <pre><code class="language-powershell">choco install docker-desktop -y -dv</code></pre>
-
-        <p><strong>Postman</strong> - Simplifies API development and testing with a robust interface for crafting requests.</p>
-        <pre><code class="language-powershell">choco install postman -y -dv</code></pre>
-
-        <h4>For Data Management and Analysis:</h4>
-        <p><strong>Tableau Desktop</strong> - Create and share interactive visualizations with ease.</p>
-        <pre><code class="language-powershell">choco install tableau -y -dv</code></pre>
-
-        <p><strong>SQL Server Management Studio (SSMS)</strong> - Manage SQL Server and Azure SQL Database environments efficiently.</p>
-        <pre><code class="language-powershell">choco install sql-server-management-studio -y -dv</code></pre>
-
-        <p><strong>Apache Hadoop</strong> - Distribute processing of large data sets across clusters using simple programming models.</p>
-        <pre><code class="language-powershell">choco install hadoop -y -dv</code></pre>
-
-        <p><strong>MongoDB</strong> - A NoSQL database designed for high availability and scalability.</p>
-        <pre><code class="language-powershell">choco install mongodb -y -dv</code></pre>
-
-        <p><strong>R</strong> - A language and environment for statistical computing and graphics.</p>
-        <pre><code class="language-powershell">choco install r.project -y -dv</code></pre>
-
-        <h4>For Data Scientists:</h4>
-        <p><strong>Python</strong> - Essential for data analysis and machine learning with a vast library ecosystem.</p>
-        <pre><code class="language-powershell">choco install python -y -dv</code></pre>
-
-        <p><strong>Miniconda</strong> - A lightweight conda environment manager for Python packages.</p>
-        <pre><code class="language-powershell">choco install miniconda3 -y -dv</code></pre>
-
-        <p><strong>R Studio</strong> - A powerful IDE for R that facilitates statistical computing and graphics.</p>
-        <pre><code class="language-powershell">choco install rstudio -y -dv</code></pre>
-
-        <h4>For System Administrators:</h4>
-        <p><strong>PuTTY</strong> - A free terminal emulator for remote access via SSH.</p>
-        <pre><code class="language-powershell">choco install putty -y -dv</code></pre>
-
-        <p><strong>Wireshark</strong> - A network protocol analyzer used for network troubleshooting and analysis.</p>
-        <pre><code class="language-powershell">choco install wireshark -y -dv</code></pre>
-
-        <p><strong>Sysinternals</strong> - A suite of tools for managing, troubleshooting, and diagnosing Windows systems.</p>
-        <pre><code class="language-powershell">choco install sysinternals -y -dv</code></pre>
-
-        <h4>For General Users:</h4>
-        <p><strong>Google Chrome</strong> - A fast, secure, and user-friendly web browser.</p>
-        <pre><code class="language-powershell">choco install googlechrome -y -dv</code></pre>
-
-        <p><strong>LibreOffice</strong> - A comprehensive office suite for productivity tasks.</p>
-        <pre><code class="language-powershell">choco install libreoffice -y -dv</code></pre>
-
-        <p><strong>Spotify</strong> - Access millions of songs and podcasts with this popular music streaming service.</p>
-        <pre><code class="language-powershell">choco install spotify -y -dv</code></pre>
-        <p>These packages represent just a fraction of what's available on Chocolatey. They're essential tools designed to enhance productivity, streamline development, and simplify system administration.</p>
-        <hr>
-    </section>
-</main>
-
-<footer class="highlight-box">
-    <p>&copy; 2025 Cap10Bill. All rights reserved.</p>
-</footer>
-
+    </main>
+</div>
 <script src="blog.js"></script>
 </body>
 </html>

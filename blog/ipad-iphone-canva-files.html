@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!-- FilePath: blog/ipad-iphone-canva-files.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Where Your Canva Files Live: A 2025 Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./blog.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="manifest" href="/site.web-manifest">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="container">
+    <header class="site-header" aria-label="Site Header">
+        <div class="header-branding">
+            <a href="blogs.html" class="logo-link">
+                <img src="/images/neon/logo.png" alt="Logo alt text" class="header-logo" width="64" height="64">
+            </a>
+            <div class="header-text">
+                <h1>Where Your Canva Files Live</h1>
+                <h2 class="sr-only">A guide to find exports on iPad and iPhone</h2>
+                <h3>Easy tips to save, find, and troubleshoot your designs</h3>
+            </div>
+        </div>
+    </header>
+    <nav class="table-of-contents highlight-box">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#section1">Where Your Designs Are Saved</a></li>
+            <li><a href="#code-examples">Code Examples</a></li>
+            <li><a href="#mermaid-examples">Mermaid Diagrams</a></li>
+            <li><a href="#section3">Quick Troubleshooting Steps</a></li>
+        </ul>
+    </nav>
+    <main id="main-content">
+        <section id="section1" class="highlight-box blog-content" aria-labelledby="section1-title">
+            <h2 id="section1-title">Where Your Designs Are Saved</h2>
+            <h3>How to pick your destination and find your files</h3>
+            <p>Ever saved a design in Canva and then wondered what just happened? You are not alone. It can feel like tossing a paper airplane into a windy day and hoping to catch it later. In reality, your files have a clear path. You just need to know where to look.</p>
+            <p>Canva uses an internal folder—the app sandbox—to hold your working designs. This hidden space lives on your device. No other app can see it. You cannot browse it in the Files app. That keeps your drafts safe. It also means nothing appears there until you choose to export.</p>
+            <p>When you tap <strong>Share &rarr; Download</strong>, Canva packages your work into a new file. Pick a format. Choose where to save. Then a copy lands in a public spot. That spot might be on your iPad’s internal storage, a cloud drive, or even your Photos library. It all depends on your choice.</p>
+            <p>Below you will find a deep dive into each location. You will learn how to set default save spots and how to track down that file when it seems to vanish. No code. No developer tools. Just the Files app, a few taps, and common sense.</p>
+            <h4>Canva’s Private Folder</h4>
+            <p>Every iOS and Android app lives in a sandbox. Think of it as a private cabinet. Canva stores project files here. These files include SVG data, PNG previews, JSON that describes your layout, and more. They remain isolated. You cannot export them directly. You only see thumbnails in the Canva interface.</p>
+            <p>This design vault protects your work. It prevents accidental deletion and keeps intermediate versions intact. You can work offline. Edits happen instantly. But that data never shows up in your Photos or Files until you ask.</p>
+            <h4>The Export Copy</h4>
+            <p>Exporting makes a fresh copy. Canva leaves the original project untouched. You can export multiple times. Each time, you get a new file. That is why you see version 1, version 2, or version final. The master stays safe.</p>
+            <p>Short answer: Export equals copy. Copy goes where you want. The original never moves.</p>
+            <h4>Selecting a Save Location</h4>
+            <p>After you tap Download, a menu appears. You will see options like:</p>
+            <ul>
+                <li><strong>On My iPad/iPhone</strong> &mdash; a folder in the Files app</li>
+                <li><strong>iCloud Drive</strong> &mdash; in your cloud storage</li>
+                <li><strong>Photos</strong> &mdash; straight to your camera roll</li>
+                <li><strong>Other Clouds</strong> &mdash; Dropbox, Google Drive, OneDrive if added</li>
+                <li><strong>Email or Messages</strong> &mdash; attach and send directly</li>
+            </ul>
+            <p>Pick one. Tap Save. It feels obvious when you do it. Yet newcomers often miss that final confirmation. If you leave the picker without tapping Save, nothing moves.</p>
+            <h4>Offline Versus Online Spots</h4>
+            <p>Saving to <strong>On My iPad</strong> works offline. No internet needed. That is your local folder. Good for big files or when you lack signal. However, those files only exist on that device.</p>
+            <p>Saving to <strong>iCloud Drive</strong> needs connectivity. Once done, your file syncs to all Apple devices on your account. You can reach it in Finder on a Mac or via the iCloud for Windows app. It shows up in the Files app under iCloud Drive.</p>
+            <h4>Naming and Organizing</h4>
+            <p>Files tend to pile up if you do not organize early. Create a folder called <code>Canva Exports</code>. Add subfolders by project or date. For example:</p>
+            <pre><code class="language-shell">
+$ mkdir -p "iCloud Drive/Canva Exports/EventFlyers/2025-05"
+            </code></pre>
+            <p>Use clear names: <code>ConferencePoster_v2.png</code>. Then use the search field in Files to locate it fast.</p>
+            <h4>Using Tags</h4>
+            <p>Files supports tags on iOS. You can add colored dots or custom labels. Tag urgent exports in red. Tag drafts in yellow. Tags show up across locations, making it easy to filter.</p>
+            <h4>Third-Party Cloud Drives</h4>
+            <p>Want Dropbox or Google Drive? Install the official app. Then go to Files &rarr; Edit in the three-dot menu. Toggle the cloud you need. It appears as a location. Now, when exporting, pick Save to Files, open your Dropbox folder, and tap Save.</p>
+            <h4>Searching Like a Pro</h4>
+            <p>Tapping the search bar in Files is often fastest. Type part of your file name or extension. You will see results across all enabled locations. It saves time versus browsing nested folders.</p>
+        </section>
+
+        <section id="code-examples" class="highlight-box blog-content" aria-labelledby="code-examples-title">
+            <h2 id="code-examples-title">Code Examples</h2>
+            <p>Embed and showcase code snippets with syntax highlighting. Replace <code class="language-javascript">language-javascript</code> with the appropriate language identifier.</p>
+            <pre><code class="language-javascript">
+// JavaScript example
+enable shipsLogMode();
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+}
+greet('designer');
+            </code></pre>
+            <pre><code class="language-shell">
+# Shell example
+$ echo "Listing Canva Exports"
+$ ls "iCloud Drive/Canva Exports"
+            </code></pre>
+        </section>
+
+        <section id="mermaid-examples" class="highlight-box blog-content" aria-labelledby="mermaid-examples-title">
+            <h2 id="mermaid-examples-title">Mermaid Diagrams</h2>
+            <p>Visualize workflows, flowcharts, and diagrams using Mermaid. Ensure <code>mermaid.js</code> is loaded in your <code>blog.js</code> or equivalent.</p>
+            <div class="mermaid">
+                graph LR
+                A[Open Canva] --> B{Tap Share}
+                B --> C[Choose Format]
+                C --> D{Pick Location}
+                D --> E[On My iPad]
+                D --> F[iCloud Drive]
+                D --> G[Photos]
+                D --> H[Other Clouds]
+                E --> I[Find in Files]
+                F --> I
+                G --> J[Find in Photos]
+                H --> I
+            </div>
+        </section>
+
+        <section id="section3" class="highlight-box blog-content" aria-labelledby="section3-title">
+            <h2 id="section3-title">Quick Troubleshooting Steps</h2>
+            <h3>Simple checks to locate missing exports</h3>
+            <p>Can’t find your file? Start here. These steps cover the majority of hiccups.</p>
+            <h4>1. Enable the Right Location</h4>
+            <p>Open Files. Tap three-dot menu. Choose Edit. Enable iCloud Drive, Dropbox, Google Drive or any cloud you need. Now the folder appears.</p>
+            <h4>2. Confirm the Save Action</h4>
+            <p>In Canva’s share sheet make sure you tapped <strong>Save</strong> after selecting Save to Files. It only moves when you hit that final button.</p>
+            <h4>3. Check the Correct Folder</h4>
+            <p>Look under the location you chose. New exports often land in a <strong>Downloads</strong> folder or a <strong>Canva</strong> folder inside it. Open each to check.</p>
+            <h4>4. Verify Connectivity</h4>
+            <p>Saving to the cloud needs online access. Open Settings and confirm Wi-Fi or cellular is on. Then open Files and tap the file name. That forces a sync.</p>
+            <h4>5. Restart Apps or Device</h4>
+            <p>Swipe the app away in the switcher. Relaunch. Still broken? Power cycle your device. A fresh start clears most minor glitches.</p>
+            <h4>6. Update Software</h4>
+            <p>Open the App Store. Tap your profile. Update iOS, Canva, and any cloud app. Bug fixes roll out in updates and often resolve picker errors.</p>
+            <h4>7. Test a Small File</h4>
+            <p>Try exporting a single small PNG. If it shows up, the export path is fine and you can adjust bigger exports later.</p>
+            <h4>8. Reinstall as Last Resort</h4>
+            <p>Delete and reinstall Canva or the cloud app. It clears corrupted caches and resets permissions. Re-enable the service in Files &rarr; Edit afterward.</p>
+            <h4>Stay Calm and Carry On</h4>
+            <p>By following these checks you save time and frustration. You will know exactly where your files are and why they might not appear. That frees you to focus on design, not detective work.</p>
+        </section>
+
+    </main>
+</div>
+<script src="blog.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- FilePath: blog/_blank-template.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!-- Page Title --></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./blog.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="manifest" href="/site.web-manifest">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="container">
+    <header class="site-header" aria-label="Site Header">
+        <div class="header-branding">
+            <a href="blogs.html" class="logo-link">
+                <img src="/images/neon/logo.png" alt="Logo alt text" class="header-logo" width="64" height="64">
+            </a>
+            <div class="header-text">
+                <h1><!-- Main Heading --></h1>
+                <h2 class="sr-only"><!-- Sub Heading --></h2>
+                <h3><!-- Tagline or Subtitle --></h3>
+            </div>
+        </div>
+    </header>
+    <nav class="table-of-contents highlight-box">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#section1"><!-- Section 1 Title --></a></li>
+            <li><a href="#code-examples">Code Examples</a></li>
+            <li><a href="#mermaid-examples">Mermaid Diagrams</a></li>
+            <li><a href="#section3"><!-- Section 3 Title --></a></li>
+        </ul>
+    </nav>
+    <main id="main-content">
+        <section id="section1" class="highlight-box blog-content" aria-labelledby="section1-title">
+            <h2 id="section1-title"><!-- Section 1 Title --></h2>
+            <h3><!-- Section 1 Subtitle --></h3>
+            <p><!-- Section 1 content --></p>
+        </section>
+
+        <section id="code-examples" class="highlight-box blog-content" aria-labelledby="code-examples-title">
+            <h2 id="code-examples-title">Code Examples</h2>
+            <p>Embed and showcase code snippets with syntax highlighting. Replace <code class="language-javascript">language-javascript</code> with the appropriate language identifier.</p>
+            <pre><code class="language-javascript">
+// JavaScript example
+enable ship’s-log mode
+function greet(name) {
+  console.log(`Ahoy ${name}!`);
+}
+greet('crew');
+                </code></pre>
+            <pre><code class="language-shell">
+# Shell example
+$ echo "Deploying the fleet"
+                </code></pre>
+        </section>
+
+        <section id="mermaid-examples" class="highlight-box blog-content" aria-labelledby="mermaid-examples-title">
+            <h2 id="mermaid-examples-title">Mermaid Diagrams</h2>
+            <p>Visualize workflows, flowcharts, and diagrams using Mermaid. Ensure <code>mermaid.js</code> is loaded in your <code>blog.js</code> or equivalent.</p>
+            <div class="mermaid">
+                graph LR
+                A[Start] --> B{Add Code Examples}
+                B --> C[Code Examples Section]
+                B --> D[Mermaid Section]
+                C --> E[Review]
+                D --> E
+            </div>
+        </section>
+
+        <section id="section3" class="highlight-box blog-content" aria-labelledby="section3-title">
+            <h2 id="section3-title"><!-- Section 3 Title --></h2>
+            <h3><!-- Section 3 Subtitle --></h3>
+            <p><!-- Section 3 content --></p>
+        </section>
+
+    </main>
+</div>
+<script src="blog.js"></script>
+</body>
+</html>
