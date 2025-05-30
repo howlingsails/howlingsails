@@ -127,6 +127,15 @@ html {
   line-height: 1.2;
   color: var(--neon-blue);
 }
+        /* Align Table of Contents to the left */
+nav.table-of-contents {
+    justify-content: flex-start;
+    flex-direction: column;
+}
+nav.table-of-contents ul {
+    text-align: left;
+}
+
 
 /* -------------------------
    Navigation Button

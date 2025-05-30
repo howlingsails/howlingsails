@@ -13,6 +13,11 @@
     <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
     <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
     <link rel="manifest" href="/site.web-manifest">
+    <style>
+        /* Align Table of Contents to the left */
+        nav.table-of-contents { justify-content: flex-start; }
+        nav.table-of-contents ul { text-align: left; list-style: disc; padding-left: 1.2rem; }
+    </style>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -20,128 +25,214 @@
     <header class="site-header" aria-label="Site Header">
         <div class="header-branding">
             <a href="blogs.html" class="logo-link">
-                <img src="/images/neon/logo.png" alt="Logo alt text" class="header-logo" width="64" height="64">
+                <img src="/images/neon/neon-digital-library.png" alt="Digital Library Icon"
+                     class="header-logo" width="64" height="64">
             </a>
             <div class="header-text">
                 <h1>Where Your Canva Files Live</h1>
-                <h2 class="sr-only">A guide to find exports on iPad and iPhone</h2>
-                <h3>Easy tips to save, find, and troubleshoot your designs</h3>
+                <h2 class="sr-only">A guide for iPad and iPhone users</h2>
+                <h3>Understand, organize, and troubleshoot your exports</h3>
             </div>
         </div>
     </header>
+
     <nav class="table-of-contents highlight-box">
-        <h2>Table of Contents</h2>
+        <h3>Table of Contents</h3>
         <ul>
-            <li><a href="#section1">Where Your Designs Are Saved</a></li>
-            <li><a href="#code-examples">Code Examples</a></li>
-            <li><a href="#mermaid-examples">Mermaid Diagrams</a></li>
-            <li><a href="#section3">Quick Troubleshooting Steps</a></li>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#sandbox">How iOS Keeps Your Files Safe</a></li>
+            <li><a href="#drawers">Your Four Storage Drawers</a></li>
+            <li><a href="#exporting">Exporting from Canva</a></li>
+            <li><a href="#sync">Sync &amp; Connectivity</a></li>
+            <li><a href="#folders">Organizing with Folders</a></li>
+            <li><a href="#terminal">Speed Up with the Terminal</a></li>
+            <li><a href="#zip">Zip &amp; Archive</a></li>
+            <li><a href="#automation">Sample Automation Script</a></li>
+            <li><a href="#troubleshoot">Troubleshooting Checklist</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
         </ul>
     </nav>
+
     <main id="main-content">
-        <section id="section1" class="highlight-box blog-content" aria-labelledby="section1-title">
-            <h2 id="section1-title">Where Your Designs Are Saved</h2>
-            <h3>How to pick your destination and find your files</h3>
-            <p>Ever saved a design in Canva and then wondered what just happened? You are not alone. It can feel like tossing a paper airplane into a windy day and hoping to catch it later. In reality, your files have a clear path. You just need to know where to look.</p>
-            <p>Canva uses an internal folder—the app sandbox—to hold your working designs. This hidden space lives on your device. No other app can see it. You cannot browse it in the Files app. That keeps your drafts safe. It also means nothing appears there until you choose to export.</p>
-            <p>When you tap <strong>Share &rarr; Download</strong>, Canva packages your work into a new file. Pick a format. Choose where to save. Then a copy lands in a public spot. That spot might be on your iPad’s internal storage, a cloud drive, or even your Photos library. It all depends on your choice.</p>
-            <p>Below you will find a deep dive into each location. You will learn how to set default save spots and how to track down that file when it seems to vanish. No code. No developer tools. Just the Files app, a few taps, and common sense.</p>
-            <h4>Canva’s Private Folder</h4>
-            <p>Every iOS and Android app lives in a sandbox. Think of it as a private cabinet. Canva stores project files here. These files include SVG data, PNG previews, JSON that describes your layout, and more. They remain isolated. You cannot export them directly. You only see thumbnails in the Canva interface.</p>
-            <p>This design vault protects your work. It prevents accidental deletion and keeps intermediate versions intact. You can work offline. Edits happen instantly. But that data never shows up in your Photos or Files until you ask.</p>
-            <h4>The Export Copy</h4>
-            <p>Exporting makes a fresh copy. Canva leaves the original project untouched. You can export multiple times. Each time, you get a new file. That is why you see version 1, version 2, or version final. The master stays safe.</p>
-            <p>Short answer: Export equals copy. Copy goes where you want. The original never moves.</p>
-            <h4>Selecting a Save Location</h4>
-            <p>After you tap Download, a menu appears. You will see options like:</p>
+
+        <section id="intro" class="highlight-box blog-content">
+            <h2>Introduction</h2>
+            <p>Ever hit "Download" in Canva, only to wonder where that precious file disappeared to? It happens to the best of us. One moment you’re celebrating a final design, and the next you’re digging through endless folders in the Files app.</p>
+            <p>This guide will straighten out the mystery. We’ll explore how iPad and iPhone store app data, why your Canva projects live in hidden sandboxes, and how your chosen save location determines which drawer your file lands in. We’ll also show you simple ways to organize dozens of exports at once—no endless tapping required.</p>
+            <p>Along the way, you’ll learn to leverage the Terminal for quick moves, compress and unzip folders, even automate daily housekeeping with a tiny script. It’s all about clarity and control—so you never lose track of a design again.</p>
+        </section>
+
+        <section id="sandbox" class="highlight-box blog-content">
+            <h2>How iOS Keeps Your Files Safe</h2>
+            <p>iOS apps don’t share one giant folder. Instead, each app gets its own private sandbox, isolated from others. Think of it like a locked office suite. Canva’s workspace lives behind its own door, inaccessible to the Files app or your other tools.</p>
+            <p>Inside that sandbox, Canva stores everything: raw JSON project data, embedded images, template assets, thumbnails—every brush stroke, if you will. None of it shows up in the Files app until you specifically export it.</p>
+            <p>This isolation serves two purposes. First, it protects your drafts from accidental deletion or modification by other apps. Second, it speeds up performance, since Canva can manage its own storage without interference. However, it also means that until you tap that final Save button, nothing moves out of that private folder.</p>
+        </section>
+
+        <section id="drawers" class="highlight-box blog-content">
+            <h2>Your Four Storage Drawers</h2>
+            <p>Once you export, you choose a "drawer" in the Files app. There are four main drawers, each with its own quirks:</p>
             <ul>
-                <li><strong>On My iPad/iPhone</strong> &mdash; a folder in the Files app</li>
-                <li><strong>iCloud Drive</strong> &mdash; in your cloud storage</li>
-                <li><strong>Photos</strong> &mdash; straight to your camera roll</li>
-                <li><strong>Other Clouds</strong> &mdash; Dropbox, Google Drive, OneDrive if added</li>
-                <li><strong>Email or Messages</strong> &mdash; attach and send directly</li>
+                <li><strong>On My iPad/iPhone</strong>: This drawer lives physically on your device. It works offline and never syncs. Great for big files when you have no Wi-Fi.</li>
+                <li><strong>iCloud Drive</strong>: Apple’s cloud cabinet. Changes sync across all devices signed into your Apple ID. But it needs internet. If you go offline, uploads queue up.</li>
+                <li><strong>Third-Party Drives</strong>: Dropbox, Google Drive, OneDrive—each adds a drawer when you enable it in Files &rarr; Edit. Choose wisely, since they rely on their own sync engines.</li>
+                <li><strong>Photos Library</strong>: A separate photo album, reserved for images and videos. Exports here appear in your camera roll, accessible by social apps at a tap.</li>
             </ul>
-            <p>Pick one. Tap Save. It feels obvious when you do it. Yet newcomers often miss that final confirmation. If you leave the picker without tapping Save, nothing moves.</p>
-            <h4>Offline Versus Online Spots</h4>
-            <p>Saving to <strong>On My iPad</strong> works offline. No internet needed. That is your local folder. Good for big files or when you lack signal. However, those files only exist on that device.</p>
-            <p>Saving to <strong>iCloud Drive</strong> needs connectivity. Once done, your file syncs to all Apple devices on your account. You can reach it in Finder on a Mac or via the iCloud for Windows app. It shows up in the Files app under iCloud Drive.</p>
-            <h4>Naming and Organizing</h4>
-            <p>Files tend to pile up if you do not organize early. Create a folder called <code>Canva Exports</code>. Add subfolders by project or date. For example:</p>
+            <p>These drawers exist side by side. Files shows them as separate locations. You must navigate into the correct one to find your exports. After you pick a drawer, new files often live in a <em>Downloads</em> folder or a subfolder named <em>Canva</em>. If you look in the root and see nothing, check Downloads.</p>
+        </section>
+
+        <section id="exporting" class="highlight-box blog-content">
+            <h2>Exporting from Canva</h2>
+            <p>Exporting is straightforward, but that last tap matters more than you think. Here’s the flow:</p>
+            <ol>
+                <li>Tap <strong>Share</strong>.</li>
+                <li>Select <strong>Download</strong>.</li>
+                <li>Pick a format: PNG, JPG, PDF, even MP4 if you added animation.</li>
+                <li>Tap <strong>Download</strong> again to open the Files picker.</li>
+                <li>Navigate to your desired drawer and folder.</li>
+                <li>Tap <strong>Save</strong>—that final tap sends the file out of Canva’s sandbox.</li>
+            </ol>
+            <p>Skip the final Save, and nothing moves. No error. No warning. That’s by design—you might change your mind or cancel. Always double-check you see the confirmation animation in the Files app: a copy icon and folder animation that confirms a successful save.</p>
+            <p>Tip: Set your default download location in Settings &rarr; Safari &rarr; Downloads. You can choose between On My iPad and iCloud Drive. It streamlines step 5 by pre-selecting your favorite drawer.</p>
+        </section>
+
+        <section id="sync" class="highlight-box blog-content">
+            <h2>Sync &amp; Connectivity</h2>
+            <p>iCloud Drive syncs in the background. But sync isn’t magic. It depends on: internet, available space, and service status. If any link in that chain breaks, your file might sit in limbo.</p>
+            <h4>Offline Queues</h4>
+            <p>Export to iCloud Drive while offline? You’ll see a grayed-out icon with a cloud and arrow. That means "queued for upload." Once you reconnect, it uploads automatically.</p>
+            <h4>Stalled Uploads</h4>
+            <p>Sometimes uploads stall. You might disable Wi-Fi, then forget. Or run out of iCloud storage. To check:</p>
+            <ul>
+                <li>Open Files.</li>
+                <li>Tap the drive location.</li>
+                <li>Look for a spinning cloud icon.</li>
+                <li>If it’s stuck, open Settings &rarr; [Your Name] &rarr; iCloud &rarr; iCloud Drive and toggle it off then on.</li>
+            </ul>
+            <h4>Third-Party Sync</h4>
+            <p>Dropbox and Google Drive handle their own uploads. If you see stale files, open the corresponding app to force a sync. Then return to Files and refresh by pulling down on the folder list.</p>
+        </section>
+
+        <section id="folders" class="highlight-box blog-content">
+            <h2>Organizing with Folders</h2>
+            <p>Manually moving files by tap can be tedious when you have dozens of exports. A clear folder structure saves your sanity:</p>
+            <ul>
+                <li><strong>Date-based</strong>: Group by year and month. e.g., <code>2025/06</code>.</li>
+                <li><strong>Project-based</strong>: One folder per campaign or client.</li>
+                <li><strong>Type-based</strong>: Separate images, PDFs, source files.</li>
+            </ul>
+            <h4>Create a Folder</h4>
+            <p>In Files:</p>
+            <ul>
+                <li>Tap <strong>Browse</strong>.</li>
+                <li>Choose a drawer.</li>
+                <li>Tap the three dots &rarr; <strong>New Folder</strong>.</li>
+                <li>Name it and tap <strong>Done</strong>.</li>
+            </ul>
+            <h4>Move Multiple Items</h4>
+            <p>Press and hold one file, then tap other files to select. Tap Move, pick the folder, then tap Move again. Much faster than single-file moves.</p>
+        </section>
+
+        <section id="terminal" class="highlight-box blog-content">
+            <h2>Speed Up with the Terminal</h2>
+            <p>If you have access to a Mac or a terminal app via SSH, the command line can move sets of files in seconds. It’s faster than tapping.</p>
+            <h4>What Is the Terminal?</h4>
+            <p>The Terminal is a text-based interface. You type commands and your computer executes them. No tapping. No menus. Just instant results.</p>
+            <h4>Common Commands</h4>
             <pre><code class="language-shell">
-$ mkdir -p "iCloud Drive/Canva Exports/EventFlyers/2025-05"
+# 1. cd - Change Directory
+cd "~/Library/Mobile Documents/com~apple~CloudDocs/Canva Exports"
+
+# 2. mkdir - Make Directory (use -p to create parent folders)
+mkdir -p "2025-06/EventPosters"
+
+# 3. mv - Move files
+mv *.png "2025-06/EventPosters/"
+
+# 4. ls - List contents
+ls -lh "2025-06/EventPosters/"
             </code></pre>
-            <p>Use clear names: <code>ConferencePoster_v2.png</code>. Then use the search field in Files to locate it fast.</p>
-            <h4>Using Tags</h4>
-            <p>Files supports tags on iOS. You can add colored dots or custom labels. Tag urgent exports in red. Tag drafts in yellow. Tags show up across locations, making it easy to filter.</p>
-            <h4>Third-Party Cloud Drives</h4>
-            <p>Want Dropbox or Google Drive? Install the official app. Then go to Files &rarr; Edit in the three-dot menu. Toggle the cloud you need. It appears as a location. Now, when exporting, pick Save to Files, open your Dropbox folder, and tap Save.</p>
-            <h4>Searching Like a Pro</h4>
-            <p>Tapping the search bar in Files is often fastest. Type part of your file name or extension. You will see results across all enabled locations. It saves time versus browsing nested folders.</p>
+            <p>In plain terms:</p>
+            <ul>
+                <li><code>cd</code> moves you into the Canva Exports folder.</li>
+                <li><code>mkdir</code> makes a new folder for June posters, even if parents don’t exist yet.</li>
+                <li><code>mv</code> moves all PNG files into that new folder.</li>
+                <li><code>ls</code> lists the files with sizes and dates.</li>
+            </ul>
+            <p>Mix and match wildcards (<code>*</code>) to move dozens of files in one shot. It beats scrolling and tapping each item.</p>
         </section>
 
-        <section id="code-examples" class="highlight-box blog-content" aria-labelledby="code-examples-title">
-            <h2 id="code-examples-title">Code Examples</h2>
-            <p>Embed and showcase code snippets with syntax highlighting. Replace <code class="language-javascript">language-javascript</code> with the appropriate language identifier.</p>
-            <pre><code class="language-javascript">
-// JavaScript example
-enable shipsLogMode();
-function greet(name) {
-  console.log(`Hello, ${name}!`);
-}
-greet('designer');
-            </code></pre>
+        <section id="zip" class="highlight-box blog-content">
+            <h2>Zip &amp; Archive</h2>
+            <p>Archiving with zip bundles many files into one container. It’s great for backups or sharing large folders.</p>
+            <h4>Zip a Folder</h4>
             <pre><code class="language-shell">
-# Shell example
-$ echo "Listing Canva Exports"
-$ ls "iCloud Drive/Canva Exports"
+zip -r CanvaExports-2025-06.zip "2025-06/EventPosters"
+            </code></pre>
+            <p>The <code>-r</code> flag means "recursive," so it includes subfolders. The result is one file: <code>CanvaExports-2025-06.zip</code>.</p>
+            <h4>Unzip</h4>
+            <pre><code class="language-shell">
+unzip CanvaExports-2025-06.zip
+            </code></pre>
+            <p>This extracts everything into the current directory. If you want to preview contents without extracting, use:</p>
+            <pre><code class="language-shell">
+unzip -l CanvaExports-2025-06.zip
             </code></pre>
         </section>
 
-        <section id="mermaid-examples" class="highlight-box blog-content" aria-labelledby="mermaid-examples-title">
-            <h2 id="mermaid-examples-title">Mermaid Diagrams</h2>
-            <p>Visualize workflows, flowcharts, and diagrams using Mermaid. Ensure <code>mermaid.js</code> is loaded in your <code>blog.js</code> or equivalent.</p>
-            <div class="mermaid">
-                graph LR
-                A[Open Canva] --> B{Tap Share}
-                B --> C[Choose Format]
-                C --> D{Pick Location}
-                D --> E[On My iPad]
-                D --> F[iCloud Drive]
-                D --> G[Photos]
-                D --> H[Other Clouds]
-                E --> I[Find in Files]
-                F --> I
-                G --> J[Find in Photos]
-                H --> I
-            </div>
+        <section id="automation" class="highlight-box blog-content">
+            <h2>Sample Automation Script</h2>
+            <p>Automate daily organization with a Bash script. Save it as <code>organize_canva.sh</code>:</p>
+            <pre><code class="language-shell">
+#!/bin/bash
+# Base folder where exports land
+BASE="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Canva Exports"
+
+# Today’s date\ nDATE=$(date +"%Y-%m-%d")
+DEST="$BASE/$DATE"
+
+# Create dated folder
+mkdir -p "$DEST"
+
+# Move PNG and JPG files
+mv "$BASE"/*.png "$DEST/"
+mv "$BASE"/*.jpg "$DEST/"
+
+# Zip the folder
+zip -r "$BASE/archive-$DATE.zip" "$DEST"
+            </code></pre>
+            <p>To run:</p>
+            <pre><code class="language-shell">
+chmod +x organize_canva.sh
+./organize_canva.sh
+            </code></pre>
+            <p>On a Mac, schedule with <code>cron</code> or <code>launchd</code>. On an iPad with a shell app, run it manually whenever you need a cleanup.</p>
         </section>
 
-        <section id="section3" class="highlight-box blog-content" aria-labelledby="section3-title">
-            <h2 id="section3-title">Quick Troubleshooting Steps</h2>
-            <h3>Simple checks to locate missing exports</h3>
-            <p>Can’t find your file? Start here. These steps cover the majority of hiccups.</p>
-            <h4>1. Enable the Right Location</h4>
-            <p>Open Files. Tap three-dot menu. Choose Edit. Enable iCloud Drive, Dropbox, Google Drive or any cloud you need. Now the folder appears.</p>
-            <h4>2. Confirm the Save Action</h4>
-            <p>In Canva’s share sheet make sure you tapped <strong>Save</strong> after selecting Save to Files. It only moves when you hit that final button.</p>
-            <h4>3. Check the Correct Folder</h4>
-            <p>Look under the location you chose. New exports often land in a <strong>Downloads</strong> folder or a <strong>Canva</strong> folder inside it. Open each to check.</p>
-            <h4>4. Verify Connectivity</h4>
-            <p>Saving to the cloud needs online access. Open Settings and confirm Wi-Fi or cellular is on. Then open Files and tap the file name. That forces a sync.</p>
-            <h4>5. Restart Apps or Device</h4>
-            <p>Swipe the app away in the switcher. Relaunch. Still broken? Power cycle your device. A fresh start clears most minor glitches.</p>
-            <h4>6. Update Software</h4>
-            <p>Open the App Store. Tap your profile. Update iOS, Canva, and any cloud app. Bug fixes roll out in updates and often resolve picker errors.</p>
-            <h4>7. Test a Small File</h4>
-            <p>Try exporting a single small PNG. If it shows up, the export path is fine and you can adjust bigger exports later.</p>
-            <h4>8. Reinstall as Last Resort</h4>
-            <p>Delete and reinstall Canva or the cloud app. It clears corrupted caches and resets permissions. Re-enable the service in Files &rarr; Edit afterward.</p>
-            <h4>Stay Calm and Carry On</h4>
-            <p>By following these checks you save time and frustration. You will know exactly where your files are and why they might not appear. That frees you to focus on design, not detective work.</p>
+        <section id="troubleshoot" class="highlight-box blog-content">
+            <h2>Troubleshooting Checklist</h2>
+            <ul>
+                <li><strong>Enable Location:</strong> Files &rarr; Edit &rarr; toggle On My iPad, iCloud Drive, or your cloud service.</li>
+                <li><strong>Final Save Tap:</strong> In Canva’s picker, tap <em>Save</em> after choosing your folder.</li>
+                <li><strong>Check Downloads:</strong> Open the Downloads or Canva subfolder under your chosen location.</li>
+                <li><strong>Verify Sync:</strong> Look for the cloud icon in Files. If stuck, toggle iCloud Drive off and on in Settings.</li>
+                <li><strong>Restart Apps:</strong> Swipe away Files or Canva and relaunch. If issues persist, reboot your device.</li>
+                <li><strong>Update Software:</strong> Install the latest iOS and app updates via the App Store.</li>
+                <li><strong>Test Small Exports:</strong> Try a tiny PNG first to ensure the process works end to end.</li>
+                <li><strong>Reinstall:</strong> As a last resort, delete and reinstall Canva or the cloud service app.</li>
+            </ul>
+            <p>With these steps, you’ll know exactly where each export went, why it might not appear, and how to fix it fast.</p>
+        </section>
+
+        <section id="conclusion" class="highlight-box blog-content">
+            <h2>Conclusion</h2>
+            <p>You’ve journeyed through the hidden world of iOS sandboxes, learned to pick the right drawer in Files, and gained the skills to manage dozens of designs with a few keystrokes. No more shouting into the void, "Where did my file go?"</p>
+            <p>Remember: Canva’s private storage keeps your master untouched. Export makes a copy that lands in On My iPad, iCloud Drive, Photos, or any cloud you enable. Organize with folders, zip and archive for safekeeping, or automate your tidy-up with a script. And when the unexpected happens, your troubleshooting checklist will guide you back on course.</p>
+            <p>Armed with these insights and tools, you’re in control. Now go forth, export fearlessly, and master your digital filing cabinet—one design at a time.</p>
         </section>
 
     </main>
 </div>
-<script src="blog.js"></script>
+<script type=module src="blog.js"></script>
 </body>
 </html>
