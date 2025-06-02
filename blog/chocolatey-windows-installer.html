@@ -17,6 +17,18 @@
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <div class="container">
+    <!-- Hamburger Menu Navigation (empty, populated by JS) -->
+    <nav id="hamburger-menu" class="hamburger-menu" aria-label="Main Navigation" hidden>
+        <ul></ul>
+    </nav>
+    <!-- Hamburger Menu Button -->
+    <button id="hamburger-toggle" class="hamburger-toggle" aria-label="Open navigation menu" aria-controls="hamburger-menu" aria-expanded="false">
+        <span class="hamburger-icon"></span>
+    </button>
+    <!-- Hamburger Menu Navigation (empty, populated by JS) -->
+    <nav id="hamburger-menu" class="hamburger-menu" aria-label="Main Navigation" hidden>
+        <ul></ul>
+    </nav>
     <header class="site-header" aria-label="Site Header">
         <div class="header-branding">
             <a href="blogs.html" class="logo-link">
@@ -2333,6 +2345,9 @@ Write-Host "Provisioning complete! Enjoy your new Gamer-Developer workstation."<
         <section id="powershell-profile" class="highlight-box blog-content" aria-labelledby="powershell-profile-title">
             <h2 id="powershell-profile-title">Bonus: Custom PowerShell Profile</h2>
             <p>This PowerShell profile automates and enhances your command-line experience every time you open a new session. It sets up environment variables, extends your <code>PATH</code>, and defines powerful aliases and functions for directory navigation, Git helpers, system diagnostics, and Chocolatey shortcuts. Ideal for developers and administrators, this profile ensures consistent session setup, speeds up workflows, and centralizes your favorite commands.</p>
+            <p><strong>Why use aliases like <code>.1</code>, <code>.2</code>, <code>.3</code> instead of typing <code>cd ..</code>, <code>cd ../..</code>, or <code>cd ../../..</code>?</strong><br>
+                Using these short aliases saves significant time and keystrokes, especially when navigating deeply nested directories. For example, typing <code>.3</code> is much faster than <code>cd ../../..</code> (2 characters vs 10+), and reduces the chance of typos. This is particularly valuable during rapid navigation, scripting, or when working in long directory paths. The time savings add up over hundreds of directory changes per day.
+            </p>
 
             <h3>Key Benefits &amp; Use Cases</h3>
             <ul>
@@ -2418,7 +2433,7 @@ Write-Host "\`nCustom PowerShell profile loaded. Use 'rprof' to reload or 'backu
             <ul>
                 <li><code>rprof</code>: Reload profile</li>
                 <li><code>cd &lt;path&gt;</code>: Change dir + list</li>
-                <li><code>Up1/Up2/Up3</code>: Jump up directories</li>
+                <li><code>.1/.2/.3</code>: Jump up directories</li>
                 <li><code>mcd &lt;dir&gt;</code>: Make &amp; cd</li>
                 <li><code>branch</code>: Copy current Git branch</li>
                 <li><code>chocol</code>: List local Chocolatey packages</li>
@@ -2430,7 +2445,7 @@ Write-Host "\`nCustom PowerShell profile loaded. Use 'rprof' to reload or 'backu
                 <li><code>expl</code>: Open Explorer</li>
                 <li><code>vscode</code>: Open VS Code</li>
                 <li><code>grep &lt;pattern&gt;</code>: Search text</li>
-                <li><code>pop</code>: Copy current path</li>
+                <li><code>pop</code>: Copy current path to clipboard</li>
                 <li><code>epochList</code>: Display epoch timestamp</li>
             </ul>
         </section>

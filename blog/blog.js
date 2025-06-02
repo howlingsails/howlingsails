@@ -72,6 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // -------------------------------
   // 3. Load Blog Posts
   // -------------------------------
+  const postsContainer = document.getElementById('posts-container');
+  if (postsContainer) {
   fetch('assets/posts.json')
     .then(response => response.json())
     .then(posts => {
@@ -95,4 +97,68 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     })
     .catch(err => console.error('Failed to load posts.json', err));
+  }
+
+  // -------------------------------
+  // Hamburger Menu Functionality
+  // -------------------------------
+  const hamburgerToggle = document.getElementById('hamburger-toggle');
+  const hamburgerMenu = document.getElementById('hamburger-menu');
+  const hamburgerList = hamburgerMenu ? hamburgerMenu.querySelector('ul') : null;
+
+  // Helper to build menu items from TOC
+  function buildHamburgerMenu() {
+    if (!hamburgerList) return;
+    hamburgerList.innerHTML = '';
+    // Back to Library link
+    const backLi = document.createElement('li');
+    const backA = document.createElement('a');
+    backA.href = 'blogs.html';
+    backA.textContent = '← Back to Library';
+    backLi.appendChild(backA);
+    hamburgerList.appendChild(backLi);
+
+    // Find TOC nav and clone its links
+    const toc = document.querySelector('nav.table-of-contents');
+    if (toc) {
+      toc.querySelectorAll('a').forEach(a => {
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = a.getAttribute('href');
+        link.textContent = a.textContent;
+        li.appendChild(link);
+        hamburgerList.appendChild(li);
+      });
+    }
+  }
+
+  if (hamburgerToggle && hamburgerMenu) {
+    hamburgerToggle.addEventListener('click', () => {
+      const expanded = hamburgerToggle.getAttribute('aria-expanded') === 'true';
+      hamburgerToggle.setAttribute('aria-expanded', String(!expanded));
+      hamburgerMenu.hidden = expanded;
+      if (!expanded) buildHamburgerMenu();
+    });
+
+    // Close menu on outside click
+    document.addEventListener('click', (e) => {
+      if (
+        hamburgerMenu &&
+        !hamburgerMenu.hidden &&
+        !hamburgerMenu.contains(e.target) &&
+        e.target !== hamburgerToggle
+      ) {
+        hamburgerMenu.hidden = true;
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close menu on link click (delegated)
+    hamburgerMenu.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        hamburgerMenu.hidden = true;
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 });

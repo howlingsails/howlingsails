@@ -17,7 +17,16 @@
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <div class="container">
+
     <header class="site-header" aria-label="Site Header">
+        <!-- Hamburger Menu Button -->
+        <button id="hamburger-toggle" class="hamburger-toggle" aria-label="Open navigation menu" aria-controls="hamburger-menu" aria-expanded="false">
+            <span class="hamburger-icon"></span>
+        </button>
+        <!-- Hamburger Menu Navigation (empty, populated by JS) -->
+        <nav id="hamburger-menu" class="hamburger-menu" aria-label="Main Navigation" hidden>
+            <ul></ul>
+        </nav>
         <div class="header-branding">
             <a href="blogs.html" class="logo-link">
                 <img src="/images/neon/logo.png" alt="Logo alt text" class="header-logo" width="64" height="64">
@@ -65,14 +74,93 @@ $ echo "Deploying the fleet"
         <section id="mermaid-examples" class="highlight-box blog-content" aria-labelledby="mermaid-examples-title">
             <h2 id="mermaid-examples-title">Mermaid Diagrams</h2>
             <p>Visualize workflows, flowcharts, and diagrams using Mermaid. Ensure <code>mermaid.js</code> is loaded in your <code>blog.js</code> or equivalent.</p>
+            # diagram.html
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+            </style>
+
             <div class="mermaid">
                 graph LR
-                A[Start] --> B{Add Code Examples}
-                B --> C[Code Examples Section]
-                B --> D[Mermaid Section]
-                C --> E[Review]
+                %% Node class definitions using cap10.tech colors and JetBrains Mono font %%
+                classDef startEnd fill:#36c2c2,stroke:#ffffff,stroke-width:2px,color:#000000,font-family:'JetBrains Mono',monospace;
+                classDef decision fill:#dfc700,stroke:#000000,stroke-width:2px,color:#000000,font-family:'JetBrains Mono',monospace;
+                classDef process  fill:#40c000,stroke:#ffffff,stroke-width:2px,color:#000000,font-family:'JetBrains Mono',monospace;
+                classDef review   fill:#181a1f,stroke:#36c2c2,stroke-width:2px,color:#ffffff,font-family:'JetBrains Mono',monospace;
+
+                %% Nodes %%
+                A[Start]:::startEnd --> B{Add Code Examples}:::decision
+                B --> C[Code Examples Section]:::process
+                B --> D[Mermaid Section]:::process
+                C --> E[Review]:::review
                 D --> E
+
+                %% Thicker colored lines %%
+                linkStyle 0 stroke:#36c2c2,stroke-width:4px;
+                linkStyle 1 stroke:#40c000,stroke-width:4px;
+                linkStyle 2 stroke:#40c000,stroke-width:4px;
+                linkStyle 3 stroke:#dfc700,stroke-width:4px;
+                linkStyle 4 stroke:#dfc700,stroke-width:4px;
             </div>
+
+            <div class="mermaid">
+                flowchart LR
+                %% Cap10.tech node styling %%
+                classDef nodeStyle fill:#181a1f,stroke:#36c2c2,stroke-width:4px,color:#ffffff,font-family:'JetBrains Mono',monospace;
+                %% Cap10.tech link styling %%
+                linkStyle default stroke:#40c000,stroke-width:4px;
+
+                %% DevOps CI/CD Pipeline %%
+                A[Developer]:::nodeStyle --> B[Git Repository]:::nodeStyle
+                B --> C[CI Server]:::nodeStyle
+                C --> D[Build]:::nodeStyle
+                D --> E[Test]:::nodeStyle
+                E --> F[Package]:::nodeStyle
+                F --> G[Deploy to Staging]:::nodeStyle
+                G --> H[QA]:::nodeStyle
+                H --> I[Deploy to Production]:::nodeStyle
+                I --> J[Monitoring]:::nodeStyle
+                J --> C
+            </div>
+
+            <div class="mermaid">
+                flowchart TD
+                %% Cap10.tech node styling %%
+                classDef nodeStyle fill:#181a1f,stroke:#36c2c2,stroke-width:4px,color:#ffffff,font-family:'JetBrains Mono',monospace;
+                %% Cap10.tech link styling %%
+                linkStyle default stroke:#dfc700,stroke-width:4px;
+
+                %% AI/ML Model Workflow %%
+                A[Raw Data]:::nodeStyle --> B[Data Labeling]:::nodeStyle
+                B --> C[Feature Engineering]:::nodeStyle
+                C --> D[Model Training]:::nodeStyle
+                D --> E[Hyperparameter Tuning]:::nodeStyle
+                E --> F[Model Evaluation]:::nodeStyle
+                F --> G[Model Registry]:::nodeStyle
+                G --> H[Deployment]:::nodeStyle
+                H --> I[Inference]:::nodeStyle
+                I --> J[Monitoring & Retraining]:::nodeStyle
+                J --> D
+            </div>
+
+            <div class="mermaid">
+                flowchart LR
+                %% Cap10.tech node styling %%
+                classDef nodeStyle fill:#181a1f,stroke:#36c2c2,stroke-width:4px,color:#ffffff,font-family:'JetBrains Mono',monospace;
+                %% Cap10.tech link styling %%
+                linkStyle default stroke:#dfc700,stroke-width:4px;
+
+                %% DataOps ETL Pipeline %%
+                A[Data Source]:::nodeStyle --> B[Data Ingestion]:::nodeStyle
+                B --> C[Data Validation]:::nodeStyle
+                C --> D[Data Transformation]:::nodeStyle
+                D --> E[Data Warehouse]:::nodeStyle
+                E --> F[Data Catalog]:::nodeStyle
+                E --> G[Analytics Platform]:::nodeStyle
+                G --> H[Reporting & Visualization]:::nodeStyle
+                H --> I[Alerting & Feedback]:::nodeStyle
+                I --> B
+            </div>
+
         </section>
 
         <section id="section3" class="highlight-box blog-content" aria-labelledby="section3-title">
