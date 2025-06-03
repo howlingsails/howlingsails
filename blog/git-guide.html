@@ -14,16 +14,33 @@
     <link rel="manifest" href="/site.web-manifest">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <div class="container">
-
-    <header>
-        <nav>
-            <a class="cta-button" href="blogs.html">Return to Log Book</a>
+    <header class="site-header" aria-label="Site Header">
+        <!-- Hamburger Menu Button -->
+        <button id="hamburger-toggle" class="hamburger-toggle" aria-label="Open navigation menu" aria-controls="hamburger-menu" aria-expanded="false">
+            <span class="hamburger-icon"></span>
+        </button>
+        <!-- Hamburger Menu Navigation (empty, populated by JS) -->
+        <nav id="hamburger-menu" class="hamburger-menu" aria-label="Main Navigation" hidden>
+            <ul></ul>
         </nav>
-        <h1>Git Operational Guide for Absolute Beginners</h1>
+        <div class="header-branding">
+            <a href="../index.html" title="Return to the top deck" class="logo-link">
+                <img src="/images/neon/neon-logbook.png"
+                     alt="cap10.tech logo, neon green ship icon"
+                     class="header-logo"
+                     width="64" height="64"/>
+            </a>
+            <div class="header-text">
+                <h1>Git Operational Guide for Absolute Beginners</h1>
+                <h2 class="sr-only">A Complete Guide to Git Version Control</h2>
+                <h3>Master Git from zero with simple analogies and step-by-step examples</h3>
+            </div>
+        </div>
     </header>
 
-    <main class="blog-content highlight-box">
+    <main id="main-content" class="blog-content highlight-box">
         <p><strong>Welcome!</strong> This guide helps you master Git from zero. Through simple analogies, step-by-step examples, and under-the-hood insights, you’ll learn how to track changes, branch safely, collaborate, and resolve conflicts like a seasoned captain.</p>
 
         <h2>Quick Reference</h2>

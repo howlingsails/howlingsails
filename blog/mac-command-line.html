@@ -14,63 +14,76 @@
     <link rel="manifest" href="/site.web-manifest">
 </head>
 <body>
-<header class="site-header">
-    <div class="header-branding">
-        <a href="blogs.html" class="logo-link">
-            <img src="/images/neon/neon-logbook.png" alt="Return to logbook library" class="header-logo"/>
-        </a>
-        <div class="header-text">
-            <h1>Mac Command Line: File System &amp; Navigation</h1>
-            <h3>While to UI is easy, it nothing like the speed and power of the command line.</h3>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="container">
+    <header class="site-header" aria-label="Site Header">
+        <!-- Hamburger Menu Button -->
+        <button id="hamburger-toggle" class="hamburger-toggle" aria-label="Open navigation menu" aria-controls="hamburger-menu" aria-expanded="false">
+            <span class="hamburger-icon"></span>
+        </button>
+        <!-- Hamburger Menu Navigation (empty, populated by JS) -->
+        <nav id="hamburger-menu" class="hamburger-menu" aria-label="Main Navigation" hidden>
+            <ul></ul>
+        </nav>
+        <div class="header-branding">
+            <a href="../index.html" title="Return to the top deck" class="logo-link">
+                <img src="/images/neon/neon-logbook.png"
+                     alt="cap10.tech logo, neon green ship icon"
+                     class="header-logo"
+                     width="64" height="64"/>
+            </a>
+            <div class="header-text">
+                <h1>Mac Command Line: File System &amp; Navigation</h1>
+                <h2 class="sr-only">Master Terminal Navigation on macOS</h2>
+                <h3>While the UI is easy, it's nothing like the speed and power of the command line.</h3>
+            </div>
         </div>
-    </div>
-</header>
-<main class="blog-content container">
-    <!-- Introduction -->
-    <section id="intro" class="highlight-box">
-        <h2>Becoming a Cap10 of the Command Line 🚀</h2>
-        <blockquote>
-            <p><strong>Objective:</strong> Teach absolute beginners how to confidently navigate and manage files in macOS using the Terminal.</p>
-        </blockquote>
-        <figure style="max-width: 121px; align: center;">
-
-            <img src="../images/memes/robot-lostfile-vs-curl.png" style="max-width: 342px "/>
-        </figure>
-        <hr>
-        <h3>Launching the Terminal</h3>
-        <p>First, find the <strong>Terminal</strong> app in <code>/Applications/Utilities</code> or via Spotlight. When it opens, you’ll see a prompt—your helm for issuing commands.</p>
-        <pre><code>$ pwd
+    </header>
+    <main class="blog-content container">
+        <!-- Introduction -->
+        <section id="intro" class="highlight-box">
+            <h2>Becoming a Cap10 of the Command Line 🚀</h2>
+            <blockquote>
+                <p><strong>Objective:</strong> Teach absolute beginners how to confidently navigate and manage files in macOS using the Terminal.</p>
+            </blockquote>
+            <figure style="max-width: 121px; align: center;">
+                <img src="../images/memes/robot-lostfile-vs-curl.png" style="max-width: 342px "/>
+            </figure>
+            <hr>
+            <h3>Launching the Terminal</h3>
+            <p>First, find the <strong>Terminal</strong> app in <code>/Applications/Utilities</code> or via Spotlight. When it opens, you’ll see a prompt—your helm for issuing commands.</p>
+            <pre><code>$ pwd
 /Users/YourName   # Shows you're in your Home directory (home is shown as <code>~</code>)</code></pre>
-        <p>Think of your Home directory as the captain’s quarters—your personal space where your files and folders reside.</p>
-    </section>
+            <p>Think of your Home directory as the captain’s quarters—your personal space where your files and folders reside.</p>
+        </section>
 
-    <!-- Table of Contents -->
-    <nav class="table-of-contents highlight-box">
-        <h2>Table of Contents</h2>
-        <ul>
-            <li><a href="#file-system">Understanding the Mac File System</a></li>
-            <li><a href="#navigation">Navigating the File System</a></li>
-            <li><a href="#power-moves">Intermediate Command Line Power Moves</a></li>
-            <li><a href="#final-challenge">Knowledge Check Challenge</a></li>
-            <li><a href="#key-locations-tools">Key File Locations &amp; Tools</a></li>
-            <li><a href="#advanced-file-systems">Advanced File System Mastery</a></li>
-        </ul>
-    </nav>
+        <!-- Table of Contents -->
+        <nav class="table-of-contents highlight-box">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#file-system">Understanding the Mac File System</a></li>
+                <li><a href="#navigation">Navigating the File System</a></li>
+                <li><a href="#power-moves">Intermediate Command Line Power Moves</a></li>
+                <li><a href="#final-challenge">Knowledge Check Challenge</a></li>
+                <li><a href="#key-locations-tools">Key File Locations &amp; Tools</a></li>
+                <li><a href="#advanced-file-systems">Advanced File System Mastery</a></li>
+            </ul>
+        </nav>
 
-    <!-- Part 1 -->
-    <section id="file-system" class="highlight-box">
-        <h2>1. Understanding the Mac File System</h2>
-        <p>Before diving into the Terminal, let’s get a clear picture of how macOS organizes files.</p>
-        <h3>Key Concepts</h3>
-        <ul>
-            <li><strong>Root Directory (/):</strong> The top-level directory where the entire file system begins.</li>
-            <li><strong>User Folders:</strong> Located in <code>/Users/</code>, each user has a home directory (e.g., <code>/Users/yourname</code>).</li>
-            <li><strong>Applications:</strong> Stored in <code>/Applications</code>.</li>
-            <li><strong>System Directories:</strong> Folders such as <code>/Library</code>, <code>/System</code>, and <code>/usr</code>.</li>
-            <li><strong>Paths:</strong> Absolute paths start with <code>/</code> and uniquely define a file’s location.</li>
-        </ul>
-        <h3>Example Structure</h3>
-        <pre><code>
+        <!-- Part 1 -->
+        <section id="file-system" class="highlight-box">
+            <h2>1. Understanding the Mac File System</h2>
+            <p>Before diving into the Terminal, let’s get a clear picture of how macOS organizes files.</p>
+            <h3>Key Concepts</h3>
+            <ul>
+                <li><strong>Root Directory (/):</strong> The top-level directory where the entire file system begins.</li>
+                <li><strong>User Folders:</strong> Located in <code>/Users/</code>, each user has a home directory (e.g., <code>/Users/yourname</code>).</li>
+                <li><strong>Applications:</strong> Stored in <code>/Applications</code>.</li>
+                <li><strong>System Directories:</strong> Folders such as <code>/Library</code>, <code>/System</code>, and <code>/usr</code>.</li>
+                <li><strong>Paths:</strong> Absolute paths start with <code>/</code> and uniquely define a file’s location.</li>
+            </ul>
+            <h3>Example Structure</h3>
+            <pre><code>
 /
  ├── Applications
  ├── Library
@@ -81,693 +94,90 @@
  │       ├── Downloads
  │       ├── Desktop
  │       └── Pictures
-        </code></pre>
-        <hr>
-    </section>
+            </code></pre>
+            <hr>
+        </section>
 
-    <!-- Part 2 -->
-    <section id="navigation" class="highlight-box">
-        <h2>2. Navigating the File System</h2>
-        <p>Use these commands to move around and manage files:</p>
+        <!-- Part 2 -->
+        <section id="navigation" class="highlight-box">
+            <h2>2. Navigating the File System</h2>
+            <p>Use these commands to move around and manage files:</p>
 
-        <h3>pwd</h3>
-        <pre><code class="language-bash">pwd</code></pre>
-        <p>Prints your current working directory.</p>
+            <h3>pwd</h3>
+            <pre><code class="language-bash">pwd</code></pre>
+            <p>Prints your current working directory.</p>
 
-        <h3>ls</h3>
-        <pre><code class="language-bash">ls</code></pre>
-        <p>Lists files and folders. Try <code>ls -l</code> for details or <code>ls -a</code> to include hidden files.</p>
+            <h3>ls</h3>
+            <pre><code class="language-bash">ls</code></pre>
+            <p>Lists files and folders. Try <code>ls -l</code> for details or <code>ls -a</code> to include hidden files.</p>
 
-        <h3>cd</h3>
-        <pre><code class="language-bash">
+            <h3>cd</h3>
+            <pre><code class="language-bash">
 cd /Users/yourname/Documents  # Move to Documents
 cd ..                         # Up one level
 cd ~                          # Go to Home
 cd -                          # Switch to last directory
-        </code></pre>
-        <p>Change directories.</p>
+            </code></pre>
+            <p>Change directories.</p>
 
-        <h3>mkdir</h3>
-        <pre><code class="language-bash">mkdir MyFolder</code></pre>
-        <p>Create a new folder.</p>
+            <h3>mkdir</h3>
+            <pre><code class="language-bash">mkdir MyFolder</code></pre>
+            <p>Create a new folder.</p>
 
-        <h3>touch</h3>
-        <pre><code class="language-bash">touch myfile.txt</code></pre>
-        <p>Create an empty file or update its timestamp.</p>
+            <h3>touch</h3>
+            <pre><code class="language-bash">touch myfile.txt</code></pre>
+            <p>Create an empty file or update its timestamp.</p>
 
-        <h3>rm</h3>
-        <pre><code class="language-bash">
+            <h3>rm</h3>
+            <pre><code class="language-bash">
 rm myfile.txt         # Delete a file
 rm -r MyFolder        # Delete a directory and its contents
-        </code></pre>
-        <p>Remove files or folders (permanent—no trash!).</p>
+            </code></pre>
+            <p>Remove files or folders (permanent—no trash!).</p>
 
-        <h3>cp / mv</h3>
-        <pre><code class="language-bash">
+            <h3>cp / mv</h3>
+            <pre><code class="language-bash">
 cp myfile.txt Backup/   # Copy file
 mv myfile.txt Backup/   # Move or rename file
-        </code></pre>
-        <p>Copy or move files.</p>
-        <hr>
-
-        <h3>Editing Files from the Command Line</h3>
-        <p>Edit text right in Terminal with built-in editors:</p>
-        <ul>
-            <li><strong>nano:</strong> <code>nano file.txt</code>. Type text, then <code>Ctrl+X</code>, <code>Y</code> to save, <code>Enter</code> to exit.</li>
-            <li><strong>vim:</strong> <code>vim file.txt</code>. Press <code>i</code> to insert, edit text, then <code>Esc</code>, <code>:wq</code> to save and quit.</li>
-        </ul>
-
-        <h3>Troubleshooting on the Command Line</h3>
-        <p>When apps go rogue:</p>
-        <ul>
-            <li>Find a process: <code>ps aux | grep AppName</code>.</li>
-            <li>Kill it: <code>kill PID</code> or <code>kill -9 PID</code>. Or <code>killall AppName</code>.</li>
-            <li>Monitor system: <code>top</code> (press <code>q</code> to quit).</li>
-            <li>Watch logs: <code>tail -f /var/log/system.log</code> (stop with <code>Ctrl+C</code>).</li>
-        </ul>
-
-        <h3>Backing Up Files</h3>
-        <p>A savvy captain keeps backups:</p>
-        <ul>
-            <li><code>cp file1.txt file2.txt</code>: Simple copy.</li>
-            <li><code>cp -R folder1 folder2</code>: Copy folders recursively.</li>
-        </ul>
-        <pre><code class="language-bash">rsync -av ~/Documents/ ~/Documents_backup/</code></pre>
-        <p>Archive with <code>tar</code>:</p>
-        <pre><code class="language-bash">tar -czvf backup.tar.gz folder_to_backup/</code></pre>
-        <p>Unpack: <code>tar -xzvf backup.tar.gz</code>.</p>
-    </section>
-
-    <!-- Part 3 -->
-    <section id="power-moves" class="highlight-box">
-        <h2>3. Intermediate Command Line Power Moves</h2>
-        <p>Elevate your command-line mastery:</p>
-        <ul>
-            <li><strong>Chaining:</strong> <code>cmd1 && cmd2</code> runs second only if first succeeds (e.g., <code>mkdir test && cd test</code>).</li>
-            <li><strong>Piping:</strong> <code>cmd1 | cmd2</code> sends output of one into another (e.g., <code>ls | grep ".txt"</code>).</li>
-            <li><strong>Repeat Last:</strong> Type <code>!!</code> to rerun previous command.</li>
-            <li><strong>History:</strong> Use <code>history</code> or ↑/↓ arrows to browse past commands.</li>
-            <li><strong>Manual Pages:</strong> <code>man command</code> shows docs (press <code>q</code> to quit).</li>
-            <li><strong>Aliases:</strong> Create shortcuts in <code>~/.zshrc</code> or <code>~/.bash_profile</code>, e.g., <code>alias ll="ls -la"</code>.</li>
-        </ul>
-
-        <h3>Developer Tools (Sneak Peek)</h3>
-        <p>Your full command-line arsenal will include:</p>
-        <ul>
-            <li><strong>Homebrew:</strong> Install with <code>/bin/bash -c "$(curl -fsSL https://brew.sh)"</code>, then <code>brew install git python</code>.</li>
-            <li><strong>Git:</strong> Check with <code>git --version</code> to manage code versions.</li>
-            <li><strong>Python:</strong> Run scripts: <code>python3 script.py</code>.</li>
-            <li><strong>VS Code CLI:</strong> If VS Code is installed, use <code>code .</code> to open the current folder.</li>
-        </ul>
-        <hr>
-    </section>
-
-    <!-- Part 4 -->
-    <section id="final-challenge" class="highlight-box">
-        <h2>4. Final Challenge: Prove Your Command Line Captaincy</h2>
-        <ul>
-            <li>Create a folder called <code>Projects</code> in <code>Documents</code>.</li>
-            <li>Create <code>readme.txt</code> inside <code>Projects</code> and write “Hello, Cap10!”.</li>
-            <li>Rename it to <code>info.txt</code>.</li>
-            <li>Move it to <code>Desktop</code>, then delete it.</li>
-            <li>List all <code>.txt</code> files in <code>/Users/yourname/Documents/</code>.</li>
-        </ul>
-        <hr>
-    </section>
-
-    <!-- Part 5 -->
-    <section id="key-locations-tools" class="highlight-box">
-        <h2>5. Key File Locations &amp; Tools Available in the CLI</h2>
-        <p>Here’s a treasure map of important places and tools on your Mac:</p>
-        <h3>Common Directories</h3>
-        <ul>
-            <li><strong><code>/Applications</code>:</strong> Where most of your apps live. Open apps via <code>open -a AppName</code>.</li>
-            <li><strong><code>/usr/local</code>:</strong> Homebrew’s territory; check <code>echo $PATH</code> to see where executables live.</li>
-            <li><strong><code>~/.bash_profile</code> or <code>~/.zshrc</code>:</strong> Your shell’s config file for aliases and environment tweaks.</li>
-            <li><strong><code>~/Documents</code>, <code>~/Downloads</code>, <code>~/Desktop</code>:</strong> Your personal folders—navigate with <code>cd ~/Documents</code>, etc.</li>
-            <li><strong><code>/etc/hosts</code>:</strong> Map hostnames to IPs; view with <code>cat /etc/hosts</code>.</li>
-            <li><strong><code>/var/log</code>:</strong> System logs—watch real-time with <code>tail -f /var/log/system.log</code>.</li>
-        </ul>
-        <h3>Handy Tools You’ll Encounter</h3>
-        <ul>
-            <li><strong>Homebrew (<code>brew</code>):</strong> Install packages (e.g., <code>brew install git</code>, <code>brew install python</code>).</li>
-            <li><strong>Git (<code>git</code>):</strong> Version control; start with <code>git --version</code>.</li>
-            <li><strong>Python (<code>python3</code>):</strong> Run scripts: <code>python3 script.py</code>.</li>
-            <li><strong>VS Code CLI (<code>code</code>):</strong> Open current folder in VS Code: <code>code .</code>.</li>
-        </ul>
-        <p>That’s a lot of territory covered! Explore at your own pace, and remember, you can always consult <code>man</code> pages or use <code>find</code> if in doubt. In future posts, we’ll dive deeper into Git, Python, and more. Until then, fair winds and happy sailing, captain!</p>
-    </section>
-
-    <section id="advanced-file-systems" class="highlight-box blog-content" aria-labelledby="advanced-file-systems-title">
-        <h2 id="advanced-file-systems-title">Advanced File System Mastery</h2>
-        <h3>Expanding Your Command-Line Horizons</h3>
-        <p>In this section, we’ll turn those high-level concepts into concrete explanations. Each command will be accompanied by an explanation of what it does and why you’d use it. Imagine you’re at the helm: knowing how each tool works will help you steer confidently.</p>
-
-        <h4>Filesystem Architecture Deep Dive</h4>
-        <ul>
-            <li>
-                <strong>APFS Volumes and Containers</strong>
-                <p><em>Concept:</em> APFS (Apple File System) groups multiple “volumes” inside a single “container,” allowing them to share free space dynamically. A container is like a big water tank, and volumes are chambers inside that tank. You don’t need to resize volumes manually if one needs more space—APFS handles it automatically, but you can still inspect and adjust containers when necessary.</p>
-                <p><em>When to Use:&nbsp;</em> You might need to add a new volume for backups or expand an existing volume when your Mac’s storage is nearly full.</p>
-                <pre><code class="language-bash">diskutil list</code></pre>
-                <p><em>Explanation:</em> This lists all disks, APFS containers, and volumes. You’ll see something like:</p>
-                <pre><code class="language-bash">
-/dev/disk1 (internal, physical):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:      GUID_partition_scheme                        *500.3 GB   disk1
-   1:                        EFI EFI                     314.6 MB   disk1s1
-   2:                 Apple_APFS Container disk1         500.0 GB   disk1s2
-
-/dev/disk2 (synthesized):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:      APFS Container Scheme -                      +500.0 GB   disk2
-                                 Physical Store disk1s2
-   1:      APFS Volume Macintosh HD - Data               450.0 GB   disk2s1
-   2:      APFS Volume Preboot                         20.0 MB    disk2s2
-   3:      APFS Volume Recovery                        510.0 MB   disk2s3
-   4:      APFS Volume VM                              2.0 GB     disk2s4
             </code></pre>
-                <p>Here, <code>/dev/disk1s2</code> is the physical container; <code>/dev/disk2s1</code> is your main “Macintosh HD – Data” volume inside that container.</p>
-                <p>To expand a container into unused space, you might run:</p>
-                <pre><code class="language-bash">diskutil apfs resizeContainer disk1s2 0</code></pre>
-                <p><em>Explanation:</em> The <code>0</code> tells APFS to use all available free space outside <code>disk1s2</code>. That effectively grows the container. Use this if you see “Container disk1s2 is nearly full.”</p>
-                <p>If you want to add a new, empty APFS volume (for, say, a sandbox), run:</p>
-                <pre><code class="language-bash">diskutil apfs addVolume disk1s2 APFS MySandbox</code></pre>
-                <p><em>Explanation:</em> This tells APFS to create a new volume named “MySandbox” inside the <code>disk1s2</code> container. APFS will share free space with the existing volumes automatically.</p>
-            </li>
-            <li>
-                <strong>Hidden System Folders</strong>
-                <p><em>Concept:</em> Some directories—like <code>/private/var</code> or <code>/usr/local</code>—store temporary files, caches, or Homebrew-installed tools. They’re hidden from Finder to prevent accidental tampering, but you can navigate to them in Terminal.</p>
-                <p><em>When to Use:&nbsp;</em> When troubleshooting application caches, installing Homebrew packages, or tweaking system settings, you often need to peek into these locations.</p>
-                <pre><code class="language-bash">cd /private/var/folders</code></pre>
-                <p><em>Explanation:</em> <code>/private/var/folders</code> contains temporary data and caches. Browsing here can reveal files that apps leave behind. For example, if an application is misbehaving, clearing its cache might fix it.</p>
-                <p>To inspect Homebrew’s installed binaries:</p>
-                <pre><code class="language-bash">ls /usr/local/bin</code></pre>
-                <p><em>Explanation:</em> Homebrew installs executables into <code>/usr/local/bin</code>. Adding this directory to your <code>PATH</code> lets you run these tools directly. If a command isn’t found, check here to confirm it exists.</p>
-                <p>To update shell configuration—your “captain’s log” for how the shell behaves—you might edit:</p>
-                <pre><code class="language-bash">nano ~/.zshrc</code></pre>
-                <p><em>Explanation:</em> Files like <code>.zshrc</code>, <code>.bash_profile</code>, or <code>.zprofile</code> define environment variables (for example, <code>PATH</code>) and aliases. Sourcing that file (<code>source ~/.zshrc</code>) applies changes immediately.</p>
-            </li>
-            <li>
-                <strong>Library Structure</strong>
-                <p><em>Concept:</em> The “Library” directories contain preferences, application support files, and caches. There are three main Library locations:</p>
-                <ul>
-                    <li><code>~/Library</code>: User-specific files—preferences, application caches, and data that only affect your user account.</li>
-                    <li><code>/Library</code>: System-level files that apply to all users—fonts, plug-ins, and application support used by every account.</li>
-                    <li><code>/System/Library</code>: Core system files that macOS itself uses. Modifying anything here can break the OS.</li>
-                </ul>
-                <p><em>When to Use:&nbsp;</em> If an app isn’t retaining its settings, you might find its <code>.plist</code> file in <code>~/Library/Preferences</code> and inspect or delete it to reset preferences.</p>
-                <pre><code class="language-bash">ls -la ~/Library/Preferences</code></pre>
-                <p><em>Explanation:</em> The <code>-la</code> flags show hidden files and detailed info (owner, size, modification date). You’ll see files like <code>com.apple.TextEdit.plist</code>—each controlling preferences for a specific app.</p>
-                <p>To explore system-wide application support:</p>
-                <pre><code class="language-bash">ls -la /Library/Application\ Support</code></pre>
-                <p><em>Explanation:</em> Many apps store resources here—fonts, frameworks, and shared data. Understanding where Library files live helps you diagnose issues or manually remove leftover data when uninstalling software.</p>
-            </li>
-        </ul>
+            <p>Copy or move files.</p>
+            <hr>
 
-        <h4>Permissions and Ownership</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> Every file and folder on macOS has an owner, a group, and a set of permissions. Permissions are expressed in three groups—owner (user), group, and others—with read (r), write (w), and execute (x) bits. This controls who can view, modify, or run a file.</p>
-                <p><em>When to Use:&nbsp;</em> If you can’t open, edit, or run a file, permissions are often the culprit. You can inspect and adjust them accordingly.</p>
-                <pre><code class="language-bash">ls -l ~/scripts/launch.sh</code></pre>
-                <p><em>Explanation:</em> The output looks like:</p>
-                <pre><code class="language-bash">
--rw-r--r--  1 yourname  staff   1234 Jun  1 10:00 launch.sh
-            </code></pre>
-                <p>Here, <code>-rw-r--r--</code> means:<br>
-                   • Owner (<code>yourname</code>) has read and write (<code>rw-</code>).<br>
-                   • Group (<code>staff</code>) has read only (<code>r--</code>).<br>
-                   • Others have read only (<code>r--</code>).</p>
-            </li>
-            <li>
-                If you see <code>Permission denied</code>, you can change ownership to your user:</p>
-                <pre><code class="language-bash">sudo chown $(whoami):staff ~/scripts/launch.sh</code></pre>
-                <p><em>Explanation:</em> <code>sudo</code> runs the command as an administrator. <code>chown</code> changes the owner and group to your username and <code>staff</code>. After this, you’ll own the file.</p>
-            </li>
-            <li>
-                To grant yourself execute permission so you can run the script, type:</p>
-                <pre><code class="language-bash">chmod u+rwx ~/scripts/launch.sh</code></pre>
-                <p><em>Explanation:</em> <code>chmod</code> changes permissions; <code>u+rwx</code> gives the owner (user) read, write, and execute. Now you can run <code>~/scripts/launch.sh</code> directly.</p>
-            </li>
-            <li>
-                <em>Concept:</em> ACLs (Access Control Lists) let you grant or deny permissions to specific users or groups beyond basic rwx. Extended attributes (xattr) store metadata like quarantine flags or custom tags.</p>
-                <p>To list ACL entries for a folder:</p>
-                <pre><code class="language-bash">ls -le /Shared/ProjectDocs</code></pre>
-                <p><em>Explanation:</em> The <code>-le</code> flags show extended ACL info. You might see lines like:</p>
-                <pre><code class="language-bash">
-0: group:everyone deny delete
-1: user:alice allow read,write
-            </code></pre>
-                <p>To add a new ACL entry giving <code>bob</code> read/write/delete:</p>
-                <pre><code class="language-bash">chmod +a "bob allow read,write,delete" /Shared/ProjectDocs</code></pre>
-                <p><em>Explanation:</em> That <code>+a</code> flag appends an ACL entry. Now <code>bob</code> can perform those actions.</p>
-                <p>To see if a file is quarantined (macOS blocks it after downloading):</p>
-                <pre><code class="language-bash">xattr -l ~/Downloads/newApp.app</code></pre>
-                <p><em>Explanation:</em> If you see <code>com.apple.quarantine</code> in the list, the app is flagged. Remove it with:</p>
-                <pre><code class="language-bash">xattr -dr com.apple.quarantine ~/Downloads/newApp.app</code></pre>
-                <p><em>Explanation:</em> <code>xattr -d</code> deletes the quarantine attribute so the app can run normally.</p>
-            </li>
-        </ul>
+            <h3>Editing Files from the Command Line</h3>
+            <p>Edit text right in Terminal with built-in editors:</p>
+            <ul>
+                <li><strong>nano:</strong> <code>nano file.txt</code>. Type text, then <code>Ctrl+X</code>, <code>Y</code> to save, <code>Enter</code> to exit.</li>
+                <li><strong>vim:</strong> <code>vim file.txt</code>. Press <code>i</code> to insert, edit text, then <code>Esc</code>, <code>:wq</code> to save and quit.</li>
+            </ul>
 
-        <h4>Symbolic and Hard Links</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> A hard link makes two filenames refer to the same physical file on the disk. A symbolic link (symlink) points to another file or directory, much like a shortcut. Symlinks can point across volumes; hard links cannot.</p>
-                <p><em>When to Use:&nbsp;</em> Use symlinks when you want one “virtual” path to another folder or file without duplicating data. Use hard links when you want two filenames to truly share data on the same volume.</p>
-                <pre><code class="language-bash">ln -s ~/Music/Favorites ~/Projects/PartyPlaylist</code></pre>
-                <p><em>Explanation:</em> That creates a symlink named “PartyPlaylist” pointing to “Favorites.” When you add songs to “Favorites,” they appear in “PartyPlaylist” automatically.</p>
-            </li>
-            <li>
-                For a hard link (two filenames, same data), run:</p>
-                <pre><code class="language-bash">ln ~/Documents/report.docx ~/Documents/report_copy.docx</code></pre>
-                <p><em>Explanation:</em> Both “report.docx” and “report_copy.docx” refer to the same file contents. Deleting one name does not delete the data unless both names are removed. Use this sparingly to save space or maintain multiple filenames for scripts and backups.</p>
-            </li>
-            <li>
-                To verify where a symlink points, use:</p>
-                <pre><code class="language-bash">readlink ~/Projects/PartyPlaylist</code></pre>
-                <p><em>Explanation:</em> That prints the target path, confirming the link’s destination. It’s like asking the compass, “Which island am I headed to?”</p>
-            </li>
-        </ul>
+            <h3>Troubleshooting on the Command Line</h3>
+            <p>When apps go rogue:</p>
+            <ul>
+                <li>Find a process: <code>ps aux | grep AppName</code>.</li>
+                <li>Kill it: <code>kill PID</code> or <code>kill -9 PID</code>. Or <code>killall AppName</code>.</li>
+                <li>Monitor system: <code>top</code> (press <code>q</code> to quit).</li>
+                <li>Watch logs: <code>tail -f /var/log/system.log</code> (stop with <code>Ctrl+C</code>).</li>
+            </ul>
 
-        <h4>Search and Locate Tools</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> When you need to find files by name or content, these tools are your sonar. <code>find</code> walks the directory tree in real time; <code>locate</code> consults a periodically updated database; <code>mdfind</code> queries Spotlight’s index; <code>grep</code> scans file contents for matching text.</p>
-                <p><em>When to Use:&nbsp;</em> If you remember part of a filename or want to search inside many files, these commands save time.</p>
-                <pre><code class="language-bash">find ~/Documents/Logs -name "*.log" -mtime +30</code></pre>
-                <p><em>Explanation:</em> <code>-name "*.log"</code> finds files ending in “.log.” <code>-mtime +30</code> matches files modified more than 30 days ago. For example, clean out old logs every month.</p>
-            </li>
-            <li>
-                To search Spotlight’s index for any file containing a keyword, run:</p>
-                <pre><code class="language-bash">mdfind "ErrorReport 0xE12"</code></pre>
-                <p><em>Explanation:</em> Spotlight returns files where “ErrorReport 0xE12” appears in metadata or content. This is fast because it uses an indexed database.</p>
-            </li>
-            <li>
-                To use <code>locate</code>, you must first build the database once:</p>
-                <pre><code class="language-bash">sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist</code></pre>
-                <p><em>Explanation:</em> This starts the periodic update of the locate database. Then, to find a filename:</p>
-                <pre><code class="language-bash">locate project_overview.pdf</code></pre>
-                <p><em>Explanation:</em> The database is updated daily by default, so results may lag behind actual changes—but searches are instantaneous once built.</p>
-            </li>
-            <li>
-                To search inside all files under a directory for text, try:</p>
-                <pre><code class="language-bash">grep -R "TODO" ~/Projects</code></pre>
-                <p><em>Explanation:</em> <code>-R</code> means recursive. This finds any occurrence of “TODO” inside files in <code>~/Projects</code>. It’s like reading every page of every log in minutes.</p>
-            </li>
-        </ul>
+            <h3>Backing Up Files</h3>
+            <p>A savvy captain keeps backups:</p>
+            <ul>
+                <li><code>cp file1.txt file2.txt</code>: Simple copy.</li>
+                <li><code>cp -R folder1 folder2</code>: Copy folders recursively.</li>
+            </ul>
+            <pre><code class="language-bash">rsync -av ~/Documents/ ~/Documents_backup/</code></pre>
+            <p>Archive with <code>tar</code>:</p>
+            <pre><code class="language-bash">tar -czvf backup.tar.gz folder_to_backup/</code></pre>
+            <p>Unpack: <code>tar -xzvf backup.tar.gz</code>.</p>
+        </section>
 
-        <h4>Disk Usage and Free Space Tracking</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> <code>df</code> reports how full each mounted volume is; <code>du</code> summarizes how much space files or directories occupy.</p>
-                <p><em>When to Use:&nbsp;</em> When your Mac warns you of low disk space, these commands help pinpoint large folders or identify which volume is near capacity.</p>
-                <pre><code class="language-bash">df -h</code></pre>
-                <p><em>Explanation:</em> <code>-h</code> shows sizes in a human-friendly format (GB, MB). You’ll see lines like:</p>
-                <pre><code class="language-bash">
-Filesystem      Size   Used  Avail Capacity iused     ifree %iused  Mounted on
-/dev/disk2s1   500G   450G    50G    90%  123456  98765432   0%   /
-            </code></pre>
-                <p>Here, <code>500G</code> total, <code>450G</code> used, <code>50G</code> free at <code>/</code> (your main volume).</p>
-            </li>
-            <li>
-                To see how much space a folder consumes:</p>
-                <pre><code class="language-bash">du -sh ~/Documents</code></pre>
-                <p><em>Explanation:</em> <code>-s</code> provides a summary for the directory, <code>-h</code> uses human-readable units. If <code>~/Documents</code> is 120G, you know to trim large files there.</p>
-            </li>
-            <li>
-                For a per-subfolder breakdown:</p>
-                <pre><code class="language-bash">du -h --max-depth=1 ~/Documents</code></pre>
-                <p><em>Explanation:</em> <code>--max-depth=1</code> tells <code>du</code> to show sizes of first-level subdirectories only. You might see:</p>
-                <pre><code class="language-bash">
-5.0G    /Users/you/Documents/Photos
-1.2G    /Users/you/Documents/Work
-80.0G   /Users/you/Documents/Videos
-            </code></pre>
-                <p>So <code>Videos</code> is hogging most space—time to clear old videos or move them to an external drive.</p>
-            </li>
-        </ul>
-
-        <h4>Mounting, Unmounting, and Disk Images</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> “Mounting” makes a disk or USB drive available at a mount point (usually under <code>/Volumes</code>). “Unmounting” safely disconnects it so you can remove the hardware without corrupting data. Disk images (<code>.dmg</code>) are virtual disks you attach (mount) and detach (unmount).</p>
-                <p><em>When to Use:&nbsp;</em> Whenever you plug in external storage, attach a downloaded DMG, or disconnect a network volume.</p>
-                <pre><code class="language-bash">diskutil list</code></pre>
-                <p><em>Explanation:</em> This shows all physical and virtual disks. Look for entries like “/dev/disk2s1” labeled “MyUSBDrive.”</p>
-            </li>
-            <li>
-                To mount that USB drive so you can access it:</p>
-                <pre><code class="language-bash">diskutil mount /dev/disk2s1</code></pre>
-                <p><em>Explanation:</em> macOS finds an available mount point (e.g., <code>/Volumes/MyUSBDrive</code>) and makes its contents accessible. You can now <code>cd /Volumes/MyUSBDrive</code> and list files.</p>
-            </li>
-            <li>
-                To safely unmount when you’re done:</p>
-                <pre><code class="language-bash">diskutil unmount /Volumes/MyUSBDrive</code></pre>
-                <p><em>Explanation:</em> This ensures all pending writes finish before detaching the drive. Only then should you physically unplug the USB to avoid data corruption.</p>
-            </li>
-            <li>
-                If you’ve downloaded an installer as a <code>.dmg</code>, attach it with:</p>
-                <pre><code class="language-bash">hdiutil attach ~/Downloads/Installer.dmg</code></pre>
-                <p><em>Explanation:</em> That mounts the image at a path like <code>/Volumes/Installer</code>. You can then run the installer or copy files from it.</p>
-                <p>When finished, detach it:</p>
-                <pre><code class="language-bash">hdiutil detach /Volumes/Installer</code></pre>
-                <p><em>Explanation:</em> This unmounts the disk image, removing it from <code>/Volumes</code> so you can delete the <code>.dmg</code> file safely.</p>
-            </li>
-        </ul>
-
-        <h4>Finder and Terminal Integration</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> Sometimes you need both the visual ease of Finder and the power of Terminal. These commands bridge the two, letting you switch contexts quickly.</p>
-                <p><em>When to Use:&nbsp;</em> When you’ve edited a config file in Terminal but want to double-check its location in Finder, or when you want to open a file in a specific GUI application without leaving Terminal.</p>
-                <pre><code class="language-bash">open .</code></pre>
-                <p><em>Explanation:</em> Opens the current directory in Finder. If you’ve been navigating deeply in Terminal and want a GUI view, this is the quickest way.</p>
-            </li>
-            <li>
-                To open a specific file—say you’ve just generated <code>report.pdf</code>—run:</p>
-                <pre><code class="language-bash">open report.pdf</code></pre>
-                <p><em>Explanation:</em> The system opens the file in its default application (Preview for PDFs). You don’t need to locate it in Finder manually.</p>
-            </li>
-            <li>
-                To open a plain text file in TextEdit:</p>
-                <pre><code class="language-bash">open -e notes.txt</code></pre>
-                <p><em>Explanation:</em> The <code>-e</code> flag specifies TextEdit. This is handy if you want a quick GUI editor rather than learning <code>nano</code> or <code>vim</code>.</p>
-            </li>
-            <li>
-                If you want to launch a URL or specific application:</p>
-                <pre><code class="language-bash">open -a Safari "https://cap10.tech"</code></pre>
-                <p><em>Explanation:</em> <code>-a Safari</code> means “use Safari,” even if another browser is default. You can replace “Safari” with “Visual Studio Code” or any app name.</p>
-            </li>
-        </ul>
-
-        <h4>Spotlight and Quick Look from Terminal</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> Spotlight maintains an index of file metadata and content, making searches extremely fast. Quick Look previews a file without launching its full application—especially helpful for large documents or media files.</p>
-                <p><em>When to Use:&nbsp;</em> When you need to find metadata details or quickly peek at a file’s contents without fully opening it.</p>
-                <pre><code class="language-bash">mdls project_final.docx</code></pre>
-                <p><em>Explanation:</em> <code>mdls</code> shows metadata attributes like creation date, file type, and custom tags. For example, you might see <code>kMDItemAuthors</code> or <code>kMDItemFSName</code> in the output.</p>
-            </li>
-            <li>
-                To preview a file directly from Terminal—say <code>presentation.key</code>—run:</p>
-                <pre><code class="language-bash">qlmanage -p presentation.key</code></pre>
-                <p><em>Explanation:</em> This opens a Quick Look window. You can view slides without opening Keynote fully. Press <kbd>Space</kbd> to close the preview.</p>
-            </li>
-        </ul>
-
-        <h4>File Permissions in Action: sudo and Security Context</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> Some system files require administrative privileges. The <code>sudo</code> prefix runs a command as the “root” user. Editing critical files incorrectly can break system services—so use prudence.</p>
-                <p><em>When to Use:&nbsp;</em> When modifying files in protected locations like <code>/etc</code>, or installing software that requires system-level changes.</p>
-                <pre><code class="language-bash">sudo nano /etc/hosts</code></pre>
-                <p><em>Explanation:</em> <code>/etc/hosts</code> maps hostnames to IP addresses. Adding an entry here reroutes domain lookups. For instance, adding <code>127.0.0.1 example.com</code> blocks that site locally.</p>
-            </li>
-            <li>
-                To safely edit <code>sudoers</code> (which controls who can use <code>sudo</code> and how), use:</p>
-                <pre><code class="language-bash">sudo visudo</code></pre>
-                <p><em>Explanation:</em> <code>visudo</code> checks syntax before saving. A typo here could lock you out of administrative access—so <code>visudo</code> is your safety net.</p>
-            </li>
-        </ul>
-
-        <h4>Archive and Compression Tools</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> Compressing files reduces their size for storage or sharing. <code>tar</code> combines multiple files into a single archive; <code>gzip</code> or <code>xz</code> then compresses it. <code>zip</code> both archives and compresses, compatible with Windows and Linux.</p>
-                <p><em>When to Use:&nbsp;</em> When sending large folders, backing up data, or freeing up space.</p>
-                <pre><code class="language-bash">tar -czvf LogsArchive.tar.gz ~/Documents/Logs</code></pre>
-                <p><em>Explanation:</em> <code>-c</code> creates a new archive, <code>-z</code> compresses with gzip, <code>-v</code> shows progress, <code>-f</code> specifies the filename. The result is a single <code>LogsArchive.tar.gz</code> containing all files from <code>~/Documents/Logs</code>.</p>
-            </li>
-            <li>
-                To extract that archive:</p>
-                <pre><code class="language-bash">tar -xzvf LogsArchive.tar.gz</code></pre>
-                <p><em>Explanation:</em> <code>-x</code> extracts files from the archive, <code>-z</code> tells tar it’s gzip-compressed, and <code>-v</code> shows each file as it’s extracted.</p>
-            </li>
-            <li>
-                If you prefer ZIP format:</p>
-                <pre><code class="language-bash">zip -r ProjectFiles.zip ~/Projects/Important</code></pre>
-                <p><em>Explanation:</em> <code>-r</code> means recursive; this zips the entire <code>~/Projects/Important</code> folder into <code>ProjectFiles.zip</code>. On the receiving end, they run:</p>
-                <pre><code class="language-bash">unzip ProjectFiles.zip</code></pre>
-                <p><em>Explanation:</em> That unpacks all files into the current directory.</p>
-            </li>
-            <li>
-                For a single file compression:</p>
-                <pre><code class="language-bash">gzip large_data.csv</code></pre>
-                <p><em>Explanation:</em> <code>gzip</code> replaces <code>large_data.csv</code> with <code>large_data.csv.gz</code>, reducing its size. To restore:</p>
-                <pre><code class="language-bash">gunzip large_data.csv.gz</code></pre>
-                <p><em>Explanation:</em> That decompresses the file back to <code>large_data.csv</code>.</p>
-            </li>
-        </ul>
-
-        <h4>Network Shares and Remote File Systems</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> You can mount remote file systems—SMB shares (Windows-style) or SSHFS (secure Linux/Unix shares)—so they appear as if they are local folders. This makes working with remote files seamless.</p>
-                <p><em>When to Use:&nbsp;</em> When you need constant access to files stored on a server, without copying them locally.</p>
-                <pre><code class="language-bash">mount_smbfs //alice@fileserver.local/SharedDocs /Volumes/TeamDocs</code></pre>
-                <p><em>Explanation:</em> This command uses the SMB protocol to mount the “SharedDocs” folder from “fileserver.local” into your local <code>/Volumes/TeamDocs</code> directory. Now you can navigate to <code>/Volumes/TeamDocs</code> in Terminal or Finder.</p>
-            </li>
-            <li>
-                To mount a Linux server directory over SSH (SSHFS), run:</p>
-                <pre><code class="language-bash">sshfs dev@192.168.1.50:/home/dev ~/RemoteDev</code></pre>
-                <p><em>Explanation:</em> You provide the remote host, the path to mount, and a local mount point. After this, <code>~/RemoteDev</code> behaves just like a local folder—any file you open is actually streamed over SSH from the remote server.</p>
-            </li>
-        </ul>
-
-        <h4>Automating Tasks with Shell Scripts</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> Shell scripts allow you to bundle a series of commands into a single file. A “shebang” at the top tells the shell which interpreter to use (<code>/bin/zsh</code> or <code>/bin/bash</code>). Making the script executable means you can run it like any other command.</p>
-                <p><em>When to Use:&nbsp;</em> When you find yourself repeating tasks—backups, cleanup routines, or startup setups—turn them into a script so the shell does the work for you.</p>
-                <pre><code class="language-bash">#!/bin/zsh
-mkdir -p ~/Backups/Weekly
-rsync -av ~/Projects/ ~/Backups/Weekly/</code></pre>
-                <p><em>Explanation:</em> The first line (<code>#!/bin/zsh</code>) sets the interpreter. <code>mkdir -p</code> ensures the backup folder exists. <code>rsync -av</code> copies <code>~/Projects</code> to <code>~/Backups/Weekly/</code> recursively (<code>-a</code>) and verbosely (<code>-v</code>). Save this as <code>backup.sh</code> and make it executable:</p>
-                <pre><code class="language-bash">chmod +x backup.sh
-mv backup.sh ~/bin</code></pre>
-                <p><em>Explanation:</em> Now you can run <code>backup.sh</code> from any directory. Adding <code>export PATH="$HOME/bin:$PATH"</code> to <code>~/.zshrc</code> ensures <code>~/bin</code> is in your search path.</p>
-            </li>
-        </ul>
-
-        <h4>Disk and Filesystem Health Monitoring</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> Over time, filesystems can suffer corruption, and physical drives can develop bad sectors. <code>diskutil verifyVolume</code> checks APFS/HFS+ integrity. <code>fsck</code> (filesystem check) repairs unmounted volumes. <code>smartctl</code> reads S.M.A.R.T. data to predict hardware failures.</p>
-                <p><em>When to Use:&nbsp;</em> If you suspect your disk is failing or your Mac gives I/O errors, use these tools to verify and repair before data loss.</p>
-                <pre><code class="language-bash">diskutil list</code></pre>
-                <p><em>Explanation:</em> Identify the volume (e.g., <code>/dev/disk2s1</code> for “Macintosh HD – Data”). Then run:</p>
-                <pre><code class="language-bash">diskutil verifyVolume /dev/disk2s1</code></pre>
-                <p><em>Explanation:</em> This checks the volume’s internal structures. If it finds issues, it suggests using <code>repairVolume</code>. For an unmounted volume (say, an external drive), boot to Recovery Mode or use:</p>
-                <pre><code class="language-bash">sudo fsck_hfs -fy /dev/disk3s1</code></pre>
-                <p><em>Explanation:</em> <code>-f</code> forces the check even if the system thinks it’s clean; <code>-y</code> answers “yes” to repairs automatically.</p>
-            </li>
-            <li>
-                To read S.M.A.R.T. (Self-Monitoring, Analysis and Reporting Technology) data for your internal drive:</p>
-                <pre><code class="language-bash">brew install smartmontools
-smartctl -a /dev/disk0</code></pre>
-                <p><em>Explanation:</em> <code>smartctl -a</code> prints all health attributes. Look for “Pre-fail” values—if many attributes are failing, consider replacing the drive before it dies completely.</p>
-            </li>
-        </ul>
-
-        <h4>Advanced Finder Tweaks from Terminal</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> Finder hides some files (especially those starting with a dot, like <code>.gitignore</code>). Using <code>defaults write</code> lets you change Finder’s behavior—revealing these hidden files or setting search scopes.</p>
-                <p><em>When to Use:&nbsp;</em> If you need to edit a dotfile in Finder or want to restrict Finder’s search by default to the current folder rather than “This Mac.”</p>
-                <pre><code class="language-bash">defaults write com.apple.finder AppleShowAllFiles true; killall Finder</code></pre>
-                <p><em>Explanation:</em> The <code>defaults write</code> command modifies Finder’s preferences. <code>AppleShowAllFiles true</code> makes hidden files visible. <code>killall Finder</code> restarts Finder so changes take effect immediately. To revert:</p>
-                <pre><code class="language-bash">defaults write com.apple.finder AppleShowAllFiles false; killall Finder</code></pre>
-            </li>
-            <li>
-                To force Finder’s search bar to only look in the current folder by default:</p>
-                <pre><code class="language-bash">defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"; killall Finder</code></pre>
-                <p><em>Explanation:</em> <code>FXDefaultSearchScope "SCcf"</code> stands for “search current folder.” Now when you type in Finder’s search box, it defaults to the folder you’re viewing instead of the entire Mac.</p>
-            </li>
-        </ul>
-
-        <h4>Time Machine Snapshots and Backups</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> Time Machine keeps local snapshots when your backup drive isn’t connected. These take disk space. <code>tmutil</code> manages these snapshots—listing, thinning, or forcing new ones.</p>
-                <p><em>When to Use:&nbsp;</em> When your disk space is low because macOS has stored many local snapshots. Or you want to force a snapshot before a risky system update.</p>
-                <pre><code class="language-bash">tmutil listlocalsnapshots /</code></pre>
-                <p><em>Explanation:</em> Lists all local snapshots on your main volume <code>/</code>. You’ll see entries like <code>com.apple.TimeMachine.2025-06-01-120000</code>.</p>
-            </li>
-            <li>
-                To free up space by thinning old snapshots:</p>
-                <pre><code class="language-bash">tmutil thinlocalsnapshots / 10000000000 1</code></pre>
-                <p><em>Explanation:</em> <code>10000000000</code> is the target bytes to free (10 GB). <code>1</code> is the urgency—“thin as much as possible within 1 pass.” This clears snapshots until at least 10 GB is available.</p>
-            </li>
-            <li>
-                To create a new snapshot immediately (useful before installing new software):</p>
-                <pre><code class="language-bash">tmutil localsnapshot</code></pre>
-                <p><em>Explanation:</em> Forces Time Machine to record the current system state, so you can roll back if something goes wrong. Think of this as dropping an anchor before venturing into uncharted waters.</p>
-            </li>
-        </ul>
-
-        <h4>Useful Keyboard Shortcuts and Shell Tricks</h4>
-        <ul>
-            <li>
-                <strong>Tab completion</strong>
-                <p><em>Concept:</em> Instead of typing full names, press <kbd>Tab</kbd> to autocomplete file or folder names. If multiple matches exist, press <kbd>Tab</kbd> twice to see all options.</p>
-                <p><em>When to Use:&nbsp;</em> When you’re deep in a nested path or typing a long filename. For example, type <code>cd ~/Docu</code> then <kbd>Tab</kbd> and it completes to <code>cd ~/Documents/</code>.</p>
-            </li>
-            <li>
-                <strong>Ctrl+A / Ctrl+E</strong>
-                <p><em>Concept:</em> These key combos move the cursor to the start (<kbd>Ctrl+A</kbd>) or end (<kbd>Ctrl+E</kbd>) of the current command line. This is part of Emacs-style keybindings built into many shells.</p>
-                <p><em>When to Use:&nbsp;</em> When editing a long command. For example, you typed <code>sudo cp /usr/local/bin/tool /usr/bin/</code> but need to change “/usr/bin/” to “~/bin/.” Press <kbd>Ctrl+E</kbd> to jump to the end, backspace, and update the path.</p>
-            </li>
-            <li>
-                <strong>Ctrl+R</strong>
-                <p><em>Concept:</em> Reverse search through your command history. As you type, it shows matching previous commands.</p>
-                <p><em>When to Use:&nbsp;</em> When you ran a long command days ago and don’t want to retype it. Press <kbd>Ctrl+R</kbd>, start typing a unique fragment (e.g., “backup.sh”), and it will appear. Press <kbd>Enter</kbd> to execute it again.</p>
-            </li>
-            <li>
-                <strong>Ctrl+L</strong>
-                <p><em>Concept:</em> Clears the Terminal screen, leaving only the prompt at the top. It’s equivalent to the <code>clear</code> command.</p>
-                <p><em>When to Use:&nbsp;</em> When your screen is cluttered with output and you want a fresh view. Think of it as wiping the deck clean.</p>
-            </li>
-            <li>
-                <strong>Option+Click</strong>
-                <p><em>Concept:</em> In zsh, holding <kbd>Option</kbd> while clicking or using arrow keys moves the cursor by one word instead of one character. This is sometimes called “word jumping.”</p>
-                <p><em>When to Use:&nbsp;</em> When editing commands with long paths or multiple flags. For example, to move from the end of “<code>~/Projects/Important/FinalReport.txt</code>” back to the folder name “Important,” press <kbd>Option+←</kbd> twice.</p>
-            </li>
-        </ul>
-
-        <h4>GUI-CLI Hybrid Tools</h4>
-        <ul>
-            <li>
-                <strong>Ranger</strong>
-                <p><em>Concept:</em> Ranger is a terminal-based file manager with a visual, pane-based interface. It shows a directory tree on the left and previews files on the right, all within Terminal.</p>
-                <p><em>When to Use:&nbsp;</em> If you want a visual file-browsing experience without leaving the terminal. Install via Homebrew and run it whenever you need to inspect many files quickly.</p>
-                <pre><code class="language-bash">brew install ranger
-ranger</code></pre>
-                <p><em>Explanation:</em> After installation, <code>ranger</code> opens a split view: directories on the left, file previews on the right. Use arrow keys to navigate. Press <kbd>q</kbd> to exit.</p>
-            </li>
-            <li>
-                <strong>fzf</strong>
-                <p><em>Concept:</em> fzf is a “fuzzy finder” that lets you filter and select items—files, history entries, Git commits—by typing approximate matches. It’s lightning-fast because it scans an index of items as you type.</p>
-                <p><em>When to Use:&nbsp;</em> When you have hundreds of files or a long command history, and you don’t want to type exact names. fzf pops up a searchable list—type a few letters and it narrows down options.</p>
-                <pre><code class="language-bash">brew install fzf
-$(brew --prefix)/opt/fzf/install</code></pre>
-                <p><em>Explanation:</em> The installer adds key bindings, letting you press <kbd>Ctrl+T</kbd> in Terminal to launch fzf for files, or <kbd>Ctrl+R</kbd> to search history using fuzzy matching.</p>
-            </li>
-        </ul>
-
-        <h4>Tracking Changes Over Time</h4>
-        <ul>
-            <li>
-                <strong>autojump</strong> (or <strong>z</strong>)
-                <p><em>Concept:</em> Autojump tracks the directories you visit frequently. Instead of typing <code>cd ~/Projects/SeaVoyage/Important/Reports</code> each time, you can type <code>j Reports</code> and it jumps straight there.</p>
-                <p><em>When to Use:&nbsp;</em> When you move between a set of deep folders often. It learns your habits—after enough visits, typing even just “Rep” will take you to the “Reports” subfolder.</p>
-                <pre><code class="language-bash">brew install autojump</code></pre>
-                <p><em>Explanation:</em> After installation, follow the on-screen instructions to add <code>source /usr/local/etc/profile.d/autojump.sh</code> to your shell config. Then every <code>cd</code> you type is logged, and <code>j</code> becomes a shortcut.</p>
-            </li>
-            <li>
-                <strong>watch</strong>
-                <p><em>Concept:</em> <code>watch</code> reruns a command at regular intervals, showing its output on the screen. It’s like having a lookout periodically check the horizon.</p>
-                <p><em>When to Use:&nbsp;</em> To monitor changing data—disk usage, CPU load, log file growth—without manually retyping the command each time.</p>
-                <pre><code class="language-bash">brew install watch
-watch -n 10 df -h</code></pre>
-                <p><em>Explanation:</em> <code>-n 10</code> runs <code>df -h</code> every 10 seconds, updating the screen in place. Perfect for watching free space shrink as you copy large files.</p>
-            </li>
-        </ul>
-
-        <h4>Sandboxing and Quarantine Flags</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> macOS quarantines apps downloaded from the internet. This “quarantine flag” prevents them from running until you explicitly allow it. Extended attributes (xattr) store that flag.</p>
-                <p><em>When to Use:&nbsp;</em> If a newly downloaded app refuses to open, check for quarantine before complaining that it’s broken.</p>
-                <pre><code class="language-bash">xattr -l ~/Downloads/newSandboxApp.app</code></pre>
-                <p><em>Explanation:</em> <code>-l</code> lists all extended attributes. If you see <code>com.apple.quarantine</code>, that’s what’s blocking launch.</p>
-                <p>To remove it:</p>
-                <pre><code class="language-bash">xattr -dr com.apple.quarantine ~/Downloads/newSandboxApp.app</code></pre>
-                <p><em>Explanation:</em> <code>-d</code> deletes the attribute; <code>-r</code> applies removal recursively to all files inside the app bundle. Now you can open the app normally.</p>
-            </li>
-        </ul>
-
-        <h4>Logging, Audit Trails, and System Reports</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> The unified <code>log</code> system records events from apps and system processes. Combined with <code>system_profiler</code>, you can inspect recent errors and hardware details. Think of these as your ship’s logs and inspection reports.</p>
-                <p><em>When to Use:&nbsp;</em> If an app crashes without explanation or hardware behaves strangely, logs and system reports hold the clues.</p>
-                <pre><code class="language-bash">log show --predicate 'process == "Finder"' --last 2h</code></pre>
-                <p><em>Explanation:</em> This shows all log entries from the “Finder” process in the last 2 hours. You might see errors like “Finder quit unexpectedly.” That tells you where to investigate next.</p>
-            </li>
-            <li>
-                To inspect connected hardware—USB devices, NVMe drives, or Thunderbolt peripherals—run:</p>
-                <pre><code class="language-bash">system_profiler SPUSBDataType</code></pre>
-                <p><em>Explanation:</em> Lists all USB devices currently attached. For NVMe drives or SATA SSDs, use:</p>
-                <pre><code class="language-bash">system_profiler SPNVMeDataType</code></pre>
-                <p><em>Explanation:</em> That shows model, capacity, and S.M.A.R.T. status of NVMe drives. It’s like inspecting the hull for damage or wear.</p>
-            </li>
-        </ul>
-
-        <h4>Environment Management</h4>
-        <ul>
-            <li>
-                <strong>pyenv</strong>
-                <p><em>Concept:</em> pyenv lets you install and switch between multiple Python versions seamlessly. This is crucial when different projects require different interpreters or dependencies.</p>
-                <p><em>When to Use:&nbsp;</em> If one project uses Python 3.9 and another uses 3.10, pyenv ensures you launch the correct interpreter each time.</p>
-                <pre><code class="language-bash">brew install pyenv</code></pre>
-                <p>Then add to your shell config (<code>~/.zshrc</code> or <code>~/.bash_profile</code>):</p>
-                <pre><code class="language-bash">eval "$(pyenv init --path)"</code></pre>
-                <p>Restart Terminal. Now you can install a version:</p>
-                <pre><code class="language-bash">pyenv install 3.10.6
-pyenv global 3.10.6</code></pre>
-                <p><em>Explanation:</em> <code>pyenv install</code> downloads and compiles the specified Python. <code>pyenv global</code> sets the default version. When you type <code>python</code>, you get 3.10.6 instead of the system Python.</p>
-            </li>
-            <li>
-                <strong>nvm</strong> (Node Version Manager)
-                <p><em>Concept:</em> Similar to pyenv but for Node.js. Allows you to install multiple Node versions and switch between them per project.</p>
-                <p><em>When to Use:&nbsp;</em> If one JavaScript project demands Node 14.x and another relies on Node 18.x, nvm keeps them separated.</p>
-                <pre><code class="language-bash">brew install nvm</code></pre>
-                <p>Add to <code>~/.zshrc</code>:</p>
-                <pre><code class="language-bash">export NVM_DIR="$HOME/.nvm"
-source $(brew --prefix nvm)/nvm.sh</code></pre>
-                <p>Restart Terminal, then:</p>
-                <pre><code class="language-bash">nvm install 18
-nvm use 18</code></pre>
-                <p><em>Explanation:</em> Now your shell uses Node 18. If you navigate to a project with a <code>.nvmrc</code> file specifying a different version, <code>nvm use</code> automatically switches to that version.</p>
-            </li>
-        </ul>
-
-        <h4>Security and Privacy Considerations</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> The Application Firewall controls inbound network connections. You can enable it or add apps to its whitelist via Terminal—useful for remote machines or scripting secure setups.</p>
-                <p><em>When to Use:&nbsp;</em> If you want to ensure your Mac blocks unwanted network traffic, or if you need to pre-approve certain apps before giving them internet access.</p>
-                <pre><code class="language-bash">sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1</code></pre>
-                <p><em>Explanation:</em> <code>globalstate -int 1</code> turns the firewall on in “allow only signed software” mode. To whitelist an app you trust:</p>
-                <pre><code class="language-bash">sudo /usr/libexec/ApplicationFirewall/socketfilterfw --add /Applications/VPNClient.app</code></pre>
-                <p><em>Explanation:</em> This adds “VPNClient.app” to the firewall’s trusted list so it can receive inbound connections without being blocked.</p>
-            </li>
-        </ul>
-
-        <h4>Accessibility from the CLI</h4>
-        <ul>
-            <li>
-                <em>Concept:</em> macOS’s built-in speech and screen reader tools can be triggered from Terminal. Useful for visually impaired users or for automating spoken alerts in scripts.</p>
-                <p><em>When to Use:&nbsp;</em> If you want Terminal to announce status updates or need to enable VoiceOver without using System Preferences.</p>
-                <pre><code class="language-bash">say "All systems ready for departure"</code></pre>
-                <p><em>Explanation:</em> The <code>say</code> command speaks text aloud using the system voice. You can incorporate this into scripts as audible feedback.</p>
-            </li>
-            <li>
-                To toggle VoiceOver (the built-in screen reader) via Terminal:</p>
-                <pre><code class="language-bash">osascript -e 'tell application "System Events" to key code 96 using {command down, option down}'</code></pre>
-                <p><em>Explanation:</em> This AppleScript simulates pressing <kbd>Command+Option+F5</kbd>, the standard shortcut for toggling VoiceOver. Handy if you want quick access without mouse navigation.</p>
-            </li>
-        </ul>
-
-        <p>By grounding each command in real-world scenarios and explaining the underlying concepts—APFS containers, permissions bits, symlinks, search indexes, and so on—you not only know which commands to run, but also why they work and when to deploy them. Practice these techniques to build confidence. Sail on, captain—your mastery of macOS’s command line grows with every command!</p>
-    </section>
-
-</main>
-
-<footer class="highlight-box">
-    <p>&copy; 2025 cap10bill. All rights reserved.</p>
-</footer>
-<script type=module src="blog.js"></script>
-</body>
-</html>
+        <!-- Part 3 -->
+        <section id="power-moves" class="highlight-box">
+            <h2>3. Intermediate Command Line Power Moves</h2>
+            <p>Elevate your command-line mastery:</p>
+            <ul>
+                <li><strong>Chaining:</strong> <code>cmd1 && cmd2</code> runs second only if first succeeds (e.g., <code>mkdir test && cd test</code>).</li>
+                <li><strong>Piping:</strong> <code>cmd1 | cmd2</code> sends output of one into another (e.g., <code>ls | grep ".txt"</code>).</li>
+                <li><strong>Repeat Last:</strong> Type <code>!!</code> to rerun previous command.</li>
+                <li><strong>History:</strong> Use <code>history</code> or ↑/↓ arrows to browse past commands.</li>
+                <li><strong>Manual Pages

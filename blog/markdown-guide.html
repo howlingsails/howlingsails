@@ -14,31 +14,33 @@
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
-<!-- Hamburger Menu Button -->
-<button id="hamburger-toggle" class="hamburger-toggle" aria-label="Open navigation menu" aria-controls="hamburger-menu" aria-expanded="false">
-    <span class="hamburger-icon"></span>
-</button>
-<!-- Hamburger Menu Navigation (empty, populated by JS) -->
-<nav id="hamburger-menu" class="hamburger-menu" aria-label="Main Navigation" hidden>
-    <ul></ul>
-</nav>
-<section class="highlight-box repository-pitch blog-content" aria-labelledby="markdown-pain-title">
-
-    <header class="site-header">
+<div class="container">
+    <header class="site-header" aria-label="Site Header">
+        <!-- Hamburger Menu Button -->
+        <button id="hamburger-toggle" class="hamburger-toggle" aria-label="Open navigation menu" aria-controls="hamburger-menu" aria-expanded="false">
+            <span class="hamburger-icon"></span>
+        </button>
+        <!-- Hamburger Menu Navigation (empty, populated by JS) -->
+        <nav id="hamburger-menu" class="hamburger-menu" aria-label="Main Navigation" hidden>
+            <ul></ul>
+        </nav>
         <div class="header-branding">
-            <a href="blogs.html" title="Return to the armada’s library" class="logo-link">
-                <img src="/images/neon/neon-logbook.png"
-                     alt="Return to logbook library"
+            <a href="../index.html" title="Return to the top deck" class="logo-link">
+                <img src="/android-chrome-192x192.png"
+                     alt="cap10.tech logo, neon green ship icon"
                      class="header-logo"
                      width="64" height="64"/>
             </a>
             <div class="header-text">
                 <h1>Markdown Guide</h1>
-                <h2>Beauty of HTML without the HEADACHE</h2>
-                <h3>Markdown Guide for Effective Logbooking</h3>
+                <h2 class="sr-only">The Ultimate Guide to Tech Logbooks</h2>
+                <h3>Scan the cap10.tech armada’s bookshelf</h3>
             </div>
         </div>
     </header>
+</div>
+
+<section class="highlight-box repository-pitch blog-content" aria-labelledby="markdown-pain-title">
 
     <p>
         Stuck wrestling with clumsy WYSIWYG editors and proprietary CMS interfaces means endless clicking and hidden markup; you lose sight of your own content under layers of bloated HTML. Markdown cuts through the fog, letting you write in plain text while rendering perfectly clean HTML or even PDF.

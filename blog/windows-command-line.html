@@ -14,14 +14,32 @@
     <link rel="manifest" href="/site.web-manifest">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <div class="container">
-    <header>
-        <nav>
-            <a class="cta-button" href="blogs.html">Return to Logbooking</a>
+    <header class="site-header" aria-label="Site Header">
+        <!-- Hamburger Menu Button -->
+        <button id="hamburger-toggle" class="hamburger-toggle" aria-label="Open navigation menu" aria-controls="hamburger-menu" aria-expanded="false">
+            <span class="hamburger-icon"></span>
+        </button>
+        <!-- Hamburger Menu Navigation (empty, populated by JS) -->
+        <nav id="hamburger-menu" class="hamburger-menu" aria-label="Main Navigation" hidden>
+            <ul></ul>
         </nav>
-        <h1>Windows Command Line: File System &amp; Navigation</h1>
+        <div class="header-branding">
+            <a href="../index.html" title="Return to the top deck" class="logo-link">
+                <img src="/android-chrome-192x192.png"
+                     alt="cap10.tech logo, neon green ship icon"
+                     class="header-logo"
+                     width="64" height="64"/>
+            </a>
+            <div class="header-text">
+                <h1>Windows Command Line: File System &amp; Navigation</h1>
+                <h2 class="sr-only">The Ultimate Guide to Tech Logbooks</h2>
+                <h3>Scan the cap10.tech armada’s bookshelf</h3>
+            </div>
+        </div>
     </header>
-<main class="blog-content">
+    <main class="blog-content">
     <!-- Introduction Section -->
     <section class="highlight-box">
         <h2>🏴‍☠️ Becoming a Cap10 of the Command Line: Windows File System &amp; Navigation</h2>
@@ -52,263 +70,4 @@ C:\
  │   │   ├── Documents\
  │   │   ├── Downloads\
  │   │   ├── Desktop\
- │   │   ├── Pictures\
- ├── Program Files\
- ├── Windows\
- ├── Temp\
-            </code></pre>
-        <p>
-            ⏩ <strong>Now, let’s navigate this like a pro using the command line!</strong>
-        </p>
-        <hr>
-    </section>
-
-    <!-- Part 2: Navigating the File System with CMD &amp; PowerShell -->
-    <section class="highlight-box">
-        <h4>Part 2: Navigating the File System with CMD &amp; PowerShell</h4>
-        <p>
-            First, open the <strong>Command Prompt</strong> or <strong>PowerShell</strong>:
-        </p>
-        <ul>
-            <li><strong>Command Prompt (cmd.exe):</strong> Press <code>Win + R</code>, type <code>cmd</code>, and hit <strong>Enter</strong>.</li>
-            <li><strong>PowerShell:</strong> Press <code>Win + X</code> and select <strong>Windows PowerShell</strong>.</li>
-        </ul>
-
-        <!-- 1. See Your Current Location -->
-        <h4>1. See Your Current Location</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-echo %CD%
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-pwd  # Returns the current directory
-$PWD  # PowerShell object way, same result as `pwd`
-            </code></pre>
-        <p><strong>When to use:</strong> In CMD, <code>echo %CD%</code> prints the current directory, and in PowerShell, <code>pwd</code> gives the current directory. The <code>$PWD</code> object is handy for scripts and interactive use.</p>
-
-        <!-- 2. List Files and Folders -->
-        <h4>2. List Files and Folders</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-dir
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-ls
-            </code></pre>
-        <p><strong>When to use:</strong> Both commands list files in the current directory. Use <code>dir /w</code> in CMD for wide format or apply filters in PowerShell.</p>
-
-        <!-- 3. Move Around (Change Directory) -->
-        <h4>3. Move Around (Change Directory)</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-cd C:\Users\John\Documents  # Move to Documents folder
-cd ..                       # Move up one level
-cd /d D:\Projects           # Switch to another drive
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-cd C:\Users\John\Documents  # Move to Documents folder
-cd ..                       # Move up one level
-cd /d D:\Projects           # Switch to another drive (works like CMD)
-Set-Location C:\Users\John  # Alternative PowerShell cmdlet
-            </code></pre>
-        <p><strong>When to use:</strong> Use <code>cd</code> in CMD and PowerShell; for clearer scripts in PowerShell, consider <code>Set-Location</code>.</p>
-
-        <!-- 4. Create New Folders -->
-        <h4>4. Create New Folders</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-mkdir MyFolder
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-mkdir MyFolder
-New-Item MyFolder -ItemType Directory  # Alternative in PowerShell
-            </code></pre>
-        <p><strong>When to use:</strong> Both approaches create directories; PowerShell’s <code>New-Item</code> provides extra control when needed.</p>
-
-        <!-- 5. Create Files -->
-        <h4>5. Create Files</h4>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-New-Item myfile.txt -ItemType File
-            </code></pre>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-echo "Hello World" > myfile.txt
-            </code></pre>
-        <p><strong>When to use:</strong> PowerShell’s <code>New-Item</code> is ideal for scripted workflows, while CMD’s redirection is great for quick file creation.</p>
-
-        <!-- 6. Delete Files and Folders -->
-        <h4>6. Delete Files and Folders</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-del myfile.txt
-rmdir MyFolder
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-Remove-Item myfile.txt
-Remove-Item MyFolder -Recurse
-            </code></pre>
-        <p><strong>When to use:</strong> CMD uses <code>del</code> and <code>rmdir</code>, while PowerShell’s <code>Remove-Item</code> can handle both files and folders with additional options.</p>
-
-        <!-- 7. Copy and Move Files -->
-        <h4>7. Copy and Move Files</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-copy myfile.txt C:\Backup\
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-Move-Item myfile.txt C:\Backup\
-Copy-Item myfile.txt C:\Backup\
-            </code></pre>
-        <p><strong>When to use:</strong> Use CMD’s <code>copy</code> or PowerShell’s <code>Copy-Item</code> and <code>Move-Item</code> for file operations with added flexibility.</p>
-        <hr>
-    </section>
-
-    <!-- Part 3: Intermediate Command Line Power Moves -->
-    <section class="highlight-box">
-        <h3>Part 3: Intermediate Command Line Power Moves</h3>
-        <p>Once comfortable, let's move to more <strong>intermediate</strong> commands.</p>
-
-        <!-- 1. Open Programs -->
-        <h4>1. Open Programs</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-start notepad.exe
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-start notepad.exe
-            </code></pre>
-
-        <!-- 2. Check Your Disk Space -->
-        <h4>2. Check Your Disk Space</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-wmic logicaldisk get size,freespace,caption
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-Get-PSDrive
-            </code></pre>
-
-        <!-- 3. Find Files Containing Specific Text -->
-        <h4>3. Find Files Containing Specific Text</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-findstr "error" log.txt
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-Select-String -Path log.txt -Pattern "error"
-            </code></pre>
-
-        <!-- 4. Copy Multiple Files at Once -->
-        <h4>4. Copy Multiple Files at Once</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-copy *.txt C:\Backup\
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-Copy-Item *.txt -Destination C:\Backup\
-            </code></pre>
-
-        <!-- 5. Clean Up Temp Files -->
-        <h4>5. Clean Up Temp Files</h4>
-        <p><strong>CMD:</strong></p>
-        <pre><code class="language-bash">
-del /q C:\Users\%USERNAME%\AppData\Local\Temp\*
-            </code></pre>
-        <p><strong>PowerShell:</strong></p>
-        <pre><code class="language-powershell">
-Remove-Item "$env:LOCALAPPDATA\Temp\*" -Force -Recurse
-            </code></pre>
-        <hr>
-    </section>
-
-    <!-- Final Challenge Section -->
-    <section class="highlight-box">
-        <h3>Final Challenge: Prove Your Command Line Captaincy</h3>
-        <p>Try these:</p>
-        <ul>
-            <li><strong>Create</strong> a new folder called <code>Projects</code> inside <code>Documents</code>.</li>
-            <li><strong>Create</strong> a file called <code>readme.txt</code> inside <code>Projects</code> and write "Hello, Cap10!" inside it.</li>
-            <li><strong>Rename</strong> the file to <code>info.txt</code>.</li>
-            <li><strong>Move</strong> <code>info.txt</code> to the <code>Desktop</code>.</li>
-            <li><strong>Delete</strong> <code>info.txt</code> from the <code>Desktop</code>.</li>
-            <li><strong>List</strong> all <code>.txt</code> files in your <code>C:\Users\YourName\Documents\</code> folder.</li>
-        </ul>
-        <p>
-            Master these, and you're a Cap10 of the Command Line! 🏴‍☠️
-        </p>
-        <p>
-            Would you like a <strong>cheat sheet</strong> with all these commands for quick reference? 🚀
-        </p>
-    </section>
-
-    <!-- Expanded Section: Key File Locations & Tools -->
-    <section class="highlight-box">
-        <h3>Key File Locations &amp; Tools Available in the CLI</h3>
-        <p>Now that you've learned how to navigate and manage files in the command line, it's important to understand where to find key system files and the tools you have access to in the CLI. Here's a breakdown of the most commonly used directories and utilities that will be helpful when you're working with files in Windows:</p>
-
-        <!-- Key File Locations -->
-        <h4>Key File Locations</h4>
-        <p>Here are some important file locations in Windows that you will frequently interact with through the command line:</p>
-        <ul>
-            <li><strong>C:\</strong> - The root directory of the system. This is where your Windows installation resides, along with important folders like <strong>Program Files</strong>, <strong>Windows</strong>, and <strong>Users</strong>.</li>
-            <li><strong>C:\Users\YourName\</strong> - Your personal user directory. This is where your documents, desktop files, and settings are stored.</li>
-            <li><strong>C:\Program Files (x86)\</strong> - Contains installed programs (32-bit applications are usually stored here, while 64-bit apps are in <strong>C:\Program Files\</strong>).</li>
-            <li><strong>C:\Windows\</strong> - The system directory containing all operating system files. Handle with care.</li>
-            <li><strong>C:\Temp\</strong> - A folder for temporary files. Regular cleanup can free up space.</li>
-            <li><strong>C:\ProgramData\</strong> - Stores application data shared between users (this folder is hidden by default).</li>
-            <li><strong>C:\Users\YourName\AppData\</strong> - A hidden folder where applications store user-specific data like settings and cache.</li>
-        </ul>
-        <p><strong>Note:</strong> Use the <code>cd</code> command with these paths (e.g., <code>cd C:\Users\YourName\</code>) to quickly navigate.</p>
-
-        <!-- Essential Command Line Tools -->
-        <h4>Essential Command Line Tools</h4>
-        <p>Here are some useful tools and utilities available in the Windows command line:</p>
-        <ul>
-            <li><strong>dir</strong> - Lists the contents of a directory. Use <code>dir /s</code> or <code>dir /b</code> for additional formats.</li>
-            <li><strong>cd</strong> - Changes the current directory.</li>
-            <li><strong>mkdir</strong> - Creates a new directory.</li>
-            <li><strong>del</strong> - Deletes files (use <code>del /f</code> for force deletion).</li>
-            <li><strong>copy</strong> - Copies files from one location to another.</li>
-            <li><strong>move</strong> - Moves files from one location to another.</li>
-            <li><strong>xcopy</strong> - Copies entire directories including subdirectories.</li>
-            <li><strong>robocopy</strong> - An advanced tool for copying files with options for resuming and network copying.</li>
-            <li><strong>findstr</strong> - Searches for text within files (similar to Linux's grep).</li>
-            <li><strong>choco</strong> - The Chocolatey package manager for installing or updating software.</li>
-            <li><strong>wmic</strong> - Retrieves system information, such as disk usage.</li>
-            <li><strong>tasklist</strong> - Displays all running processes.</li>
-            <li><strong>taskkill</strong> - Terminates a running process by name or PID.</li>
-        </ul>
-        <p><strong>Note:</strong> Most tools work in both CMD and PowerShell, though PowerShell cmdlets may offer extra features.</p>
-
-        <!-- File Path Environment Variables -->
-        <h4>File Path Environment Variables</h4>
-        <p>Environment variables let you access common directories without typing full paths. Examples include:</p>
-        <ul>
-            <li><strong>%USERPROFILE%</strong> - Your personal user directory (<code>C:\Users\YourName\</code>).</li>
-            <li><strong>%APPDATA%</strong> - Application settings directory (<code>C:\Users\YourName\AppData\Roaming\</code>).</li>
-            <li><strong>%TEMP%</strong> - Temporary files directory (<code>C:\Users\YourName\AppData\Local\Temp</code>).</li>
-            <li><strong>%PROGRAMFILES%</strong> - Directory for installed programs (<code>C:\Program Files</code>).</li>
-            <li><strong>%WINDIR%</strong> - Windows system directory (<code>C:\Windows</code>).</li>
-        </ul>
-        <p>Using these variables (e.g., <code>cd %TEMP%</code>) can save you time.</p>
-    </section>
-</main>
-</div>
-<footer class="highlight-box">
-    <p>&copy; 2025 Cap10Bill. All rights reserved.</p>
-</footer>
-
-<script type=module src="blog.js"></script>
-</body>
-</html>
+ │   │

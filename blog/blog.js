@@ -160,5 +160,37 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburgerToggle.setAttribute('aria-expanded', 'false');
       }
     });
+
+    // --- Hamburger menu show/hide on scroll (mobile only) ---
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    function handleScroll() {
+      if (window.innerWidth > 900) return; // Only on mobile/tablet
+      if (!hamburgerMenu.hidden) return; // Don't auto-show if menu is open
+      const currentScrollY = window.scrollY;
+      if (currentScrollY < 10) {
+        hamburgerToggle.style.display = '';
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up
+        hamburgerToggle.style.display = '';
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down
+        hamburgerToggle.style.display = 'none';
+      }
+      lastScrollY = currentScrollY;
+      ticking = false;
+    }
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(handleScroll);
+        ticking = true;
+      }
+    });
+    // Ensure toggle is visible on resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 900) {
+        hamburgerToggle.style.display = '';
+      }
+    });
   }
 });

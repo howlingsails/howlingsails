@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>cap10.tech: Mac Command Line: File System &amp; Navigation</title>
+    <title>Homebrew &amp; Developer Tools Setup Guide</title>
     <link rel="stylesheet" href="./blog.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" sizes="16x16" href="/favicon-16x16.png">
@@ -14,14 +14,33 @@
     <link rel="manifest" href="/site.web-manifest">
 </head>
 <body>
-<header>
-    <nav>
-        <a class="cta-button" href="blogs.html">Return to Logbooking</a>
-    </nav>
-    <h1>Homebrew & Developer Tools Setup</h1>
-</header>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="container">
+    <header class="site-header" aria-label="Site Header">
+        <!-- Hamburger Menu Button -->
+        <button id="hamburger-toggle" class="hamburger-toggle" aria-label="Open navigation menu" aria-controls="hamburger-menu" aria-expanded="false">
+            <span class="hamburger-icon"></span>
+        </button>
+        <!-- Hamburger Menu Navigation (empty, populated by JS) -->
+        <nav id="hamburger-menu" class="hamburger-menu" aria-label="Main Navigation" hidden>
+            <ul></ul>
+        </nav>
+        <div class="header-branding">
+            <a href="../index.html" title="Return to the top deck" class="logo-link">
+                <img src="/images/neon/neon-logbook.png"
+                     alt="cap10.tech logo, neon green ship icon"
+                     class="header-logo"
+                     width="64" height="64"/>
+            </a>
+            <div class="header-text">
+                <h1>Homebrew &amp; Developer Tools Setup</h1>
+                <h2 class="sr-only">Complete macOS Development Environment Guide</h2>
+                <h3>Install and configure essential tools for modern development</h3>
+            </div>
+        </div>
+    </header>
 
-<main class="blog-content container">
+    <main id="main-content" class="blog-content container">
     <!-- Introduction -->
     <section id="intro" class="highlight-box">
         <h2>Setting Sail with Homebrew</h2>
