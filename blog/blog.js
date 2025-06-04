@@ -110,15 +110,39 @@ document.addEventListener('DOMContentLoaded', () => {
   function buildHamburgerMenu() {
     if (!hamburgerList) return;
     hamburgerList.innerHTML = '';
-    // Back to Library link
-    const backLi = document.createElement('li');
-    const backA = document.createElement('a');
-    backA.href = 'blogs.html';
-    backA.textContent = '← Back to Library';
-    backLi.appendChild(backA);
-    hamburgerList.appendChild(backLi);
 
-    // Find TOC nav and clone its links
+    // 1. Go back to cap10.tech home page
+    const homeLi = document.createElement('li');
+    const homeA = document.createElement('a');
+    homeA.href = '/index.html';
+    homeA.textContent = '← cap10.tech Home';
+    homeLi.appendChild(homeA);
+    hamburgerList.appendChild(homeLi);
+
+    // 2. Go back to Cap10 Library
+    const libLi = document.createElement('li');
+    const libA = document.createElement('a');
+    libA.href = '/blog/blog.html';
+    libA.textContent = '← Cap10 Library';
+    libLi.appendChild(libA);
+    hamburgerList.appendChild(libLi);
+
+    // 3. Scroll to top
+    const topLi = document.createElement('li');
+    const topA = document.createElement('a');
+    topA.href = '#';
+    topA.textContent = '↑ Scroll to Top';
+    topA.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Optionally close menu after scroll
+      hamburgerMenu.hidden = true;
+      hamburgerToggle.setAttribute('aria-expanded', 'false');
+    });
+    topLi.appendChild(topA);
+    hamburgerList.appendChild(topLi);
+
+    // 4. TOC links
     const toc = document.querySelector('nav.table-of-contents');
     if (toc) {
       toc.querySelectorAll('a').forEach(a => {
@@ -136,8 +160,10 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburgerToggle.addEventListener('click', () => {
       const expanded = hamburgerToggle.getAttribute('aria-expanded') === 'true';
       hamburgerToggle.setAttribute('aria-expanded', String(!expanded));
-      hamburgerMenu.hidden = expanded;
-      if (!expanded) buildHamburgerMenu();
+      hamburgerMenu.hidden = !hamburgerMenu.hidden;
+      if (!hamburgerMenu.hidden) {
+        buildHamburgerMenu();
+      }
     });
 
     // Close menu on outside click
@@ -165,10 +191,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastScrollY = window.scrollY;
     let ticking = false;
     function handleScroll() {
-      if (window.innerWidth > 900) return; // Only on mobile/tablet
+      //if (window.innerWidth > 900) return; // Only on mobile/tablet
       if (!hamburgerMenu.hidden) return; // Don't auto-show if menu is open
       const currentScrollY = window.scrollY;
-      if (currentScrollY < 10) {
+      if (currentScrollY < 10 || currentScrollY > -10) {
         hamburgerToggle.style.display = '';
       } else if (currentScrollY < lastScrollY) {
         // Scrolling up

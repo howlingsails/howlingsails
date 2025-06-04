@@ -110,31 +110,39 @@
 
         <section id="workflow-diagram" class="highlight-box blog-content">
             <h2>Visual Workflow Comparison</h2>
-            <div class="mermaid">
-                flowchart TD
-                subgraph Manual_Workflow["Manual Workflow"]
-                direction TB
-                A("Identify Outdated Software")
-                B(["Visit Software Websites"])
-                C[["Download Installers Manually"]]
-                D[("Run Installers One-by-One")]
-                E>"Deal with Pop-ups & Settings"]
-                F(("Hours Lost Every Month"))
-                G[["Potential Security Risks Due to Missed Updates"]]
-                A --> B --> C --> D --> E --> F --> G
-                end
+ <div class="mermaid">
+                    flowchart TD
+                    %% Manual Workflow (Cons) - Use red/orange theme
+                    subgraph Manual_Workflow["Manual Workflow"]
+                    direction TB
+                    A("Identify Outdated Software"):::manual
+                    B(["Visit Software Websites"]):::manual
+                    C[["Download Installers Manually"]]:::manual
+                    D[("Run Installers One-by-One")]:::manual
+                    E>"Deal with Pop-ups & Settings"]:::manual
+                    F(("Hours Lost Every Month")):::manualbad
+                    G[["Potential Security Risks Due to Missed Updates"]]:::manualbad
+                    A --> B --> C --> D --> E --> F --> G
+                    end
 
-                subgraph Automated_Workflow["Automated Workflow with Chocolatey"]
-                direction TB
-                H[/"Run One Command or Scheduled Script"/]
-                I{{"Software Automatically Downloaded"}}
-                J(("Installation & Updates Automatically Applied"))
-                K>"Consistent & Secure Systems"]
-                L["Minutes Spent per Month"]
-                M("Peace of Mind & Increased Productivity")
-                H --> I --> J --> K --> L --> M
-                end
-            </div>
+                    %% Automated Workflow (Pros) - Use green/blue theme
+                    subgraph Automated_Workflow["Automated Workflow with Chocolatey"]
+                    direction TB
+                    H[/"Run One Command or Scheduled Script"/]:::auto
+                    I{{"Software Automatically Downloaded"}}:::auto
+                    J(("Installation & Updates Automatically Applied")):::auto
+                    K>"Consistent & Secure Systems"]:::autogood
+                    L["Minutes Spent per Month"]:::autogood
+                    M("Peace of Mind & Increased Productivity"):::autogood
+                    H --> I --> J --> K --> L --> M
+                    end
+
+                    %% Style definitions
+                    classDef manual fill:#fff3e0,stroke:#ff9800,stroke-width:2px,color:#b53d00;
+                    classDef manualbad fill:#ffebee,stroke:#e53935,stroke-width:3px,color:#b71c1c,font-weight:bold;
+                    classDef auto fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#0d47a1;
+                    classDef autogood fill:#e8f5e9,stroke:#43a047,stroke-width:3px,color:#1b5e20,font-weight:bold;
+                </div>
         </section>
 
         <section id="what-is-chocolatey" class="highlight-box blog-content" aria-labelledby="what-is-chocolatey-title">
