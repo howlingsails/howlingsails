@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Git Repository Sharing Guide: Best Practices for Code Collaboration</title>
+    <link rel="stylesheet" href="./blog.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="manifest" href="/site.web-manifest">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="container">
+    <header class="site-header" aria-label="Site Header">
+        <!-- Hamburger Menu Button -->
+        <button id="hamburger-toggle" class="hamburger-toggle" aria-label="Open navigation menu" aria-controls="hamburger-menu" aria-expanded="false">
+            <span class="hamburger-icon"></span>
+        </button>
+        <!-- Hamburger Menu Navigation (empty, populated by JS) -->
+        <nav id="hamburger-menu" class="hamburger-menu" aria-label="Main Navigation" hidden>
+            <ul></ul>
+        </nav>
+        <div class="header-branding">
+            <a href="../index.html" title="Return to the top deck" class="logo-link">
+                <img src="/images/neon/neon-logbook.png"
+                     alt="cap10.tech logo, neon green ship icon"
+                     class="header-logo"
+                     width="64" height="64"/>
+            </a>
+            <div class="header-text">
+                <h1>Git Repository Sharing Guide</h1>
+                <h2 class="sr-only">Best Practices for Code Collaboration</h2>
+                <h3>Master the art of sharing code and collaborating effectively</h3>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" class="blog-content highlight-box">
+        <p><strong>Welcome to your comprehensive guide on Git repository sharing!</strong> Whether you're seeking help with your code, collaborating on a project, or mentoring others, this guide will walk you through best practices for sharing your Git repositories effectively and safely.</p>
+
+        <nav class="table-of-contents highlight-box">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#preparation">Preparing Your Repository for Sharing</a></li>
+                <li><a href="#sharing-methods">Repository Sharing Methods</a></li>
+                <li><a href="#collaboration-workflow">Establishing a Collaboration Workflow</a></li>
+                <li><a href="#security">Security Considerations</a></li>
+                <li><a href="#best-practices">Best Practices and Guidelines</a></li>
+                <li><a href="#troubleshooting">Common Issues and Solutions</a></li>
+            </ul>
+        </nav>
+
+        <section id="preparation" class="highlight-box">
+            <h2>Preparing Your Repository for Sharing</h2>
+
+            <h3>1. Clean Up Your Repository</h3>
+            <p>Before sharing your repository, ensure it's in a presentable state:</p>
+            <ul>
+                <li>Remove sensitive information (API keys, passwords, tokens)</li>
+                <li>Clean up temporary files and build artifacts</li>
+                <li>Ensure your .gitignore file is properly configured</li>
+                <li>Document any environment-specific setup requirements</li>
+            </ul>
+
+            <h3>2. Create Essential Documentation</h3>
+            <p>Minimum documentation requirements:</p>
+            <pre><code>README.md
+├── Project description
+├── Setup instructions
+├── Dependencies
+├── Configuration steps
+└── Running the project</code></pre>
+
+            <h3>3. Verify Git Configuration</h3>
+            <p>Essential Git commands to prepare your repository:</p>
+            <pre><code class="language-bash"># Check current remote repositories
+git remote -v
+
+# Ensure your email isn't private
+git config user.email
+git config user.name
+
+# Review ignored files
+cat .gitignore</code></pre>
+        </section>
+
+        <section id="sharing-methods" class="highlight-box">
+            <h2>Repository Sharing Methods via GitHub</h2>
+
+            <h3>1. Direct Repository Access</h3>
+            <p>When sharing a repository on GitHub, you have several options for granting access:</p>
+
+            <h4>Adding Collaborators (Individual Access)</h4>
+            <ol>
+                <li>Navigate to your repository on GitHub</li>
+                <li>Click "Settings" → "Collaborators"</li>
+                <li>Click "Add people" or "Add collaborators"</li>
+                <li>Search for the username, full name, or email</li>
+                <li>Select the appropriate access level:
+                    <ul>
+                        <li><strong>Read:</strong> Can clone and pull only</li>
+                        <li><strong>Triage:</strong> Can manage issues and pull requests</li>
+                        <li><strong>Write:</strong> Can push changes directly</li>
+                        <li><strong>Maintain:</strong> Can manage repository without admin access</li>
+                        <li><strong>Admin:</strong> Full repository control</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h4>Organization-Level Sharing</h4>
+            <ol>
+                <li>Create an organization:
+                    <ul>
+                        <li>Click your profile picture → "Your organizations" → "New organization"</li>
+                        <li>Choose a plan (free for basic collaboration)</li>
+                        <li>Set organization name and contact email</li>
+                    </ul>
+                </li>
+                <li>Add members to the organization:
+                    <ul>
+                        <li>Go to Organization settings → "People"</li>
+                        <li>Click "Invite member"</li>
+                        <li>Assign appropriate role (Member, Owner)</li>
+                    </ul>
+                </li>
+                <li>Create teams for structured access:
+                    <ul>
+                        <li>Go to Organization settings → "Teams"</li>
+                        <li>Create teams like "Developers", "Reviewers"</li>
+                        <li>Add members to specific teams</li>
+                        <li>Grant team access to repositories</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>2. Collaboration Strategies</h3>
+
+            <h4>Direct Push to Main</h4>
+            <p><strong>When to use:</strong></p>
+            <ul>
+                <li>Small teams with high trust</li>
+                <li>Solo projects seeking occasional help</li>
+                <li>Quick fixes or documentation updates</li>
+            </ul>
+            <p><strong>Risks:</strong></p>
+            <ul>
+                <li>No code review process</li>
+                <li>Potential for breaking changes</li>
+                <li>Difficult to track changes</li>
+            </ul>
+
+            <h4>Protected Branches Strategy</h4>
+            <p><strong>Setting up branch protection:</strong></p>
+            <ol>
+                <li>Go to repository "Settings" → "Branches"</li>
+                <li>Add rule for "main" branch</li>
+                <li>Enable protections:
+                    <ul>
+                        <li>Require pull request reviews</li>
+                        <li>Require status checks to pass</li>
+                        <li>Require linear history</li>
+                        <li>Include administrators</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h4>Fork and Pull Request Workflow</h4>
+            <p><strong>Best for:</strong></p>
+            <ul>
+                <li>Open source projects</li>
+                <li>Large teams</li>
+                <li>Contributors without direct access</li>
+            </ul>
+            <p><strong>Process:</strong></p>
+            <ol>
+                <li>Fork the repository to your account</li>
+                <li>Clone your fork locally</li>
+                <li>Create a feature branch</li>
+                <li>Push changes to your fork</li>
+                <li>Create pull request to original repository</li>
+            </ol>
+
+            <h3>3. Common Issues and Solutions</h3>
+
+            <h4>Fork Out of Sync</h4>
+            <pre><code class="language-bash"># Add original repository as upstream
+git remote add upstream https://github.com/original/repository.git
+
+# Fetch and merge upstream changes
+git fetch upstream
+git checkout main
+git merge upstream/main</code></pre>
+
+            <h4>Pull Request Conflicts</h4>
+            <p>Resolution steps:</p>
+            <ol>
+                <li>Update your fork with upstream changes</li>
+                <li>Resolve conflicts locally:
+                    <pre><code class="language-bash">git checkout feature-branch
+git fetch upstream
+git rebase upstream/main
+# Fix conflicts in your editor
+git add .
+git rebase --continue
+git push -f origin feature-branch</code></pre>
+                </li>
+                <li>Update pull request</li>
+            </ol>
+
+            <h4>Branch Management Guidelines</h4>
+            <ul>
+                <li><strong>Feature Branches:</strong> Create for new features
+                    <pre><code>git checkout -b feature/user-authentication</code></pre>
+                </li>
+                <li><strong>Bugfix Branches:</strong> Create for bug fixes
+                    <pre><code>git checkout -b fix/login-error</code></pre>
+                </li>
+                <li><strong>Release Branches:</strong> Create for version releases
+                    <pre><code>git checkout -b release/v1.0.0</code></pre>
+                </li>
+            </ul>
+
+            <h3>4. Code Review Best Practices</h3>
+            <p>When submitting pull requests:</p>
+            <ul>
+                <li>Keep changes focused and atomic</li>
+                <li>Write clear PR descriptions</li>
+                <li>Include testing evidence</li>
+                <li>Add screenshots for UI changes</li>
+                <li>Reference related issues</li>
+            </ul>
+
+            <p>When reviewing pull requests:</p>
+            <ul>
+                <li>Check code style and conventions</li>
+                <li>Verify functionality</li>
+                <li>Look for security issues</li>
+                <li>Provide constructive feedback</li>
+                <li>Approve or request changes clearly</li>
+            </ul>
+        </section>
+
+        <section id="collaboration-workflow" class="highlight-box">
+            <h2>Establishing a Collaboration Workflow</h2>
+
+            <h3>1. Define Collaboration Rules</h3>
+            <p>Create a CONTRIBUTING.md file outlining:</p>
+            <ul>
+                <li>Branch naming conventions</li>
+                <li>Commit message format</li>
+                <li>Code review process</li>
+                <li>Testing requirements</li>
+                <li>Documentation expectations</li>
+            </ul>
+
+            <h3>2. Branch Management Strategy</h3>
+            <pre><code class="language-bash"># Create feature branch
+git checkout -b feature/description
+
+# Keep branch updated with main
+git checkout feature/description
+git rebase main
+
+# Clean up after merging
+git branch -d feature/description</code></pre>
+
+            <h3>3. Communication Protocols</h3>
+            <p>Establish clear channels for:</p>
+            <ul>
+                <li>Code review discussions</li>
+                <li>Issue reporting</li>
+                <li>Feature requests</li>
+                <li>Technical discussions</li>
+            </ul>
+        </section>
+
+        <section id="security" class="highlight-box">
+            <h2>Security Considerations</h2>
+
+            <h3>1. Sensitive Data Protection</h3>
+            <p>Tools and practices to maintain security:</p>
+            <ul>
+                <li><strong>git-secrets:</strong> Prevent committing secrets and credentials</li>
+                <li><strong>Environment Variables:</strong> Use .env files (added to .gitignore)</li>
+                <li><strong>Git Hooks:</strong> Pre-commit checks for sensitive data</li>
+            </ul>
+
+            <h3>2. Access Control Best Practices</h3>
+            <pre><code class="language-bash"># Check file permissions
+git ls-files -s
+
+# Review commit history for sensitive data
+git log --full-history
+git log -p | grep -i password</code></pre>
+
+            <h3>3. Repository Sanitization</h3>
+            <p>If sensitive data is accidentally committed:</p>
+            <pre><code class="language-bash"># Remove sensitive files from history
+git filter-branch --force --index-filter \
+'git rm --cached --ignore-unmatch PATH-TO-FILE' \
+--prune-empty --tag-name-filter cat -- --all
+
+# Force push changes
+git push origin --force --all</code></pre>
+        </section>
+
+        <section id="best-practices" class="highlight-box">
+            <h2>Best Practices and Guidelines</h2>
+
+            <h3>1. Repository Structure</h3>
+            <pre><code>repository/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   └── workflows/
+├── docs/
+├── src/
+├── tests/
+├── .gitignore
+├── README.md
+└── CONTRIBUTING.md</code></pre>
+
+            <h3>2. Commit Guidelines</h3>
+            <p>Follow conventional commits:</p>
+            <pre><code>feat: add new feature
+fix: resolve bug
+docs: update documentation
+style: format code
+refactor: restructure code
+test: add tests
+chore: update tooling</code></pre>
+
+            <h3>3. Code Review Process</h3>
+            <ol>
+                <li>Create detailed pull request descriptions</li>
+                <li>Include testing evidence</li>
+                <li>Link related issues</li>
+                <li>Request specific reviewers</li>
+                <li>Address feedback promptly</li>
+            </ol>
+        </section>
+
+        <section id="troubleshooting" class="highlight-box">
+            <h2>Common Issues and Solutions</h2>
+
+            <h3>1. Permission Issues</h3>
+            <pre><code class="language-bash"># Check remote URLs
+git remote -v
+
+# Update remote URL with access token
+git remote set-url origin https://username:token@github.com/username/repo.git</code></pre>
+
+            <h3>2. Merge Conflicts</h3>
+            <p>Steps to resolve conflicts:</p>
+            <pre><code class="language-bash"># Get latest changes
+git fetch origin main
+
+# Start rebase
+git rebase origin/main
+
+# After resolving conflicts
+git add .
+git rebase --continue</code></pre>
+
+            <h3>3. Large File Issues</h3>
+            <p>Solutions for handling large files:</p>
+            <ul>
+                <li>Use Git LFS for large binary files</li>
+                <li>Configure .gitattributes properly</li>
+                <li>Consider external asset storage</li>
+            </ul>
+        </section>
+
+        <section id="decision-guide" class="highlight-box">
+            <h2>Choosing the Right Collaboration Strategy</h2>
+
+            <h3>Decision Framework</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Scenario</th>
+                        <th>Recommended Approach</th>
+                        <th>Why</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Quick help from a trusted colleague</td>
+                        <td>Direct collaborator access with write permissions</td>
+                        <td>Fast, simple setup; suitable for temporary collaboration</td>
+                    </tr>
+                    <tr>
+                        <td>Long-term team project</td>
+                        <td>Organization with protected branches</td>
+                        <td>Structured access control, team management, enforced reviews</td>
+                    </tr>
+                    <tr>
+                        <td>Open source contributions</td>
+                        <td>Fork and PR workflow</td>
+                        <td>Safe for unknown contributors, maintains project control</td>
+                    </tr>
+                    <tr>
+                        <td>Code review needed</td>
+                        <td>Branch protection rules</td>
+                        <td>Enforces review process, prevents direct pushes</td>
+                    </tr>
+                    <tr>
+                        <td>Multiple teams collaborating</td>
+                        <td>Organization with team structure</td>
+                        <td>Granular permissions, team-based access control</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Common Pitfalls to Avoid</h3>
+            <ul>
+                <li><strong>Over-permissioning:</strong> Giving write access when read would suffice</li>
+                <li><strong>Under-protection:</strong> Not enabling branch protection on critical branches</li>
+                <li><strong>Poor branch strategy:</strong> Everyone working directly on main branch</li>
+                <li><strong>Skipping code review:</strong> Merging changes without proper review</li>
+                <li><strong>Inconsistent process:</strong> Different team members following different workflows</li>
+            </ul>
+
+            <h3>When to Change Your Strategy</h3>
+            <p>Consider updating your collaboration approach when:</p>
+            <ul>
+                <li>Team size grows beyond 3-4 developers</li>
+                <li>Project becomes more critical to business</li>
+                <li>You notice frequent merge conflicts</li>
+                <li>Code quality issues increase</li>
+                <li>Communication overhead becomes significant</li>
+            </ul>
+        </section>
+
+        <section class="highlight-box">
+            <h2>Conclusion</h2>
+            <p>Effective repository sharing is crucial for successful collaboration. Remember these key points:</p>
+            <ul>
+                <li>Always prepare your repository properly before sharing</li>
+                <li>Choose the appropriate sharing method for your needs</li>
+                <li>Establish clear collaboration guidelines</li>
+                <li>Maintain security best practices</li>
+                <li>Document everything thoroughly</li>
+                <li>Keep communication channels open and clear</li>
+            </ul>
+            <p>By following these guidelines, you'll create a smoother collaboration experience and maintain the security and integrity of your code.</p>
+        </section>
+    </main>
+
+    <footer aria-label="Site Footer">
+        <p>&copy; 2025 Cap10Bill. All rights reserved.</p>
+    </footer>
+</div>
+
+<script type="module" src="blog.js"></script>
+</body>
+</html>

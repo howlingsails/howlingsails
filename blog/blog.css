@@ -127,15 +127,14 @@ html {
   line-height: 1.2;
   color: var(--neon-blue);
 }
-        /* Align Table of Contents to the left */
+/* Align Table of Contents to the left */
 nav.table-of-contents {
-    justify-content: flex-start;
-    flex-direction: column;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 nav.table-of-contents ul {
-    text-align: left;
+  text-align: left;
 }
-
 
 /* -------------------------
    Navigation Button
@@ -155,7 +154,6 @@ nav {
   text-decoration: none;
   font-weight: 800;
   text-shadow: 1px 1px 1px var(--neon-blue);
-
   transition: background-color 0.3s ease, color 0.3s ease;
   font-size: 1rem;
 }
@@ -418,16 +416,25 @@ footer {
   box-shadow: 0 0 0 2px var(--neon-yellow);
 }
 
-
 /* -----------------------------------
    Mermaid Scrollable Container
    enforce min-dimensions + scrollbars
 ----------------------------------- */
 .mermaid {
   display: block;           /* ensure it’s a block-level box */
-  min-width: 400px;         /* pick your minimum width */
-  min-height: 800px;        /* pick your minimum height */
+  min-width: 800px;         /* increased from 400px to restore original model size */
+  min-height: 800px;        /* maintain ample height */
   overflow: auto;           /* show scrollbars when content exceeds */
+}
+
+/* -------------------------
+   Model Wrapper Override
+------------------------- */
+.model-wrapper {
+  width: 800px;           /* match the mermaid container’s width */
+  max-width: 100%;
+  margin: 0 auto;
+  font-size: 1rem !important; /* ensure children aren’t scaled down */
 }
 
 /* -------------------------
@@ -471,7 +478,6 @@ footer {
 .hamburger-icon::after {
   top: 0.6rem;
 }
-
 
 .hamburger-menu {
   position: fixed;
@@ -517,9 +523,9 @@ footer {
 ------------------------- */
 @media (min-width: 1100px) {
   .hamburger-toggle {
-    display: true;
+    display: block; /* Show on larger screens */
   }
   .hamburger-menu {
-    display: true !important;
+    display: block !important; /* Force display on larger screens */
   }
 }
